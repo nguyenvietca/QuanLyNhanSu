@@ -1,0 +1,149 @@
+﻿@{
+    ViewBag.Title = "Admin";
+}
+
+@using QuanLyNhanSu.Models
+@{
+    QuanLyNhanSuEntities db = new QuanLyNhanSuEntities();
+}
+<!-- Navigation -->
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Dashboard
+                </h1>
+                <ol class="breadcrumb">
+                    <li>
+                        <i class="fa fa-dashboard"></i> Dashboard
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <!-- nhan vien-->
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-yellow">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-user fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                @{
+                                    var count = db.NhanViens.Where(n=>n.TrangThai==true).ToList().Count - 1;
+                                }
+                                <div class="huge">@count</div>
+
+                                <div>Tổng số nhân viên</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="@Url.Action("index","QuanLyUser")">
+                        <div class="panel-footer">
+                            <span class="pull-left">Xem chi tiết</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!--Tong luong -->
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            
+                                <div class="col-xs-3">
+
+                                    <i class="fa fa-money fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                @{
+                                    var luong = db.Luongs.ToList();
+                                    int tong = 0;
+                                    foreach (var item in luong)
+                                    {
+                                        tong += item.LuongCoBan;
+                                    }
+
+                                }
+
+                                <div class="huge">
+                                <span> @luong.Count</span>
+                                </div>
+                                <div>Tổng số bảng lương</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="@Url.Action("index","QuanLyLuong")">
+                        <div class="panel-footer">
+                            <span class="pull-left">Tạm tính: @string.Format("{0:#,#}", @tong).Replace(",", ",") vnđ</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!--so phong ban-->
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-tasks fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                @{
+                                    var countPb = db.PhongBans.ToList().Count;
+                                }
+                                <div class="huge">@countPb</div>
+                                <div>Tổng số phòng ban</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="@Url.Action("index","QuanLyPhongBan")">
+                        <div class="panel-footer">
+                            <span class="pull-left">Xem phòng ban</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+           
+            <!--tuoi  trung binh nhan vien -->
+             <div class="col-lg-3 col-md-6">
+                <div class="panel panel-red">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-support fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">13</div>
+                                <div>Num 04</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#">
+                        <div class="panel-footer">
+                            <span class="pull-left">Chi tiết</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->

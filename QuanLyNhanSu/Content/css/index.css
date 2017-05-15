@@ -1,0 +1,79 @@
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 100%;
+    margin: auto;
+}
+
+.navbar-default .he {
+    background-color: #B9CFD7 !important;
+}
+
+#myCarousel:hover .glyphicon-chevron-right {
+    background-color: #F0F0F0;
+}
+
+#myCarousel:hover .glyphicon-chevron-left {
+    background-color: #F0F0F0;
+}
+
+.sp-hover {
+    border: 1px solid #EEEEEE;
+}
+
+    .sp-hover:hover {
+        border: 1px solid red;
+    }
+
+.sp-hover {
+    margin: 2px;
+    padding: 10px;
+}
+
+.modal-backdrop {
+    z-index: initial;
+}
+
+.form-horizontal {
+    padding: 10px;
+}
+
+.modal-content .close {
+    font-size: 40px;
+}
+
+ul.nav.nav-tabs {
+    background-color: #F1F1F1;
+}
+
+.edit-height {
+    height: 150px;
+}
+
+
+.edit-icon {
+    float: right;
+    margin: 15px;
+    font-size: 25px;
+}
+/*edit icon menu top*/
+.navbar-inverse .navbar-toggle .icon-bar {
+    /*background-color: #101010;*/
+}
+
+
+@media screen and (max-width: 425px) {
+    #menu {
+        float: left;
+        background: #222222;
+        left: 10px;
+        height: auto;
+        position: absolute;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    #searchform {
+        float: left !important;
+    }
+}

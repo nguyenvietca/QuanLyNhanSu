@@ -1,0 +1,151 @@
+﻿@model QuanLyNhanSu.Models.Luong
+
+@{
+    ViewBag.Title = "Sửa lương nhân viên";
+}
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Cập nhật bảng lương nhân viên
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i> <a href="@Url.Action("index","Admin")">Dashboard</a>
+            </li>
+            <li>
+                <i class="fa fa-money"></i><a href="@Url.Action("index","QuanLyLuong")">Lương</a>
+            </li>
+            <li>
+                <i class="fa fa-money"></i> Cập nhật lương nhân viên
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class=" col-md-6 col-md-offset-3">
+        @Html.AntiForgeryToken()
+
+        <form class="form-horizontal" @Url.Action("SuaBangLuong", "QuanLyLuong") method="post" role="form">
+
+            @Html.ValidationSummary(true)
+            @*@Html.HiddenFor(model => model.MaNhanVien)*@
+
+            <div class="form-group">
+                <!--start-->
+                <div class="col-sm-4 control-label">
+                    <label>Mã nhân viên</label>
+                </div>
+                <div class="col-sm-8">
+                    <input class="form-control"
+                           name="MaNhanVien"
+                           type="text"
+                           value="@Model.MaNhanVien"
+                           readonly />
+                </div>
+                <div class="col-sm-offset-4 col-sm-5" style="height:15px">
+                    <label class="control-label text-danger">
+                        @Html.ValidationMessageFor(model => model.MaNhanVien)
+                    </label>
+
+                </div>
+                <!--end-->
+            </div>
+
+            <div class="form-group">
+                <!--start-->
+                <div class="col-sm-4 control-label">
+                    <label>Lương cơ bản</label>
+                </div>
+                <div class="col-sm-8">
+                    <input class="form-control"
+                           name="LuongCoBan"
+                           type="number"
+                           value="@Model.LuongCoBan" />
+                </div>
+                <div class="col-sm-offset-4 col-sm-5" style="height:15px">
+                    <label class="control-label text-danger">
+                        @Html.ValidationMessageFor(model => model.LuongCoBan)
+                    </label>
+
+                </div>
+                <!--end-->
+            </div>
+
+            <div class="form-group">
+                <!--start-->
+                <div class="col-sm-4 control-label">
+                    <label>Bảo hiểm xã hội</label>
+                </div>
+                <div class="col-sm-8">
+                    <input class="form-control"
+                           name="BHXH"
+                           type="number"
+                           value="@Model.BHXH" />
+                </div>
+                <div class="col-sm-offset-4 col-sm-5" style="height:15px">
+                    <label class="control-label text-danger">
+                        @Html.ValidationMessageFor(model => model.BHXH)
+                    </label>
+
+                </div>
+                <!--end-->
+
+            </div>
+
+            <div class="form-group">
+                <!--start-->
+                <div class="col-sm-4 control-label">
+                    <label>Phụ cấp</label>
+                </div>
+                <div class="col-sm-8">
+                    <input class="form-control"
+                           name="PhuCap"
+                           type="number"
+                           value="@Model.PhuCap" />
+                </div>
+                <div class="col-sm-offset-4 col-sm-5" style="height:15px">
+                    <label class="control-label text-danger">
+                        @Html.ValidationMessageFor(model => model.PhuCap)
+                    </label>
+
+                </div>
+                <!--end-->
+
+            </div>
+
+            <div class="form-group">
+                <!--start-->
+                <div class="col-sm-4 control-label">
+                    <label>Thuế thu nhập cá nhân</label>
+                </div>
+                <div class="col-sm-8">
+                    <input class="form-control"
+                           name="ThueThuNhap"
+                           type="number"
+                           value="@Model.ThueThuNhap" />
+                </div>
+                <div class="col-sm-offset-4 col-sm-5" style="height:15px">
+                    <label class="control-label text-danger">
+                        @Html.ValidationMessageFor(model => model.ThueThuNhap)
+                    </label>
+
+                </div>
+                <!--end-->
+
+            </div>
+
+            <div class="form-group">
+                <div class=" col-sm-offset-4 col-sm-5">
+                    <input type="submit" value="Lưu lại" class="btn btn-primary" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@*<div>
+    @Html.ActionLink("Quay lại", "Index")
+</div>*@
+

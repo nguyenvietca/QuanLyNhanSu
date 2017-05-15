@@ -1,0 +1,127 @@
+﻿@*@model QuanLyNhanSu.Models.PhongBan*@
+@using QuanLyNhanSu.Models
+@model PhongBanValidation
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Thêm phòng ban
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i> <a href="@Url.Action("index","Admin")">Dashboard</a>
+            </li>
+            <li>
+                <i class="fa fa-tasks"></i><a href="@Url.Action("index","QuanLyPhongBan")">Phòng ban</a>
+            </li>
+            <li>
+                <i class="fa fa-tasks"></i>Thêm phòng ban
+            </li>
+        </ol>
+    </div>
+</div>
+<form class="form-horizontal" role="form" method="post">
+
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true)
+
+    <div class="form-group">
+        <!--start-->
+        <div class="control-label col-md-offset-1 col-md-4 col-sm-4">
+            <label>Mã phòng ban</label>
+        </div>
+        <div class="col-md-4 col-sm-8">
+            <input type="text" name="MaPhongBan"
+                   class="form-control"
+                   id="MaPhongBan"
+                   value="@Model.MaPhongBan"
+                   required />
+
+        </div>
+        <div class="col-sm-offset-4 col-sm-5" style="height:15px">
+            <label class="control-label text-danger">
+                @ViewBag.err
+                @Html.ValidationMessageFor(model => model.MaPhongBan)
+            </label>
+        </div>
+        <!--end-->
+    </div>
+
+    <div class="form-group">
+        <div class="control-label col-md-offset-1 col-md-4 col-sm-4">
+            <label>Tên phòng ban</label>
+        </div>
+        <div class="col-md-4 col-sm-8">
+            <input type="text" name="TenPhongBan"
+                   class="form-control"
+                   id="TenPhongBan"
+                   value="@Model.TenPhongBan"
+                   required />
+
+        </div>
+        <div class="col-sm-offset-4 col-sm-5" style="height:15px">
+            <label class="control-label text-danger">
+               
+                @Html.ValidationMessageFor(n => n.TenPhongBan)
+            </label>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <!--start-->
+        <div class="control-label col-md-offset-1 col-md-4 col-sm-4">
+            <label>Địa chỉ</label>
+        </div>
+        <div class="col-md-4 col-sm-8">
+            <input type="text" name="DiaChi"
+                   class="form-control"
+                   id="DiaChi"
+                   value="@Model.DiaChi"
+                   required />
+
+        </div>
+        <div class="col-sm-offset-4 col-sm-5" style="height:15px">
+            <label class="control-label text-danger">
+             
+                @Html.ValidationMessageFor(model => model.DiaChi)
+            </label>
+        </div>
+        <!--end-->
+       
+    </div>
+
+    <div class="form-group">
+        <!--start-->
+        <div class="control-label col-md-offset-1 col-md-4 col-sm-4">
+            <label>Số điện thoại</label>
+        </div>
+        <div class="col-md-4 col-sm-8">
+            <input type="text" name="sdt_PhongBan"
+                   class="form-control"
+                   id="sdt_PhongBan"
+                   value="@Model.sdt_PhongBan"
+                   required />
+
+        </div>
+        <div class="col-sm-offset-4 col-sm-5" style="height:15px">
+            <label class="control-label text-danger">
+              
+                @Html.ValidationMessageFor(model => model.sdt_PhongBan)
+            </label>
+        </div>
+        <!--end-->
+
+    </div>
+
+    <div class="form-group">
+        <div class="  col-md-offset-5 col-sm-offset-4 col-sm-5">
+            <input type="submit" value="Thêm phòng ban" class="btn btn-primary" />
+        </div>
+    </div>
+</form>
+
+

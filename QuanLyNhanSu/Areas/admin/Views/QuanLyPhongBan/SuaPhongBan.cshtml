@@ -1,0 +1,120 @@
+﻿@model QuanLyNhanSu.Models.PhongBanValidation
+
+@*@using QuanLyNhanSu.Models
+    @model PhongBan*@
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Cập nhật thông tin phòng ban
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i> <a href="@Url.Action("index","Admin")">Dashboard</a>
+            </li>
+            <li>
+                <i class="fa fa-fw fa-user"></i><a href="@Url.Action("index","QuanLyPhongBan")">Phòng ban</a>
+            </li>
+            <li>
+                <i class="fa fa-fw fa-user"></i>Cập nhật thông tin phòng ban
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class=" col-md-6 col-md-offset-3">
+        @Html.AntiForgeryToken()
+        <form class="form-horizontal" method="post" role="form">
+
+            <div class="form-group hidden">
+                <div class="col-sm-4 control-label">
+                    <label>Mã phòng ban</label>
+                </div>
+                <div class="col-sm-8">
+                    <input type="text" name="MaPhongBan"
+                           class="form-control"
+                           maxlength="20"
+                           value="@Model.MaPhongBan"
+                           required />
+                </div>
+                <div class="col-sm-offset-4 col-sm-5" style="height:15px">
+                    <label class="control-label text-danger">
+                        @Html.ValidationMessageFor(n => n.MaPhongBan)
+                    </label>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-4 control-label">
+                    <label>Tên phòng ban</label>
+                </div>
+                <div class="col-sm-8">
+                    <input type="text" name="TenPhongBan"
+                           class="form-control"
+                           maxlength="20"
+                           value="@Model.TenPhongBan.Trim()"
+                           required />
+                </div>
+                <div class="col-sm-offset-4 col-sm-5" style="height:15px">
+                    <label class="control-label text-danger">
+                        @Html.ValidationMessageFor(n => n.TenPhongBan)
+                    </label>
+                    @*@ViewBag.MaNhanVien*@
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-4 control-label">
+                    <label>Địa chỉ</label>
+                </div>
+
+                <div class="col-sm-8">
+                    <input type="text" name="DiaChi"
+                           class="form-control"
+                           maxlength="20"
+                           value="@Model.DiaChi.Trim()"
+                           required />
+                </div>
+                <div class="col-sm-offset-4 col-sm-5" style="height:15px">
+                    <label class="control-label text-danger">
+                        @Html.ValidationMessageFor(model => model.DiaChi)
+                    </label>
+                    @*@ViewBag.MaNhanVien*@
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-4 control-label">
+                    <label>Số điện thoại</label>
+                </div>
+                @*@Html.LabelFor(model => model.sdt_PhongBan, new { @class = "control-label col-md-2" })*@
+                <div class="col-sm-8">
+                    <input type="text" name="sdt_PhongBan"
+                           class="form-control"
+                           maxlength="20"
+                           value="@Model.sdt_PhongBan.Trim()"
+                           required />
+                </div>
+                <div class="col-sm-offset-4 col-sm-5" style="height:15px">
+                    <label class="control-label text-danger">
+                        @Html.ValidationMessageFor(model => model.sdt_PhongBan)
+                    </label>
+                    @*@ViewBag.MaNhanVien*@
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class=" col-sm-offset-4 col-sm-5">
+                    <input type="submit" value="Lưu thay đổi" class="btn btn-primary" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+

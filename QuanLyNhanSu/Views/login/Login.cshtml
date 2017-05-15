@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Đăng nhập";
+}
+
+<div class="row" style="margin:60px 0">
+    <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span><i class="glyphicon glyphicon-log-in"></i> </span>Login</h3>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" method="post" role="form" action="">
+
+                    @Html.AntiForgeryToken()
+                    @* tai khoan *@
+                    <div class="form-group has-feedback">
+                        <label class="control-label col-md-3 col-sm-3">Tài khoản </label>
+                        <div class="col-md-9 col-sm-9">
+                            <input class="form-control"
+                                   name="MaNhanVien"
+                                   placeholder="Tài khoản"
+                                   autofocus
+                                   required>
+
+                        </div>
+                    </div>
+                    @* mat khau *@
+                    <div class="form-group has-feedback">
+                        <label class="control-label col-sm-3">Mật khẩu </label>
+                        <div class="col-sm-9">
+                            <input class="form-control"
+                                   type="password"
+                                   name="MatKhau"
+                                   placeholder="Mật khẩu">
+                        </div>
+                    </div>
+                    @* btn dang nhap *@
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-8">
+                            <button type="submit" class="btn btn-primary">
+                                <span>
+                                    <i class="	glyphicon glyphicon-log-in"></i>
+                                </span> Đăng nhập
+                            </button> 
+                        </div>
+                        
+                    </div>
+                   <span class="text-danger"> @ViewBag.err</span>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,225 @@
+﻿@{
+    ViewBag.Title = "Thêm nhân viên";
+}
+
+@*@model QuanLyNhanSu.Models.NhanVien*@
+@using QuanLyNhanSu.Models
+@*@model NhanVien*@
+@model UserValidate
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Thêm nhân viên
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i> <a href="@Url.Action("index","Admin")">Dashboard</a>
+            </li>
+            <li>
+                <i class="fa fa-bar-chart-o"></i><a href="@Url.Action("index","QuanLyUser")">Nhân viên</a>
+            </li>
+            <li>
+                <i class="fa fa-bar-chart-o"></i>Thêm nhân viên
+            </li>
+        </ol>
+    </div>
+</div>
+<form class="form-horizontal" method="post" role="form">
+    @*@Url.Action("ThemUser", "QuanLyUser")*@
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true)
+    @*@Html.HiddenFor(model => model.MaNhanVien)*@
+
+    @* ma nhan vien *@
+    <div class="form-group">
+        <div class="control-label col-md-offset-1 col-md-4 col-sm-4">
+            <label>Mã nhân viên</label>
+        </div>
+
+        <div class="col-md-4 col-sm-8">
+            <input type="text" name="MaNhanVien"
+                   class="form-control"
+                   id="MaNhanVien"
+                   value="@Model.MaNhanVien"
+                   required />
+
+        </div>
+        <div class=" col-md-offset-5 col-sm-offset-4 col-sm-5" style="height:15px">
+            <label class="control-label text-danger">
+                @ViewBag.err
+                @Html.ValidationMessageFor(n => n.MaNhanVien)
+            </label>
+        </div>
+    </div>
+    @* mat khau *@
+    <div class="form-group">
+        <div class="control-label col-md-offset-1 col-md-4 col-sm-4">
+            <label>Mật khẩu</label>
+        </div>
+
+        <div class="col-md-4 col-sm-8">
+            <input type="password" name="MatKhau"
+                   class="form-control"
+                   id="MatKhau"
+                   value="@Model.MatKhau"
+                   required />
+        </div>
+        <div class=" col-md-offset-5 col-sm-offset-4 col-sm-5" style="height:15px">
+            <label class="control-label text-danger">
+                @Html.ValidationMessageFor(n => n.MatKhau)
+            </label>
+        </div>
+    </div>
+
+    @*xac mat khau *@
+    <div class="form-group">
+        <div class="control-label col-md-offset-1 col-md-4 col-sm-4">
+            <label>Xác nhận mật khẩu</label>
+        </div>
+
+        <div class="col-md-4 col-sm-8">
+            <input type="password" name="XacNhanMatKhau"
+                   class="form-control"
+                   id="MatKhau"
+                   value="@Model.XacNhanMatKhau"
+                   required />
+        </div>
+        <div class=" col-md-offset-5 col-sm-offset-4 col-sm-5" style="height:15px">
+            <label class="control-label text-danger">
+                @Html.ValidationMessageFor(n => n.XacNhanMatKhau)
+            </label>
+        </div>
+    </div>
+
+    @* ho ten *@
+    <div class="form-group">
+        <!---start-->
+        <div class="control-label col-md-offset-1 col-md-4 col-sm-4">
+            <label>Họ tên</label>
+        </div>
+
+        <div class="col-md-4 col-sm-8">
+            <input type="text" name="HoTen"
+                   class="form-control"
+                   id="HoTen"
+                   value="@Model.HoTen"
+                   required />
+        </div>
+        
+        <div class=" col-md-offset-5 col-sm-offset-4 col-sm-5" style="height:15px">
+            <label class="control-label text-danger">
+                @Html.ValidationMessageFor(n => n.HoTen)
+            </label>
+        </div>
+            <!---end--->
+        </div>
+ 
+    @* gioi tinh*@
+    <div class="form-group">
+        <!---start-->
+        <div class="control-label col-md-offset-1 col-md-4 col-sm-4">
+            <label>Giới tính</label>
+        </div>
+
+        <div class="col-md-4 col-sm-8">
+            <div class="radio-inline">
+                <label><input type="radio" name="GioiTinh" value="1" checked>Nam</label>
+            </div>
+            <div class="radio-inline">
+                <label><input type="radio" name="GioiTinh" value="0">Nữ</label>
+            </div>
+            <div class="radio-inline">
+                <label><input type="radio" name="GioiTinh" value="2">Khác</label>
+            </div>
+        </div>
+
+        <!---end--->
+
+    </div>
+   
+    @* chuc vu*@
+    <div class="form-group">
+        <div class="control-label col-md-offset-1 col-md-4 col-sm-4">
+            <label>Chức vụ</label>
+        </div>
+        <div class="col-md-4 col-sm-8">
+            @{QuanLyNhanSuEntities db = new QuanLyNhanSuEntities();
+            var chucvu = db.ChucVuNhanViens.ToList();
+            }
+            <select name="MaChucVuNV" class="form-control">
+                @foreach (var item in chucvu)
+                {
+                <option value="@item.MaChucVuNV.ToString()" selected>@item.TenChucVu</option>
+                }
+            </select>
+
+            @Html.ValidationMessageFor(model => model.MaChucVuNV)
+        </div>
+    </div>
+    @* phong ban*@
+    <div class="form-group">
+        <div class="control-label col-md-offset-1 col-md-4 col-sm-4">
+            <label>Phòng ban</label>
+        </div>
+        <div class="col-md-4 col-sm-8">
+            @{
+                var phongban = db.PhongBans.ToList();
+            }
+            <select name="MaPhongBan" class="form-control">
+                @foreach (var item in phongban)
+                {
+                <option value="@item.MaPhongBan.ToString()" selected>@item.TenPhongBan</option>
+                }
+            </select>
+            @Html.ValidationMessageFor(model => model.MaPhongBan)
+        </div>
+    </div>
+    @* chuyen nganh*@
+    <div class="form-group">
+        <div class="control-label col-md-offset-1 col-md-4 col-sm-4">
+            <label>Chuyên ngành</label>
+        </div>
+        <div class="col-md-4 col-sm-8">
+            @{
+                var chuyenNganh = db.ChuyenNganhs.ToList();
+            }
+            <select name="MaChuyenNganh" class="form-control">
+                @foreach (var item in chuyenNganh)
+                {
+                <option value="@item.MaChuyenNganh.ToString()" selected>@item.TenChuyenNganh</option>
+                }
+            </select>
+
+        </div>
+    </div>
+    @* trinh do hoc van *@
+    <div class="form-group">
+        <div class="control-label col-md-offset-1 col-md-4 col-sm-4">
+            <label>Trình độ học vấn</label>
+        </div>
+        <div class="col-md-4 col-sm-8">
+            @{
+                var hocVan = db.TrinhDoHocVans.ToList();
+            }
+            <select name="MaTrinhDoHocVan" class="form-control">
+                @foreach (var item in hocVan)
+                {
+                <option value="@item.MaTrinhDoHocVan.ToString()" selected>@item.TenTrinhDo</option>
+                }
+            </select>
+        </div>
+    </div>
+    @* button submit*@
+    <div class="form-group">
+        <div class=" col-md-offset-5 col-sm-offset-4 col-sm-5">
+            <input type="submit" value="Thêm nhân viên" class="btn btn-primary" />
+        </div>
+    </div>
+
+</form>
+
+
+
+

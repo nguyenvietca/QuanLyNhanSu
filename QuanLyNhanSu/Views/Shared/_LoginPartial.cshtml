@@ -1,0 +1,35 @@
+﻿@if (Session["MaNhanVien"] != null)
+{
+
+    <ul class="nav navbar-nav navbar-right">
+        @{
+    String hoten = Session["MaNhanVien"] as String;
+        }
+        <li>
+            <a class="dropdown-toggle" style="cursor: pointer;" id="menu-sanpham" data-toggle="dropdown">
+                <span>
+                   @hoten
+                    <i class="glyphicon glyphicon-user"></i>
+                </span>
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu-sanpham">
+
+                <li role="presentation"><a name="Name" role="menuitem" tabindex="-1" href="@Url.Action("UpdateUser", "login")">Cập nhật thông tin</a></li>
+                <li role="presentation"><a name="Name" role="menuitem" tabindex="-1" href="@Url.Action("index", "NhanVien")">Lịch sử nhận lương</a></li>
+
+                <li role="presentation" class="divider"></li>
+                <li>@Html.ActionLink("Đăng Xuất", "DangXuat", "login")</li>
+
+            </ul>
+        </li>
+        <li>@Html.ActionLink("Đăng Xuất", "DangXuat", "login")</li>
+    </ul>
+
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Đăng nhập", "Login", "login")</li>
+    </ul>
+}

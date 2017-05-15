@@ -1,0 +1,218 @@
+﻿@*@model QuanLyNhanSu.Models.NhanVien*@
+@using QuanLyNhanSu.Models
+@{
+    ViewBag.Title = "Cập nhật thông tin nhân viên";
+}
+
+@model UserValidate
+
+@{
+    QuanLyNhanSuEntities db = new QuanLyNhanSuEntities();
+}
+<div class="row">
+    <h1>Cập nhật thông tin nhân viên</h1>
+    <hr />
+    <div class="col-md-4 col-sm-3 ">
+        <img id="avatar" src="~/Content/images/@Model.HinhAnh" class="img-circle img-responsive">
+    </div>
+    <div class="col-md-8 col-sm-9">
+        <form class="form-horizontal" @Url.Action("UpdateUser", "QuanLyUser") method="post" role="form" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.MaNhanVien)
+            <!--mat khau-->
+            @*<span class="success">@ViewBag.succes</span>*@
+
+            <div class="form-group">
+                <div class="control-label  col-md-4 col-sm-4">
+                    <label>Mật khẩu</label>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <input class="form-control" type="password" name="MatKhau" value="@Model.MatKhau" />
+
+                    @Html.ValidationMessageFor(model => model.MatKhau)
+                </div>
+            </div>
+            <!--xác nhan mat khau-->
+            <div class="form-group">
+                <div class="control-label  col-md-4 col-sm-4">
+                    <label>Xác nhận mật khẩu</label>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <input class="form-control" type="password" name="XacNhanMatKhau" value="@Model.XacNhanMatKhau" />
+                    @Html.ValidationMessageFor(model => model.XacNhanMatKhau)
+                </div>
+            </div>
+            <!--ho ten-->
+            <div class="form-group">
+                <div class="control-label col-md-4 col-sm-4">
+                    <label>Họ tên</label>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <input class="form-control" type="text" name="HoTen" value="@Model.HoTen" />
+                    @Html.ValidationMessageFor(model => model.HoTen)
+                </div>
+            </div>
+            <!--ngay sinh-->
+            <div class="form-group">
+                <div class="control-label col-md-4 col-sm-4">
+                    <label>Ngày sinh</label>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <input class="form-control"
+                           value="@String.Format("{0:dd-MM-yyyy}", @Model.NgaySinh)"
+                           type="text" name="NgaySinh"
+                           placeholder="DD-MM-YYYY"
+                           required pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"
+                           title="Nhập đúng định dạng DD-MM-YYYY" />
+
+                    @*<input class="form-control" type="date" name="NgaySinh" value="@Model.NgaySinh" />*@
+                    @Html.ValidationMessageFor(model => model.NgaySinh)
+                </div>
+            </div>
+
+
+            <!--que quan-->
+            <div class="form-group">
+                <div class="control-label  col-md-4 col-sm-4">
+                    <label>Quê quán</label>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <input class="form-control" type="text" name="QueQuan" value="@Model.QueQuan" />
+                    @Html.ValidationMessageFor(model => model.QueQuan)
+                </div>
+            </div>
+
+            <!--hinh anh-->
+            <div class="form-group">
+                <div class="control-label  col-md-4 col-sm-4">
+                    <label>Hình đại diện</label>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <input class="form-control" type="file" name="HinhAnh">
+                </div>
+
+            </div>
+
+            <!--giôi tinh-->
+            <div class="form-group">
+                <!---start-->
+                <label class="col-sm-4 control-label">Giới tính</label>
+
+                <div class="col-md-8 col-sm-8">
+                    @{
+                        string check0 = string.Empty;
+                        string check1 = string.Empty;
+                        string check2 = string.Empty;
+                        switch (@Model.GioiTinh)
+                        {
+                            case 0: check0 = "checked";
+                                break;
+                            case 1: check1 = "checked";
+                                break;
+                            default: check2 = "checked";
+                                break;
+                        }
+                    }
+                    <div class="radio-inline">
+                        <label><input type="radio" name="GioiTinh" value="1" @check1>Nam</label>
+                    </div>
+                    <div class="radio-inline">
+                        <label><input type="radio" name="GioiTinh" value="0" @check0>Nữ</label>
+                    </div>
+                    <div class="radio-inline">
+                        <label><input type="radio" name="GioiTinh" value="2" @check2>Khác</label>
+                    </div>
+                </div>
+                <!---end--->
+            </div>
+            <!--dan toc-->
+            <div class="form-group">
+                <div class="control-label  col-md-4 col-sm-4">
+                    <label>Dân tộc</label>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <input class="form-control" type="text" name="DanToc" value="@Model.DanToc" />
+                    @Html.ValidationMessageFor(model => model.DanToc)
+                </div>
+            </div>
+            <!--so dien thoai-->
+            <div class="form-group">
+                <div class="control-label  col-md-4 col-sm-4">
+                    <label>Số điện thoại</label>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <input class="form-control" type="text" name="sdt_NhanVien" value="@Model.sdt_NhanVien" />
+                    @Html.ValidationMessageFor(model => model.sdt_NhanVien)
+                </div>
+            </div>
+
+
+            @* chuyen nganh*@
+            <div class="form-group">
+                <div class="control-label  col-md-4 col-sm-4">
+                    <label>Chuyên ngành</label>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    @{
+                        var chuyenNganh = db.ChuyenNganhs.ToList();
+                    }
+                    <select name="MaChuyenNganh" class="form-control">
+                        @foreach (var item in chuyenNganh)
+                        {
+                            if (Model.MaChuyenNganh == item.MaChuyenNganh)
+                            {
+                                <option value="@item.MaChuyenNganh.ToString()" selected>@item.TenChuyenNganh</option>
+                            }
+                            <option value="@item.MaChuyenNganh.ToString()">@item.TenChuyenNganh</option>
+                        }
+                    </select>
+
+                </div>
+            </div>
+            @* trinh do hoc van *@
+            <div class="form-group">
+                <div class="control-label  col-md-4 col-sm-4">
+                    <label>Trình độ học vấn</label>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    @{
+                        var hocVan = db.TrinhDoHocVans.ToList();
+                    }
+                    <select name="MaTrinhDoHocVan" class="form-control">
+                        @foreach (var item in hocVan)
+                        {
+                            if (Model.MaTrinhDoHocVan == item.MaTrinhDoHocVan)
+                            {
+                                <option value="@item.MaTrinhDoHocVan.ToString()" selected>@item.TenTrinhDo</option>
+                            }
+                            <option value="@item.MaTrinhDoHocVan.ToString()">@item.TenTrinhDo</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+            <!--cmnd-->
+            <div class="form-group">
+                <div class="control-label col-md-4 col-sm-4">
+                    <label>Số CMND</label>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <input class="form-control" type="text" name="CMND" value="@Model.CMND" />
+                    @Html.ValidationMessageFor(model => model.CMND)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-4">
+                    <input type="submit" value="Cập nhật" class="btn btn-primary btn-lg" />
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
+

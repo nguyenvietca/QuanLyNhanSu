@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title-Admin</title>
+    @Styles.Render("~/Content/Admin/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style type="text/css">
+        .edit-row {
+            margin-left: 0;
+            margin-right: 10px;
+            /* padding: 10px;*/
+            height: 100%;
+        }
+
+        .active {
+            background: #0B0B0B;
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" id="icon-menu-admin" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Trang quản trị", "Index", "Admin", null, new { @class = "navbar-brand" })
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-exchange"></i>  Đổi mật khẩu</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Tin nhắn</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Cài đặt</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="@Url.Action("DangXuat", "Admin")"><i class="fa fa-fw fa-power-off"></i> Đăng xuất</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav" id="activeMenu">
+                    <li class="active">
+                        <a href="@Url.Action("index","Admin")"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("index","QuanLyUser")"><i class="fa fa-fw fa-user"></i> Nhân Viên</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("index", "QuanLyPhongBan")"><i class="fa fa-tasks"></i> Phòng ban</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("index","QuanLyLuong")"><i class="fa fa-money"></i> Lương nhân viên</a>
+                    </li>
+                    @*<li>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-user"></i> MaNhanVien <i class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="demo" class="collapse">
+                                <li>
+                                    <a href="#">Change MatKhau</a>
+                                </li>
+                                <li>
+                                    <a href="#">Log Out</a>
+                                </li>
+                            </ul>
+                        </li>*@
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+        <div id="page-wrapper">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Admin</p>
+
+            </footer>
+        </div>
+
+    </div>
+    <div style="right: 0;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 0;" id="bot">
+        <a id="top" style="float:right;margin:10px" class="btn btn-danger">
+            <span class="glyphicon glyphicon-arrow-up">
+            </span>
+        </a>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/datatable")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script>
+
+        //  $('#top').hide(500);
+        $(window).on('scroll', function () {
+            var scrollTop = $(window).scrollTop();
+            if (scrollTop > 0) {
+                $('#top').show(500);
+                //$('#top').fadeIn(500);
+            } else {
+                //$('#top').fadeOut(500);
+                $('#top').hide(500);
+            }
+        });
+
+        $('#top').on('click', function (e) {
+            $('html,body').animate({ scrollTop: 0 }, "slow");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+﻿
+.edit-row{
+    margin:0;
+
+}
+@media screen and (min-width: 426px) {
+    .edit-align{
+        text-align:start;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    input{
+        max-width:100%;
+    }
+}
+@media screen and (min-width:426px){
+    #avatar{
+        margin-top:80px;
+
+    }
+}

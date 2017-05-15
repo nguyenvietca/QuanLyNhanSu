@@ -1,0 +1,84 @@
+﻿@model IEnumerable<QuanLyNhanSu.Models.ChiTietLuong>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr class="success">
+            <th>
+                Mã nhân viên
+            </th>
+            <th>
+                Lương cơ bản
+            </th>
+            <th>
+                BHXH
+            </th>
+            <th>
+                Phụ cấp
+            </th>
+            <th>
+                Thuế thu nhập
+            </th>
+            <th>
+                Tiền thưởng
+            </th>
+            <th>
+                Tiền phạt
+            </th>
+            <th>
+                Ngày nhận lương
+            </th>
+            <th>
+                Thực lãnh
+            </th>
+          
+         
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Luong.MaNhanVien)
+                </td>
+                <td>
+                    @String.Format("{0:#,#}", @item.LuongCoBan).Replace(",", ",")
+                    
+                </td>
+                <td>
+                    @String.Format("{0:#,#}", @item.BHXH).Replace(",", ",")
+                  
+                </td>
+                <td>
+                    @String.Format("{0:#,#}", @item.PhuCap).Replace(",", ",")
+                    
+                </td>
+                <td>
+                    @String.Format("{0:#,#}", @item.ThueThuNhap).Replace(",", ",")
+                    
+                </td>
+                <td>
+                    @String.Format("{0:#,#}", @item.TienThuong).Replace(",", ",")
+                    
+                </td>
+                <td>
+                    @String.Format("{0:#,#}", @item.TienPhat).Replace(",", ",")
+                    
+                </td>
+                <td>
+                    @String.Format("{0:dd/MM/yyyy}", @item.NgayNhanLuong)
+                  
+                </td>
+                <td>
+                    @{
+            var t = int.Parse(item.TongTienLuong);
+                    }
+                    @String.Format("{0:#,#}", @t).Replace(",", ",")
+                </td>
+              
+
+            </tr>
+        }
+    </tbody>
+</table>
+

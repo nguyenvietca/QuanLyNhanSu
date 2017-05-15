@@ -1,0 +1,161 @@
+﻿@{
+    ViewBag.Title = "Cập nhật thông tin";
+}
+<link href="~/Content/css/account.css" rel="stylesheet" />
+@using QuanLyNhanSu.Models
+@model UserValidate
+
+
+
+<div class="">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Cập nhật thông tin nhân viên
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    <i class="fa fa-dashboard"></i> <a href="@Url.Action("index","Admin")">Dashboard</a>
+                </li>
+                <li>
+                    <i class="fa fa-fw fa-user"></i><a href="@Url.Action("index","QuanLyUser")">Nhân viên</a>
+                </li>
+                <li>
+                    <i class="fa fa-fw fa-user"></i>Cập nhật thông tin nhân viên
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-md-6 col-md-offset-3">
+            @*@Url.Action("UpdateUser", "QuanLyUser")*@
+          
+            @Html.AntiForgeryToken()
+            <form class="form-horizontal" method="post" role="form">
+                @Html.ValidationSummary(true)
+                <!--Tai khoang-->
+                <div class="form-group">
+                    <div class="">
+                        <div class="col-sm-4 control-label">
+                            <label>Tài khoản</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="text" name="MaNhanVien"
+                                   class="form-control"
+                                   maxlength="20"
+                                   value="@Model.MaNhanVien.Trim()"
+                                   id="MaNhanVien" readonly />
+                        </div>
+                    </div>
+                    <div class="col-sm-offset-4 col-sm-5" style="height:15px">
+                        <label class="control-label text-danger">
+                            @ViewBag.MaNhanVien
+                            @Html.ValidationMessageFor(n => n.MaNhanVien)
+                        </label>
+
+                    </div>
+
+                </div>
+                <!--ho ten-->
+                <div class="form-group">
+                    <div>
+                        <div class="col-sm-4 control-label">
+                            <label>Họ tên</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="text" name="HoTen"
+                                   class="form-control"
+                                   value="@Model.HoTen"
+                                   id="HoTen" required />
+                        </div>
+                    </div>
+                    <div class="col-sm-offset-4 col-sm-5" style="height:15px">
+                        <label class="control-label text-danger">
+                            @Html.ValidationMessageFor(n => n.HoTen)
+                        </label>
+                    </div>
+                </div>
+
+                @*Mật khẩu*@
+                <div class="form-group">
+                    <div>
+                        <div class="col-sm-4 control-label">
+                            <label>Mật khẩu</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="password" name="MatKhau"
+                                   class="form-control"
+                                   id="MatKhau"
+                                   value="@Model.MatKhau"
+                                   required />
+                        </div>
+                    </div>
+                    <div class="col-sm-offset-4 col-sm-5" style="height:15px">
+                        <label class="control-label text-danger">
+                            @Html.ValidationMessageFor(n => n.MatKhau)
+                        </label>
+                    </div>
+                </div>
+
+                @*Giới tính*@
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Giới tính</label>
+
+                    <div class="col-sm-8 ">
+                        @{
+                            string check0 = string.Empty;
+                            string check1 = string.Empty;
+                            string check2 = string.Empty;
+                            switch (@Model.GioiTinh)
+                            {
+                                case 0: check0 = "checked";
+                                    break;
+                                case 1: check1 = "checked";
+                                    break;
+                                default: check2 = "checked";
+                                    break;
+                            }
+                        }
+                        <div class="radio-inline">
+                            <label><input type="radio" name="GioiTinh" value="1" @check1>Nam</label>
+                        </div>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="GioiTinh" value="0" @check0>Nữ</label>
+                        </div>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="GioiTinh" value="2" @check2>Khác</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden">
+                               @Html.HiddenFor(n=>n.XacNhanMatKhau)
+                    <input type="text" name="QueQuan" value="@Model.QueQuan" />
+                    <input type="text" name="HinhAnh" value="@Model.HinhAnh" />
+                    <input type="text" name="DanToc" value="@Model.DanToc" />
+                    <input type="text" name="sdt_NhanVien" value="@Model.sdt_NhanVien" />
+                    <input type="text" name="MaHopDong" value="@Model.MaHopDong" />
+                    <input type="text" name="NgaySinh" value="@Model.NgaySinh" />
+                    @Html.TextBoxFor(n=>n.TrangThai)
+                  
+                    <input type="text" name="MaChuyenNganh" value="@Model.MaChuyenNganh" />
+                    <input type="text" name="MaPhongBan" value="@Model.MaPhongBan" />
+                    <input type="text" name="MaChucVuNV" value="@Model.MaChucVuNV" />
+                    <input type="text" name="MaTrinhDoHocVan" value="@Model.MaTrinhDoHocVan" />
+                    <input type="text" name="CMND" value="@Model.CMND" />
+
+                </div>
+
+                @*button *@
+                <div class="form-group">
+                    <div class=" col-sm-offset-4 col-sm-5">
+                        <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@*@section css{
+
+    }*@
