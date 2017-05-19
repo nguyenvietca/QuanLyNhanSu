@@ -1,4 +1,5 @@
-﻿@model QuanLyNhanSu.Models.Luong
+﻿@using QuanLyNhanSu.Models
+@model Luong
 
 @{
     ViewBag.Title = "Sửa lương nhân viên";
@@ -13,7 +14,7 @@
         </h1>
         <ol class="breadcrumb">
             <li>
-                <i class="fa fa-dashboard"></i> <a href="@Url.Action("index","Admin")">Dashboard</a>
+                <i class="fa fa-dashboard"></i> <a href="@Url.Action("index","Admin")">Tổng quan</a>
             </li>
             <li>
                 <i class="fa fa-money"></i><a href="@Url.Action("index","QuanLyLuong")">Lương</a>
@@ -53,21 +54,50 @@
                 </div>
                 <!--end-->
             </div>
-
+<!--luong hien tai-->
             <div class="form-group">
                 <!--start-->
                 <div class="col-sm-4 control-label">
-                    <label>Lương cơ bản</label>
+                    <label>Lương hiện tại</label>
                 </div>
                 <div class="col-sm-8">
                     <input class="form-control"
                            name="LuongCoBan"
                            type="number"
-                           value="@Model.LuongCoBan" />
+                           value="@Model.LuongCoBan"
+                           readonly />
                 </div>
                 <div class="col-sm-offset-4 col-sm-5" style="height:15px">
                     <label class="control-label text-danger">
                         @Html.ValidationMessageFor(model => model.LuongCoBan)
+                    </label>
+
+                </div>
+                <!--end-->
+            </div>
+
+            <!--sau khi cap nhat-->
+                    @{
+                        QuanLyNhanSuEntities db = new QuanLyNhanSuEntities();
+                        CapNhatLuong c = new CapNhatLuong();
+                    }
+            <div class="form-group">
+                <!--start-->
+                <div class="col-sm-4 control-label">
+                    <label>Cập nhật lương</label>
+                </div>
+                <div class="col-sm-8">
+                    <input class="form-control"
+                           name="LuongSauCapNhat"
+                           type="number"
+                           pattern="[1-9](?:\d*)?\d+"
+                           title="nhập tiền lương"
+                           value="@c.LuongSauCapNhat" 
+                           required/>
+                </div>
+                <div class="col-sm-offset-4 col-sm-5" style="height:15px">
+                    <label class="control-label text-danger">
+                        @*@Html.ValidationMessageFor(c => c.LuongSauCapNhat)*@
                     </label>
 
                 </div>

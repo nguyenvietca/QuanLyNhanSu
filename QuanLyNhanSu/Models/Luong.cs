@@ -17,6 +17,7 @@ namespace QuanLyNhanSu.Models
         public Luong()
         {
             this.ChiTietLuongs = new HashSet<ChiTietLuong>();
+            this.CapNhatLuongs = new HashSet<CapNhatLuong>();
         }
     
         public string MaNhanVien { get; set; }
@@ -27,5 +28,6 @@ namespace QuanLyNhanSu.Models
     
         public virtual ICollection<ChiTietLuong> ChiTietLuongs { get; set; }
         public virtual NhanVien NhanVien { get; set; }
+        public virtual ICollection<CapNhatLuong> CapNhatLuongs { get; set; }
     }
 }

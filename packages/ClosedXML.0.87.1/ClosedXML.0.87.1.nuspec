@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ClosedXML</id>
+    <version>0.87.1</version>
+    <title>ClosedXML</title>
+    <authors>Amir Ghezelbash, Francois Botha, Manuel De Leon</authors>
+    <owners>Amir Ghezelbash, Francois Botha, Manuel De Leon</owners>
+    <licenseUrl>https://github.com/ClosedXML/ClosedXML/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/ClosedXML/ClosedXML</projectUrl>
+    <iconUrl>https://download-codeplex.sec.s-msft.com/Download?ProjectName=closedxml&amp;DownloadId=167541&amp;Build=21031</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>ClosedXML makes it easier for developers to create Excel 2007/2010/2013 files. It provides a nice object oriented way to manipulate the files (similar to VBA) without dealing with the hassles of XML Documents. It can be used by any .NET language like C# and Visual Basic (VB).</description>
+    <summary>ClosedXML makes it easier for developers to create Excel 2007/2010/2013 files. It provides a nice object oriented way to manipulate the files (similar to VBA) without dealing with the hassles of XML D</summary>
+    <releaseNotes>#148 Improve conditional formatting loading and saving
+#149 Update test for correctly testing time value as string
+#154 Shift page breaks
+#157 Fix maths / statistical functions
+#158 Explicitly ignore custom sheet view elements.
+#159 Force OpenXMLValidator to run under invariant culture
+#172 Allow pivot table field to be a value field and a row/column/filter
+#173 Cap column width at 255
+#179 Pivot table loading enhancements and collapsing fields
+#180 Implement sheet zooming
+#185 Correctly deduce data type from number format string if data type i
+#186 Deduce default header and footer font from worksheet
+#199 Classic layout should be disabled by default.
+#200 Preserve whitespace in cells.
+#203 Remove orphaned drawings from worksheets
+#204 Better detection of numerical data types. Not only System.Double.
+#212 Preserve cell format when inserting table or data
+#214 Don't reference cell to get row height
+#222 Add VmlDrawing Id's to context to avoid reuse.
+#231 Text() function - return string as is if input value is already a s
+#232 Column.AdjustToContents(): Inspect worksheet and table autofilters
+#233 Don't crash when file contains multiple default styles</releaseNotes>
+    <copyright>@ClosedXML</copyright>
+    <dependencies>
+      <group targetFramework=".NETFramework3.5">
+        <dependency id="DocumentFormat.OpenXml" version="1.0.0" />
+      </group>
+      <group targetFramework=".NETFramework4.0">
+        <dependency id="DocumentFormat.OpenXml" version="2.5.0" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

@@ -9,7 +9,7 @@ namespace QuanLyNhanSu.Models
     public class PhongBanValidation
     {
         [Required(ErrorMessage="Nhập mã phòng ban")]
-        [RegularExpression(@"[A-Za-z0-9]*$", ErrorMessage = "Tên chứa kí tự đặc biệt")]
+        [RegularExpression(@"[A-Za-z0-9]*$", ErrorMessage = "Mã chứa kí tự đặc biệt")]
         [MaxLength(30, ErrorMessage = "vượt quá số kí tự 30")]
         
         public string MaPhongBan { get; set; }

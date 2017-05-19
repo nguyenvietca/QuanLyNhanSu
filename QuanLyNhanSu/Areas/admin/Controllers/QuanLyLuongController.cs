@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using QuanLyNhanSu.Models;
+using System.Web.UI.WebControls;
+using System.IO;
+using System.Web.UI;
+using System.Data;
 
 namespace QuanLyNhanSu.Areas.admin.Controllers
 {
@@ -25,16 +29,28 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             return View(luong);
         }
         [HttpPost]
-        public ActionResult SuaBangLuong(Luong luong)
+        public ActionResult SuaBangLuong(Luong luong, CapNhatLuong up)
         {
             var l = db.Luongs.Where(n => n.MaNhanVien == luong.MaNhanVien).FirstOrDefault();
             if (l != null)
             {
                 l.MaNhanVien = luong.MaNhanVien;
-                l.LuongCoBan = luong.LuongCoBan;
+                l.LuongCoBan = up.LuongSauCapNhat;
                 l.BHXH = luong.BHXH;
                 l.PhuCap = luong.PhuCap;
                 l.ThueThuNhap = luong.ThueThuNhap;
+
+                //tao table luu lai moi lan cap nhat luong
+                CapNhatLuong capNhat = new CapNhatLuong();
+                capNhat.NgayCapNhat = DateTime.Now.Date;
+                capNhat.MaNhanVien = luong.MaNhanVien;
+                capNhat.LuongHienTai = luong.LuongCoBan;
+                capNhat.LuongSauCapNhat = up.LuongSauCapNhat;
+                capNhat.BHXH = luong.BHXH;
+                capNhat.PhuCap = luong.PhuCap;
+                capNhat.ThueThuNhap = luong.ThueThuNhap;
+
+                db.CapNhatLuongs.Add(capNhat);
                 db.SaveChanges();
             }
 
@@ -55,8 +71,8 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
                 var ctl = db.ChiTietLuongs.Where(n => n.MaNhanVien == ct.MaNhanVien).FirstOrDefault();
                 //ct.MaChiTietBangLuong = t+dem.ToString();
 
-                int tienthue = 0,tong=0; ;
-               
+                int tienthue = 0, tong = 0; ;
+
                 ct.LuongCoBan = item.LuongCoBan;
 
                 item.BHXH = item.BHXH == null ? 0 : item.BHXH;
@@ -132,6 +148,60 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
         {
             var list = db.ChiTietLuongs.ToList();
             return View(list);
+        }
+        public ActionResult XuatFileLuong()
+        {
+            var ds = db.ChiTietLuongs.ToList();
+            //===================================================
+            DataTable dt = new DataTable();
+            //Add Datacolumn
+            DataColumn workCol = dt.Columns.Add("Mã nhân viên", typeof(String));
+            dt.Columns.Add("Lương cơ bản", typeof(String));
+            dt.Columns.Add("BHXH", typeof(String));
+            dt.Columns.Add("Phụ cấp", typeof(String));
+            dt.Columns.Add("Thuế thu nhập", typeof(String));
+            dt.Columns.Add("Ngày nhận lương", typeof(String));
+            dt.Columns.Add("Thực lãnh", typeof(String));
+
+            //Add in the datarow
+         
+
+            foreach (var item in ds)
+            {
+                DataRow newRow = dt.NewRow();
+                newRow["Mã nhân viên"] = item.MaNhanVien;
+                newRow["Lương cơ bản"] = item.LuongCoBan;
+                newRow["BHXH"] = item.BHXH;
+                newRow["Phụ cấp"] = item.PhuCap;
+                newRow["Thuế thu nhập"] = item.ThueThuNhap;
+                newRow["Ngày nhận lương"] = item.NgayNhanLuong;
+                newRow["Thực lãnh"] = item.TongTienLuong;
+               
+
+                dt.Rows.Add(newRow);
+            }
+               
+            //====================================================
+            var gv = new GridView();
+            //gv.DataSource = ds;
+            gv.DataSource = dt;
+            gv.DataBind();
+
+            Response.ClearContent();
+            Response.Buffer = true;
+
+            Response.AddHeader("content-disposition", "attachment; filename=danh-sach-luong.xls");
+            Response.ContentType = "application/ms-excel";
+
+            Response.Charset = "";
+            StringWriter objStringWriter = new StringWriter();
+            HtmlTextWriter objHtmlTextWriter = new HtmlTextWriter(objStringWriter);
+
+            gv.RenderControl(objHtmlTextWriter);
+            Response.Output.Write(objStringWriter.ToString());
+            Response.Flush();
+            Response.End();
+            return Redirect("/admin/QuanLyLuong");
         }
 
     }   //end class

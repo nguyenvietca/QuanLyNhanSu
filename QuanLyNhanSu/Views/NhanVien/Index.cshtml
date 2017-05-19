@@ -18,12 +18,12 @@
             <th>
                 Thuế thu nhập
             </th>
-            <th>
+            @*<th>
                 Tiền thưởng
             </th>
             <th>
                 Tiền phạt
-            </th>
+            </th>*@
             <th>
                 Ngày nhận lương
             </th>
@@ -57,14 +57,14 @@
                     @String.Format("{0:#,#}", @item.ThueThuNhap).Replace(",", ",")
                     
                 </td>
-                <td>
+                @*<td>
                     @String.Format("{0:#,#}", @item.TienThuong).Replace(",", ",")
                     
                 </td>
                 <td>
                     @String.Format("{0:#,#}", @item.TienPhat).Replace(",", ",")
                     
-                </td>
+                </td>*@
                 <td>
                     @String.Format("{0:dd/MM/yyyy}", @item.NgayNhanLuong)
                   

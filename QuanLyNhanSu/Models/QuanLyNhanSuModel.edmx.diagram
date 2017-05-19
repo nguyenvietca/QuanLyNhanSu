@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2bd1101789c14b15b1ad708bd7652a11" Name="Diagram1">
+      <Diagram DiagramId="2bd1101789c14b15b1ad708bd7652a11" Name="Diagram1" ZoomLevel="93">
         <EntityTypeShape EntityType="QuanLyNhanSuModel.ChiTietLuong" Width="1.5" PointX="7.5" PointY="10.125" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyNhanSuModel.ChucVuNhanVien" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyNhanSuModel.ChuyenNganh" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
@@ -29,6 +29,8 @@
         <AssociationConnector Association="QuanLyNhanSuModel.FK__NhanVien__MaPhongBan" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyNhanSuModel.FK__ThoiViec__MaNhanVien" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyNhanSuModel.FK_NhanVien_TrinhDoHocVan" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QuanLyNhanSuModel.CapNhatLuong" Width="1.5" PointX="7.5" PointY="14.5" />
+        <AssociationConnector Association="QuanLyNhanSuModel.FK_CapNhatLuong_Luong" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

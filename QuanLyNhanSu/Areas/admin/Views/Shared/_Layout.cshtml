@@ -40,12 +40,12 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li>
+                        @*<li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                        </li>
-                        <li>
+                        </li>*@
+                        @*<li>
                             <a href="#"><i class="fa fa-exchange"></i>  Đổi mật khẩu</a>
-                        </li>
+                        </li>*@
                         <li>
                             <a href="#"><i class="fa fa-fw fa-envelope"></i> Tin nhắn</a>
                         </li>
@@ -63,7 +63,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav" id="activeMenu">
                     <li class="active">
-                        <a href="@Url.Action("index","Admin")"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="@Url.Action("index","Admin")"><i class="fa fa-fw fa-dashboard"></i> Tổng quan</a>
                     </li>
                     <li>
                         <a href="@Url.Action("index","QuanLyUser")"><i class="fa fa-fw fa-user"></i> Nhân Viên</a>
@@ -74,6 +74,9 @@
                     <li>
                         <a href="@Url.Action("index","QuanLyLuong")"><i class="fa fa-money"></i> Lương nhân viên</a>
                     </li>
+                    @*<li>
+                        <a href="@Url.Action("index","KhenThuong")"><i class="fa fa-money"></i> Khen thưởng</a>
+                    </li>*@
                     @*<li>
                             <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-user"></i> MaNhanVien <i class="fa fa-fw fa-caret-down"></i></a>
                             <ul id="demo" class="collapse">

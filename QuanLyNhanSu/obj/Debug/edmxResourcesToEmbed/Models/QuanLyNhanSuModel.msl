@@ -171,5 +171,19 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="QuanLyNhanSuModel.Store.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="QuanLyNhanSuModel.Store.sp_upgraddiagrams" />
+    <EntitySetMapping Name="CapNhatLuongs">
+      <EntityTypeMapping TypeName="QuanLyNhanSuModel.CapNhatLuong">
+        <MappingFragment StoreEntitySet="CapNhatLuong">
+          <ScalarProperty Name="LuongSauCapNhat" ColumnName="LuongSauCapNhat" />
+          <ScalarProperty Name="LuongHienTai" ColumnName="LuongHienTai" />
+          <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
+          <ScalarProperty Name="ThueThuNhap" ColumnName="ThueThuNhap" />
+          <ScalarProperty Name="PhuCap" ColumnName="PhuCap" />
+          <ScalarProperty Name="BHXH" ColumnName="BHXH" />
+          <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

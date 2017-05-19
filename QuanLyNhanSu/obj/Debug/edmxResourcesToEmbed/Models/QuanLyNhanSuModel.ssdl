@@ -1,5 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="QuanLyNhanSuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CapNhatLuong">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="MaNhanVien" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaNhanVien" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="LuongHienTai" Type="int" Nullable="false" />
+    <Property Name="LuongSauCapNhat" Type="int" Nullable="false" />
+    <Property Name="BHXH" Type="int" />
+    <Property Name="PhuCap" Type="int" />
+    <Property Name="ThueThuNhap" Type="float" />
+    <Property Name="NgayCapNhat" Type="date" />
+  </EntityType>
   <EntityType Name="ChiTietLuong">
     <Key>
       <PropertyRef Name="MaChiTietBangLuong" />
@@ -230,13 +244,29 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Thuong__MaNhanVien">
-    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="KhenThuong" Type="Self.KhenThuong" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="NhanVien">
         <PropertyRef Name="MaNhanVien" />
       </Principal>
       <Dependent Role="KhenThuong">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CapNhatLuong_Luong">
+    <End Role="Luong" Type="Self.Luong" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CapNhatLuong" Type="Self.CapNhatLuong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Luong">
+        <PropertyRef Name="MaNhanVien" />
+      </Principal>
+      <Dependent Role="CapNhatLuong">
         <PropertyRef Name="MaNhanVien" />
       </Dependent>
     </ReferentialConstraint>
@@ -309,6 +339,7 @@
   </Function>
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="QuanLyNhanSuModelStoreContainer">
+    <EntitySet Name="CapNhatLuong" EntityType="Self.CapNhatLuong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChiTietLuong" EntityType="Self.ChiTietLuong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChucVuNhanVien" EntityType="Self.ChucVuNhanVien" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChuyenNganh" EntityType="Self.ChuyenNganh" Schema="dbo" store:Type="Tables" />
@@ -353,6 +384,10 @@
     <AssociationSet Name="FK__Thuong__MaNhanVien" Association="Self.FK__Thuong__MaNhanVien">
       <End Role="NhanVien" EntitySet="NhanVien" />
       <End Role="KhenThuong" EntitySet="KhenThuong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CapNhatLuong_Luong" Association="Self.FK_CapNhatLuong_Luong">
+      <End Role="Luong" EntitySet="Luong" />
+      <End Role="CapNhatLuong" EntitySet="CapNhatLuong" />
     </AssociationSet>
     <AssociationSet Name="FK_KyLuat_KyLuat" Association="Self.FK_KyLuat_KyLuat">
       <End Role="NhanVien" EntitySet="NhanVien" />

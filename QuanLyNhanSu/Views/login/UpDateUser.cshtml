@@ -9,6 +9,7 @@
 @{
     QuanLyNhanSuEntities db = new QuanLyNhanSuEntities();
 }
+<!--nguoi dung cap nhat-->
 <div class="row">
     <h1>Cập nhật thông tin nhân viên</h1>
     <hr />
@@ -61,11 +62,11 @@
                 </div>
                 <div class="col-md-8 col-sm-8">
                     <input class="form-control"
-                           value="@String.Format("{0:dd-MM-yyyy}", @Model.NgaySinh)"
+                           value="@String.Format("{0:MM-dd-yyyy}", @Model.NgaySinh)"
                            type="text" name="NgaySinh"
-                           placeholder="DD-MM-YYYY"
+                           placeholder="MM-DD-YYYY"
                            required pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"
-                           title="Nhập đúng định dạng DD-MM-YYYY" />
+                           title="Nhập đúng định dạng MM-DD-YYYY" />
 
                     @*<input class="form-control" type="date" name="NgaySinh" value="@Model.NgaySinh" />*@
                     @Html.ValidationMessageFor(model => model.NgaySinh)
@@ -171,27 +172,7 @@
 
                 </div>
             </div>
-            @* trinh do hoc van *@
-            <div class="form-group">
-                <div class="control-label  col-md-4 col-sm-4">
-                    <label>Trình độ học vấn</label>
-                </div>
-                <div class="col-md-8 col-sm-8">
-                    @{
-                        var hocVan = db.TrinhDoHocVans.ToList();
-                    }
-                    <select name="MaTrinhDoHocVan" class="form-control">
-                        @foreach (var item in hocVan)
-                        {
-                            if (Model.MaTrinhDoHocVan == item.MaTrinhDoHocVan)
-                            {
-                                <option value="@item.MaTrinhDoHocVan.ToString()" selected>@item.TenTrinhDo</option>
-                            }
-                            <option value="@item.MaTrinhDoHocVan.ToString()">@item.TenTrinhDo</option>
-                        }
-                    </select>
-                </div>
-            </div>
+
 
             <!--cmnd-->
             <div class="form-group">

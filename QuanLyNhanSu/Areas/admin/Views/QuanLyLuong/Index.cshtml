@@ -13,7 +13,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <i class="fa fa-dashboard"></i> <a href="@Url.Action("index","Admin")">Dashboard</a>
+                    <i class="fa fa-dashboard"></i> <a href="@Url.Action("index","Admin")">Tổng quan</a>
                 </li>
                 <li>
                     <i class="fa fa-money"></i> Lương
@@ -62,6 +62,7 @@
                             <td>
                                 <a class="btn btn-warning" href="@Url.Action("SuaBangLuong", "QuanLyLuong", new { @id = @item.MaNhanVien })"><i class="fa fa-pencil-square-o x5" aria-hidden="true"></i>Sửa</a>
                                 <a class="btn btn-info" href="@Url.Action("ThanhToanMotNhanVien", "QuanLyLuong", new { @id = @item.MaNhanVien })">Tính lương</a>
+
 
                             </td>
                         </tr>

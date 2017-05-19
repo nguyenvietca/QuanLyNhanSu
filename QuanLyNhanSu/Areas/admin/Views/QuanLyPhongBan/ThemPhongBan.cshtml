@@ -2,6 +2,9 @@
 @using QuanLyNhanSu.Models
 @model PhongBanValidation
 
+@{
+    ViewBag.Title = "Thêm phòng ban";
+}
 
 
 <div class="row">
@@ -11,7 +14,7 @@
         </h1>
         <ol class="breadcrumb">
             <li>
-                <i class="fa fa-dashboard"></i> <a href="@Url.Action("index","Admin")">Dashboard</a>
+                <i class="fa fa-dashboard"></i> <a href="@Url.Action("index","Admin")">Tổng quan</a>
             </li>
             <li>
                 <i class="fa fa-tasks"></i><a href="@Url.Action("index","QuanLyPhongBan")">Phòng ban</a>

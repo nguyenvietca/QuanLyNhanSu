@@ -1,0 +1,89 @@
+﻿
+@using QuanLyNhanSu.Models
+@model List<LuanChuyenNhanVien>
+
+@{
+    ViewBag.Title = "Quá trình công tác";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Nhân viên
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i> <a href="@Url.Action("index","Admin")">Tổng quan</a>
+            </li>
+            <li>
+                <i class="fa fa-bar-chart-o"></i> <a href="@Url.Action("index","QuanLyUser")">Nhân viên</a>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table id="table-taikhoan" class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr class="success">
+                <th>
+                    Mã nhân viên
+                </th>
+                <th>
+                    Ngày chuyển
+                </th>
+                <th>
+                    Lý do
+                </th>
+                <th>
+                    Phòng ban cũ
+                </th>
+                <th>
+                    Phòng ban chuyển đến
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NhanVien.MaNhanVien)
+            </td>
+            <td>
+                @string.Format("{0:dd/MM/yyyy}",item.NgayChuyen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LyDoChuyen)
+            </td>
+            @{
+            QuanLyNhanSuEntities db = new QuanLyNhanSuEntities();
+            String c = String.Empty;
+            String d = String.Empty;
+            foreach (var pb in db.PhongBans)
+            {
+                if (pb.MaPhongBan.Equals(item.PhongBanChuyen))
+                {
+                    c = pb.TenPhongBan;
+                }
+                if (pb.MaPhongBan.Equals(item.PhongBanDen))
+                {
+                    d = pb.TenPhongBan;
+                }
+
+            }
+            }
+            <td>
+                @c
+            </td>
+            <td>
+                @d
+            </td>
+        </tr>
+        }
+        </tbody>
+
+    </table>
+</div>
+

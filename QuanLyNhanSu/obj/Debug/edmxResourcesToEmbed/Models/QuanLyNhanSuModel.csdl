@@ -88,6 +88,7 @@
     <Property Name="ThueThuNhap" Type="Double" />
     <NavigationProperty Name="ChiTietLuongs" Relationship="Self.FK__ChiTietLu__TongT__67DE6983" FromRole="Luong" ToRole="ChiTietLuong" />
     <NavigationProperty Name="NhanVien" Relationship="Self.FK__Luong__MaNhanVien" FromRole="Luong" ToRole="NhanVien" />
+    <NavigationProperty Name="CapNhatLuongs" Relationship="QuanLyNhanSuModel.FK_CapNhatLuong_Luong" FromRole="Luong" ToRole="CapNhatLuong" />
   </EntityType>
   <EntityType Name="NhanVien">
     <Key>
@@ -387,6 +388,11 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="CapNhatLuongs" EntityType="QuanLyNhanSuModel.CapNhatLuong" />
+    <AssociationSet Name="FK_CapNhatLuong_Luong" Association="QuanLyNhanSuModel.FK_CapNhatLuong_Luong">
+      <End Role="Luong" EntitySet="Luongs" />
+      <End Role="CapNhatLuong" EntitySet="CapNhatLuongs" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -399,4 +405,33 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <EntityType Name="CapNhatLuong">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="MaNhanVien" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaNhanVien" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="BHXH" Type="Int32" />
+    <Property Name="PhuCap" Type="Int32" />
+    <Property Name="ThueThuNhap" Type="Double" />
+    <Property Name="NgayCapNhat" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Luong" Relationship="QuanLyNhanSuModel.FK_CapNhatLuong_Luong" FromRole="CapNhatLuong" ToRole="Luong" />
+    <Property Name="LuongHienTai" Type="Int32" Nullable="false" />
+    <Property Name="LuongSauCapNhat" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CapNhatLuong_Luong">
+    <End Type="QuanLyNhanSuModel.Luong" Role="Luong" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="QuanLyNhanSuModel.CapNhatLuong" Role="CapNhatLuong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Luong">
+        <PropertyRef Name="MaNhanVien" />
+      </Principal>
+      <Dependent Role="CapNhatLuong">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

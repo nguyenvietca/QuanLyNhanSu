@@ -40,6 +40,7 @@ namespace QuanLyNhanSu.Models
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<ThoiViec> ThoiViecs { get; set; }
         public virtual DbSet<TrinhDoHocVan> TrinhDoHocVans { get; set; }
+        public virtual DbSet<CapNhatLuong> CapNhatLuongs { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

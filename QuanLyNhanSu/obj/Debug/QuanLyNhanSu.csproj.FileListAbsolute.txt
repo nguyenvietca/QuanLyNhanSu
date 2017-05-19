@@ -2,8 +2,13 @@ G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\QuanLyNhanSu.dll.config
 G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\QuanLyNhanSu.dll
 G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\QuanLyNhanSu.pdb
 G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\Antlr3.Runtime.dll
+G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\BitPantry.StringWriters.dll
+G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\ClosedXML.dll
+G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\DocumentFormat.OpenXml.dll
 G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\EntityFramework.dll
 G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\EntityFramework.SqlServer.dll
+G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\Excel.dll
+G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\ICSharpCode.SharpZipLib.dll
 G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\Microsoft.AspNet.Identity.Core.dll
 G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\Microsoft.AspNet.Identity.Owin.dll
@@ -27,6 +32,9 @@ G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\System.Web.WebPages.Deploy
 G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\System.Web.WebPages.dll
 G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\System.Web.WebPages.Razor.dll
 G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\WebGrease.dll
+G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\ClosedXML.pdb
+G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\ClosedXML.xml
+G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\Excel.pdb
 G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\System.Web.Helpers.xml
 G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\System.Web.Mvc.xml
 G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\System.Web.Optimization.xml

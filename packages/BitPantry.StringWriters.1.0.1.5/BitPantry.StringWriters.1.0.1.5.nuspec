@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>BitPantry.StringWriters</id>
+    <version>1.0.1.5</version>
+    <title>BitPantry.StringWriters</title>
+    <authors>Jeff Hewitt</authors>
+    <owners>Jeff Hewitt</owners>
+    <licenseUrl>https://github.com/bitpantry/BitPantry.StringWriters</licenseUrl>
+    <projectUrl>https://github.com/bitpantry/BitPantry.StringWriters</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>String writer implementation, primarily used in Theta.CodePlex.com, but can also be used for any console application</description>
+    <summary />
+  </metadata>
+</package>

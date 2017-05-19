@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using QuanLyNhanSu.Models;
+using System.Data;
+using System.Web.UI.WebControls;
+using System.IO;
+using System.Web.UI;
 namespace QuanLyNhanSu.Areas.admin.Controllers
 {
     public class QuanLyPhongBanController : AuthorController
@@ -92,14 +96,16 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
         {
             var name = db.PhongBans.Where(n => n.MaPhongBan == id).SingleOrDefault().TenPhongBan;
             ViewBag.ten = name.ToString();
+            
             var list = db.NhanViens.Where(n => n.MaPhongBan == id).ToList();
+            ViewBag.id = id;
             return View(list);
         }
         [HttpGet]
         public ActionResult ChuyenNhanVien(String id)
         {
             var nv = db.NhanViens.Where(n => n.MaNhanVien == id).FirstOrDefault();
-           
+
             if (nv != null)
             {
                 return View(nv);
@@ -113,7 +119,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
         public ActionResult ChuyenNhanVien(NhanVien nv, LuanChuyenNhanVien fl)
         {
             var nvChuyen = db.NhanViens.Where(n => n.MaNhanVien == nv.MaNhanVien).FirstOrDefault();
-            
+
             nvChuyen.MaNhanVien = nv.MaNhanVien;
             nvChuyen.HoTen = nv.HoTen;
             nvChuyen.MaChucVuNV = nv.MaChucVuNV;
@@ -139,12 +145,12 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             tableChuyen.PhongBanChuyen = nv.MaPhongBan; //
 
             tableChuyen.PhongBanDen = fl.PhongBanDen;
-            tableChuyen.LyDoChuyen = fl.LyDoChuyen;           //
+            tableChuyen.LyDoChuyen = fl.LyDoChuyen;
+            //add vao csdl quá trình công tác
             db.LuanChuyenNhanViens.Add(tableChuyen);
             db.SaveChanges();
             return Redirect("/admin/QuanLyPhongBan");
         }
-
 
 
         public ActionResult XoaPhongBan(String id)
@@ -156,6 +162,60 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
                 db.SaveChanges();
             }
             return Redirect("/admin/QuanLyPhongBan");
-        }
+        }// end xoa phong ban
+
+
+        public ActionResult XuatFileExel(String id)
+        {
+                               //xXuatFileExel danh sach phong ABC
+            var ds = db.NhanViens.Where(n => n.MaPhongBan == id).ToList();
+            var phong = db.PhongBans.ToList();
+        
+            //===================================================
+            DataTable dt = new DataTable();
+            //Add Datacolumn
+            DataColumn workCol = dt.Columns.Add("Họ tên", typeof(String));
+
+            dt.Columns.Add("Phòng ban", typeof(String));
+            dt.Columns.Add("Chức vụ", typeof(String));
+            dt.Columns.Add("Học vấn", typeof(String));
+            dt.Columns.Add("Chuyên ngành", typeof(String));
+
+            //Add in the datarow
+            foreach (var item in ds)
+            {
+                DataRow newRow = dt.NewRow();
+                newRow["Họ tên"] = item.HoTen;
+                newRow["Phòng ban"] = item.PhongBan.TenPhongBan;
+                newRow["Chức vụ"] = item.ChucVuNhanVien.TenChucVu;
+                newRow["Học vấn"] = item.TrinhDoHocVan.TenTrinhDo;
+                newRow["Chuyên ngành"] = item.ChuyenNganh.TenChuyenNganh;
+
+                dt.Rows.Add(newRow);
+            }
+
+            //====================================================
+            var gv = new GridView();
+            gv.DataSource = dt.AsDataView();
+            // gv.DataSource = ds;
+            gv.DataBind();
+
+            Response.ClearContent();
+            Response.Buffer = true;
+
+            Response.AddHeader("content-disposition", "attachment; filename=danh-sach.xls");
+            Response.ContentType = "application/ms-excel";
+
+            Response.Charset = "";
+            StringWriter objStringWriter = new StringWriter();
+            HtmlTextWriter objHtmlTextWriter = new HtmlTextWriter(objStringWriter);
+
+            gv.RenderControl(objHtmlTextWriter);
+
+            Response.Output.Write(objStringWriter.ToString());
+            Response.Flush();
+            Response.End();
+            return Redirect("/admin/QuanLyPhongBan");
+        }// xuat file nhan vien
     }//end classs
 }

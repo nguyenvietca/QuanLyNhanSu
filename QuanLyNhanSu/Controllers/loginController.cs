@@ -69,7 +69,7 @@ namespace QuanLyNhanSu.Controllers
             UserValidate up = new UserValidate();
             var id = Session["MaNhanVien"] as String;
             var us = db.NhanViens.Where(n => n.MaNhanVien == id).FirstOrDefault();
-
+               if(us!=null){
             up.MaNhanVien = us.MaNhanVien;
             up.HinhAnh = us.HinhAnh;
             up.MatKhau = us.MatKhau;
@@ -85,6 +85,8 @@ namespace QuanLyNhanSu.Controllers
             up.CMND = us.CMND;
 
             return View(up);
+               }
+               return Redirect("~/");
         }
         [HttpPost]
         public ActionResult UpDateUser(UserValidate us, HttpPostedFileBase HinhAnh)

@@ -15,10 +15,12 @@ namespace QuanLyNhanSu.Models
 
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "Nhập mật khẩu")]
+        [MaxLength(50, ErrorMessage = "Vượt quá số kí tự 50")]
         public string MatKhau { get; set; }
 
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "Nhập xác nhận mật khẩu")]
+        [MaxLength(50, ErrorMessage = "Vượt quá số kí tự 50")]
         [Compare("MatKhau", ErrorMessage = "Xác nhận không khớp")]
         public string XacNhanMatKhau { get; set; }
 
