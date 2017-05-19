@@ -204,5 +204,11 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             return Redirect("/admin/QuanLyLuong");
         }
 
+
+        public ActionResult QuaTrinhTangLuong(String id)
+        {
+                              
+        return View("");
+        }// EndEv
     }   //end class
 }
