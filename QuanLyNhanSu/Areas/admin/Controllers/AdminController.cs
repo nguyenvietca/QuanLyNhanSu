@@ -10,12 +10,13 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
 {
     public class AdminController : AuthorController
     {
+        QuanLyNhanSuEntities db = new QuanLyNhanSuEntities();
 
         //
         // GET: /admin/Admin/
         public ActionResult Index()
         {
-
+          
             return View();
         }
 

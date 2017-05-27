@@ -27,19 +27,20 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
 
         public ActionResult XoaUser(String id)
         {
+
             var a = db.NhanViens.Where(x => x.MaNhanVien == id).SingleOrDefault();
-            a.TrangThai = false;
             var hd = db.HopDongs.Where(x => x.MaHopDong == id).SingleOrDefault();
             var luong = db.Luongs.Where(x => x.MaNhanVien == id).SingleOrDefault();
-            var ctLuong = db.ChiTietLuongs.Where(x => x.MaNhanVien == id).SingleOrDefault();
-            if (hd != null)
+            var ctLuong = db.ChiTietLuongs.Where(x => x.MaNhanVien == id).ToList();
+            foreach (var item in ctLuong)
             {
-                db.HopDongs.Remove(hd);
-                db.NhanViens.Remove(a);
-                db.Luongs.Remove(luong);
-                db.ChiTietLuongs.Remove(ctLuong);
-                
+                db.ChiTietLuongs.Remove(item);
             }
+
+            db.Luongs.Remove(luong);
+            db.NhanViens.Remove(a);
+            db.HopDongs.Remove(hd);
+
             db.SaveChanges();
             return Redirect("~/admin/QuanLyUser");
         }
@@ -78,11 +79,19 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
         {
             upUser.XacNhanMatKhau = upUser.MatKhau;
             var us = db.NhanViens.Where(n => n.MaNhanVien == upUser.MaNhanVien).FirstOrDefault();
+
             if (ModelState.IsValid)
             {
                 //var us = db.NhanViens.Where(n => n.MaNhanVien == upUser.MaNhanVien).FirstOrDefault();
                 if (us != null)
                 {
+
+                    CapNhatTrinhDoHocVan capNhat = new CapNhatTrinhDoHocVan();
+                    capNhat.MaNhanVien = upUser.MaNhanVien;
+                    capNhat.NgayCapNhat = DateTime.Now.Date;
+                    capNhat.MaTrinhDoTruoc = us.MaTrinhDoHocVan;
+                    capNhat.MaTrinhDoCapNhat = upUser.MaTrinhDoHocVan;
+
                     us.MaNhanVien = upUser.MaNhanVien;
                     us.HoTen = upUser.HoTen;
                     us.MatKhau = upUser.MatKhau;
@@ -102,6 +111,20 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
                     us.MaPhongBan = upUser.MaPhongBan;
                     us.CMND = upUser.CMND;
 
+                    var trinhdo = db.TrinhDoHocVans.Where(n => n.MaTrinhDoHocVan.Equals(us.MaTrinhDoHocVan)).FirstOrDefault();
+
+                    var luong = db.Luongs.Where(n => n.MaNhanVien.Equals(us.MaNhanVien)).FirstOrDefault();
+
+                    if (trinhdo.HeSoBac != null)
+                    {
+                        luong.HeSoLuong = luong.HeSoLuong < (double)trinhdo.HeSoBac ? (double)trinhdo.HeSoBac : luong.HeSoLuong;
+                    }
+                    else
+                    { luong.HeSoLuong = 1; }
+
+
+
+                    db.CapNhatTrinhDoHocVans.Add(capNhat);
 
                     db.SaveChanges();
                     return Redirect("/admin/QuanLyUser");
@@ -135,7 +158,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             {
                 ViewBag.err = String.Empty;
                 var checkMaNhanVien = db.NhanViens.Any(x => x.MaNhanVien == nv.MaNhanVien);
-
+                
                 if (checkMaNhanVien)
                 {
                     ViewBag.err = "tài khoản đã tồn tại";
@@ -163,12 +186,34 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
                     nvAdd.HinhAnh = "icon.jpg";
 
                     //add hop dong
-                        hd.MaHopDong = nv.MaNhanVien;
-                        hd.NgayBatDau = DateTime.Now.Date;
-                   
+                    hd.MaHopDong = nv.MaNhanVien;
+                    hd.NgayBatDau = DateTime.Now.Date;
+
                     //tao bang luong
                     luong.MaNhanVien = nv.MaNhanVien;
-                    luong.LuongCoBan = 5000000;
+                    luong.LuongToiThieu = 1150000;
+                    luong.BHXH = 8;
+                    luong.BHYT = 1.5;
+                    luong.BHTN = 1;
+                    var trinhdo = db.TrinhDoHocVans.Where(n=>n.MaTrinhDoHocVan.Equals(nv.MaTrinhDoHocVan)).FirstOrDefault();
+                    var chucvu = db.ChucVuNhanViens.Where(n=>n.MaChucVuNV.Equals(nv.MaChucVuNV)).SingleOrDefault();
+                    
+                        if (trinhdo.MaTrinhDoHocVan.Equals(nv.MaTrinhDoHocVan))
+                        {
+                            luong.HeSoLuong = (double)trinhdo.HeSoBac;
+                        }
+                    
+                    
+                        if (chucvu.MaChucVuNV.Equals(nv.MaChucVuNV))
+                        {
+                            if (chucvu.HSPC != null)
+                            {
+                                luong.PhuCap = (double)chucvu.HSPC;
+                            }
+                            else
+                            { luong.PhuCap = 0; }
+                        }
+                    
 
 
                     // tmp.Image = "~/Content/images/icon.jpg";
@@ -200,7 +245,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
 
         public ActionResult XuatFileExel()
         {
-           
+
             var ds = db.NhanViens.Where(n => n.MaNhanVien != "admin" && n.MaHopDong != null).ToList();
             var phong = db.PhongBans.ToList();
             var gv = new GridView();
@@ -231,19 +276,19 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
 
             //====================================================
             gv.DataSource = dt;
-           // gv.DataSource = ds;
+            // gv.DataSource = ds;
             gv.DataBind();
 
             Response.ClearContent();
             Response.Buffer = true;
-            
+
             Response.AddHeader("content-disposition", "attachment; filename=danh-sach.xls");
             Response.ContentType = "application/ms-excel";
 
             Response.Charset = "";
             StringWriter objStringWriter = new StringWriter();
             HtmlTextWriter objHtmlTextWriter = new HtmlTextWriter(objStringWriter);
-            
+
             gv.RenderControl(objHtmlTextWriter);
 
             Response.Output.Write(objStringWriter.ToString());
@@ -252,6 +297,11 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             return Redirect("/admin/QuanLyUser");
         }
 
+        public ActionResult QuaTrinhHoc(String id)
+        {
+            var ht = db.CapNhatTrinhDoHocVans.Where(n => n.MaNhanVien == id).ToList();
+            return View(ht);
+        }
 
     }   //end lass
 }

@@ -196,6 +196,9 @@
     <Compile Include="Models\CapNhatLuong.cs">
       <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CapNhatTrinhDoHocVan.cs">
+      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ChiTietLuong.cs">
       <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
     </Compile>
@@ -219,6 +222,15 @@
       <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Luong.cs">
+      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LuongA1GV.cs">
+      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LuongA21PGS.cs">
+      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LuongA31GS.cs">
       <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhanVien.cs">
@@ -629,6 +641,9 @@
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
     <Content Include="Areas\admin\Views\QuanLyUser\QuaTrinhCongTac.cshtml" />
+    <Content Include="Areas\admin\Views\QuanLyLuong\QuaTrinhTangLuong.cshtml" />
+    <Content Include="Areas\admin\Views\QuanLyUser\QuaTrinhHoc.cshtml" />
+    <Content Include="Areas\admin\Views\QuanLyPhongBan\CapNhatPhuCap.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

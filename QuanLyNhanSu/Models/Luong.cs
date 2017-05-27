@@ -16,18 +16,21 @@ namespace QuanLyNhanSu.Models
     {
         public Luong()
         {
-            this.ChiTietLuongs = new HashSet<ChiTietLuong>();
             this.CapNhatLuongs = new HashSet<CapNhatLuong>();
+            this.ChiTietLuongs = new HashSet<ChiTietLuong>();
         }
     
         public string MaNhanVien { get; set; }
-        public int LuongCoBan { get; set; }
-        public Nullable<int> BHXH { get; set; }
-        public Nullable<int> PhuCap { get; set; }
+        public int LuongToiThieu { get; set; }
+        public Nullable<double> HeSoLuong { get; set; }
+        public Nullable<double> BHXH { get; set; }
+        public Nullable<double> BHYT { get; set; }
+        public Nullable<double> BHTN { get; set; }
+        public Nullable<double> PhuCap { get; set; }
         public Nullable<double> ThueThuNhap { get; set; }
     
+        public virtual ICollection<CapNhatLuong> CapNhatLuongs { get; set; }
         public virtual ICollection<ChiTietLuong> ChiTietLuongs { get; set; }
         public virtual NhanVien NhanVien { get; set; }
-        public virtual ICollection<CapNhatLuong> CapNhatLuongs { get; set; }
     }
 }

@@ -96,7 +96,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
         {
             var name = db.PhongBans.Where(n => n.MaPhongBan == id).SingleOrDefault().TenPhongBan;
             ViewBag.ten = name.ToString();
-            
+
             var list = db.NhanViens.Where(n => n.MaPhongBan == id).ToList();
             ViewBag.id = id;
             return View(list);
@@ -146,6 +146,21 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
 
             tableChuyen.PhongBanDen = fl.PhongBanDen;
             tableChuyen.LyDoChuyen = fl.LyDoChuyen;
+            //cap nhat lại phụ cấp chức vụ
+            var luong = db.Luongs.Where(n => n.MaNhanVien.Equals(nv.MaNhanVien)).SingleOrDefault();
+            var chucvu = db.ChucVuNhanViens.Where(n => n.MaChucVuNV.Equals(nv.MaChucVuNV)).SingleOrDefault();
+
+            if (chucvu.HSPC != null)
+            {
+                luong.PhuCap = chucvu.HSPC;
+
+            }
+            else
+            {
+                luong.PhuCap = 0;
+            }
+
+
             //add vao csdl quá trình công tác
             db.LuanChuyenNhanViens.Add(tableChuyen);
             db.SaveChanges();
@@ -164,13 +179,29 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             return Redirect("/admin/QuanLyPhongBan");
         }// end xoa phong ban
 
+        [HttpGet]
+        public ActionResult CapNhatPhuCap()
+        {
+            var pbcv = db.ChucVuNhanViens.ToList();
+            return View(pbcv);
+        }
+        [HttpPost]
+        public ActionResult CapNhatPhuCap(ChucVuNhanVien cv, String id, FormCollection f)
+        {
+            var pc = db.ChucVuNhanViens.Where(n => n.MaChucVuNV.Equals(id)).FirstOrDefault();
+            //pc.MaChucVuNV = cv.MaChucVuNV;
+            pc.HSPC = double.Parse(f["HSPC"]);
+            db.SaveChanges();
+
+            return RedirectToAction("CapNhatPhuCap", "QuanLyPhongBan");
+        }
 
         public ActionResult XuatFileExel(String id)
         {
-                               //xXuatFileExel danh sach phong ABC
+            //xXuatFileExel danh sach phong ABC
             var ds = db.NhanViens.Where(n => n.MaPhongBan == id).ToList();
             var phong = db.PhongBans.ToList();
-        
+
             //===================================================
             DataTable dt = new DataTable();
             //Add Datacolumn

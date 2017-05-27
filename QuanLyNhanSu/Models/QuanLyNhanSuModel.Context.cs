@@ -27,6 +27,8 @@ namespace QuanLyNhanSu.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<CapNhatLuong> CapNhatLuongs { get; set; }
+        public virtual DbSet<CapNhatTrinhDoHocVan> CapNhatTrinhDoHocVans { get; set; }
         public virtual DbSet<ChiTietLuong> ChiTietLuongs { get; set; }
         public virtual DbSet<ChucVuNhanVien> ChucVuNhanViens { get; set; }
         public virtual DbSet<ChuyenNganh> ChuyenNganhs { get; set; }
@@ -40,7 +42,9 @@ namespace QuanLyNhanSu.Models
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<ThoiViec> ThoiViecs { get; set; }
         public virtual DbSet<TrinhDoHocVan> TrinhDoHocVans { get; set; }
-        public virtual DbSet<CapNhatLuong> CapNhatLuongs { get; set; }
+        public virtual DbSet<LuongA1GV> LuongA1GV { get; set; }
+        public virtual DbSet<LuongA21PGS> LuongA21PGS { get; set; }
+        public virtual DbSet<LuongA31GS> LuongA31GS { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

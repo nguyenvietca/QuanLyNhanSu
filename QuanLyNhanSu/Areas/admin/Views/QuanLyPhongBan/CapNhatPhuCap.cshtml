@@ -1,0 +1,63 @@
+﻿@model IEnumerable<QuanLyNhanSu.Models.ChucVuNhanVien>
+
+@{
+    ViewBag.Title = "Phụ cấp chức vụ";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Cập nhật phụ cấp
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i> <a href="@Url.Action("index","Admin")">Tổng quan</a>
+            </li>
+            <li>
+                <i class="fa fa-fw fa-user"></i><a href="@Url.Action("index","QuanLyPhongBan")">Phòng ban</a>
+            </li>
+            <li>
+                Cập nhật phụ cấp
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="table-responsive">
+
+    <table class="table table-striped table-hover table-bordered ">
+        <tr class="success">
+            <th>
+                Tên chức vụ
+            </th>
+            <th>
+                Hệ số phụ cấp
+            </th>
+            <th>Thực hiện</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+              
+                @using (Html.BeginForm("CapNhatPhuCap", "QuanLyPhongBan", new { @id = item.MaChucVuNV }))
+                   { <td>
+                        @Html.DisplayFor(modelItem => item.TenChucVu)
+                    </td>
+                    <td>
+                        @Html.TextBox("HSPC", item.HSPC)
+                        @*<input class="form-control" name="item.HSPC" value="@item.HSPC" />*@
+
+                    </td>
+                    <td>
+                        <input class="btn btn-primary" type="submit" value="Lưu lại" />
+                        
+                    </td>
+                }
+            </tr>
+
+        }
+
+    </table>
+
+</div>

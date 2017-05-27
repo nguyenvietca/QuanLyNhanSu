@@ -1,10 +1,13 @@
 ﻿@model IEnumerable<QuanLyNhanSu.Models.ChiTietLuong>
 
+@{
+    ViewBag.Title = "Chi tiết lương";
+}
 <table class="table table-bordered table-striped table-hover">
     <thead>
         <tr class="success">
             <th>
-                Mã nhân viên
+                Mã tháng lương
             </th>
             <th>
                 Lương cơ bản
@@ -39,7 +42,7 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Luong.MaNhanVien)
+                    @Html.DisplayFor(modelItem => item.MaChiTietBangLuong)
                 </td>
                 <td>
                     @String.Format("{0:#,#}", @item.LuongCoBan).Replace(",", ",")

@@ -16,9 +16,11 @@ namespace QuanLyNhanSu.Models
     {
         public string MaChiTietBangLuong { get; set; }
         public string MaNhanVien { get; set; }
-        public int LuongCoBan { get; set; }
-        public Nullable<int> BHXH { get; set; }
-        public Nullable<int> PhuCap { get; set; }
+        public double LuongCoBan { get; set; }
+        public Nullable<double> BHXH { get; set; }
+        public Nullable<double> BHYT { get; set; }
+        public Nullable<double> BHTN { get; set; }
+        public Nullable<double> PhuCap { get; set; }
         public Nullable<double> ThueThuNhap { get; set; }
         public Nullable<int> TienThuong { get; set; }
         public Nullable<int> TienPhat { get; set; }

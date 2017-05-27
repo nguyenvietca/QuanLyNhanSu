@@ -32,10 +32,11 @@
             <thead>
                 <tr class="success">
                     <th>Mã nhân viên</th>
-                    <th>Lương cơ bản</th>
-                    <th>Phụ cấp</th>
-                    <th>Tiền BHXH</th>
-                    <th>Thuế thu nhập cá nhân (%)</th>
+                    <th>Lương tối thiểu</th>
+                    <th>Hệ số lương</th>
+                    <th>Phụ cấp CV</th>
+                    <th>Tiền bảo hiểm</th>
+                    <th>Thuế (%)</th>
                     <th>Số bảng lương: @Model.Count</th>
 
                 </tr>
@@ -48,13 +49,24 @@
                         <tr>
                             <td>@item.MaNhanVien</td>
                             <td>
-                                @string.Format("{0:#,#}", @item.LuongCoBan).Replace(",", ",")
+                                @string.Format("{0:#,#}", @item.LuongToiThieu).Replace(",", ",")
                             </td>
                             <td>
-                                @string.Format("{0:#,#}", @item.PhuCap).Replace(",", ",")
+                                @item.HeSoLuong
                             </td>
                             <td>
-                                @string.Format("{0:#,#}", @item.BHXH).Replace(",", ",")
+                                @item.PhuCap
+                            </td>
+                            <td>
+                                <table class="table table-bordered">
+                                    <tr><th>XH</th><th>YT</th><th>TN</th></tr>
+                                    <tr>
+                                        <td>@item.BHXH</td>
+                                        <td>@item.BHYT</td>
+                                        <td>@item.BHTN</td>
+                                    </tr>
+                                </table>
+
                             </td>
                             <td>
                                 @string.Format("{0:#,#}", @item.ThueThuNhap).Replace(",", ",")
@@ -62,7 +74,7 @@
                             <td>
                                 <a class="btn btn-warning" href="@Url.Action("SuaBangLuong", "QuanLyLuong", new { @id = @item.MaNhanVien })"><i class="fa fa-pencil-square-o x5" aria-hidden="true"></i>Sửa</a>
                                 <a class="btn btn-info" href="@Url.Action("ThanhToanMotNhanVien", "QuanLyLuong", new { @id = @item.MaNhanVien })">Tính lương</a>
-                                <a class="btn btn-primary" href="@Url.Action("QuaTrinhTangLuong","QuanLyLuong")">Quá trình lương</a>
+                                <a class="btn btn-primary" href="@Url.Action("QuaTrinhTangLuong", "QuanLyLuong", new  {@id = @item.MaNhanVien })">Quá trình lương</a>
 
                             </td>
                         </tr>

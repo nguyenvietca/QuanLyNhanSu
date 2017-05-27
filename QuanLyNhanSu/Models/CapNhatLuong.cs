@@ -16,12 +16,15 @@ namespace QuanLyNhanSu.Models
     {
         public int id { get; set; }
         public string MaNhanVien { get; set; }
-        public Nullable<int> BHXH { get; set; }
-        public Nullable<int> PhuCap { get; set; }
-        public Nullable<double> ThueThuNhap { get; set; }
-        public Nullable<System.DateTime> NgayCapNhat { get; set; }
         public int LuongHienTai { get; set; }
         public int LuongSauCapNhat { get; set; }
+        public Nullable<double> BHXH { get; set; }
+        public Nullable<double> BHYT { get; set; }
+        public Nullable<double> BHTN { get; set; }
+        public Nullable<double> PhuCap { get; set; }
+        public Nullable<double> ThueThuNhap { get; set; }
+        public Nullable<System.DateTime> NgayCapNhat { get; set; }
+        public Nullable<double> HeSoLuong { get; set; }
     
         public virtual Luong Luong { get; set; }
     }

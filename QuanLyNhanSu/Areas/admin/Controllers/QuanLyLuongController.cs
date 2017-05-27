@@ -34,21 +34,29 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             var l = db.Luongs.Where(n => n.MaNhanVien == luong.MaNhanVien).FirstOrDefault();
             if (l != null)
             {
-                l.MaNhanVien = luong.MaNhanVien;
-                l.LuongCoBan = up.LuongSauCapNhat;
-                l.BHXH = luong.BHXH;
+                //  l.MaNhanVien = luong.MaNhanVien;
+                if (int.Parse(up.LuongSauCapNhat.ToString()) != 0)
+                {
+                    l.LuongToiThieu = up.LuongSauCapNhat;
+                }
+
+                l.BHXH = luong.BHXH == null ? 0 : luong.BHXH;
+                l.BHYT = luong.BHYT == null ? 0 : luong.BHYT;
+                l.BHTN = luong.BHTN == null ? 0 : luong.BHTN;
                 l.PhuCap = luong.PhuCap;
                 l.ThueThuNhap = luong.ThueThuNhap;
+                l.HeSoLuong = luong.HeSoLuong;
 
                 //tao table luu lai moi lan cap nhat luong
                 CapNhatLuong capNhat = new CapNhatLuong();
                 capNhat.NgayCapNhat = DateTime.Now.Date;
                 capNhat.MaNhanVien = luong.MaNhanVien;
-                capNhat.LuongHienTai = luong.LuongCoBan;
+                capNhat.LuongHienTai = luong.LuongToiThieu;
                 capNhat.LuongSauCapNhat = up.LuongSauCapNhat;
                 capNhat.BHXH = luong.BHXH;
                 capNhat.PhuCap = luong.PhuCap;
                 capNhat.ThueThuNhap = luong.ThueThuNhap;
+                capNhat.HeSoLuong = luong.HeSoLuong;
 
                 db.CapNhatLuongs.Add(capNhat);
                 db.SaveChanges();
@@ -71,24 +79,34 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
                 var ctl = db.ChiTietLuongs.Where(n => n.MaNhanVien == ct.MaNhanVien).FirstOrDefault();
                 //ct.MaChiTietBangLuong = t+dem.ToString();
 
-                int tienthue = 0, tong = 0; ;
+                double tienthue = 0, phucap = 0;
+                double tong = 0;
 
-                ct.LuongCoBan = item.LuongCoBan;
+                ct.LuongCoBan = item.LuongToiThieu * (double)item.HeSoLuong;
 
                 item.BHXH = item.BHXH == null ? 0 : item.BHXH;
-                ct.BHXH = item.BHXH;
+                ct.BHXH = item.BHXH * item.LuongToiThieu / 100;
+
+                item.BHYT = item.BHYT == null ? 0 : item.BHYT;
+                ct.BHYT = item.BHYT * item.LuongToiThieu / 100;
+
+                item.BHTN = item.BHTN == null ? 0 : item.BHTN;
+                ct.BHTN = item.BHTN * item.LuongToiThieu / 100;
+
 
                 item.PhuCap = item.PhuCap == null ? 0 : item.PhuCap;
-                ct.PhuCap = item.PhuCap;
+                phucap = item.LuongToiThieu * (double)item.PhuCap;
+                ct.PhuCap = phucap;
+
 
                 item.ThueThuNhap = item.ThueThuNhap == null ? 0 : item.ThueThuNhap;
-                tienthue = item.LuongCoBan * (int)item.ThueThuNhap / 100;
+                tienthue = item.LuongToiThieu * (int)item.ThueThuNhap / 100;
                 ct.ThueThuNhap = tienthue;
 
                 ct.NgayNhanLuong = DateTime.Now.Date;
                 ct.TienThuong = 0;
                 ct.TienPhat = 0;
-                tong = tong + ct.LuongCoBan - (int)ct.BHXH - (int)ct.ThueThuNhap + (int)ct.PhuCap;
+                tong = tong + ct.LuongCoBan - (double)(ct.BHXH + ct.BHYT + ct.BHTN) - (double)ct.ThueThuNhap + (double)ct.PhuCap;
                 ct.TongTienLuong = tong.ToString();
                 if (ctl == null)
                 {
@@ -112,26 +130,34 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
                 var luongthang = db.Luongs.Where(n => n.MaNhanVien == id).FirstOrDefault();
                 ChiTietLuong ct = new ChiTietLuong();
                 DateTime now = DateTime.Now;
-                int tienthue = 0, tong = 0;
+                double tienthue = 0, tong = 0, phucap = 0;
 
                 ct.MaChiTietBangLuong = "t" + now.Month.ToString();
                 ct.MaNhanVien = luongthang.MaNhanVien;
 
-                ct.LuongCoBan = luongthang.LuongCoBan;
+                ct.LuongCoBan = luongthang.LuongToiThieu * (double)luongthang.HeSoLuong;
+
                 luongthang.BHXH = luongthang.BHXH == null ? 0 : luongthang.BHXH;
-                ct.BHXH = luongthang.BHXH;
+                ct.BHXH = luongthang.BHXH * luongthang.LuongToiThieu / 100;
+
+                luongthang.BHYT = luongthang.BHYT == null ? 0 : luongthang.BHYT;
+                ct.BHYT = luongthang.BHYT * luongthang.LuongToiThieu / 100;
+
+                luongthang.BHTN = luongthang.BHTN == null ? 0 : luongthang.BHTN;
+                ct.BHTN = luongthang.BHTN * luongthang.LuongToiThieu / 100;
 
                 luongthang.PhuCap = luongthang.PhuCap == null ? 0 : luongthang.PhuCap;
-                ct.PhuCap = luongthang.PhuCap;
+                phucap = luongthang.LuongToiThieu * (double)luongthang.PhuCap;
+                ct.PhuCap = phucap;
 
 
                 luongthang.ThueThuNhap = luongthang.ThueThuNhap == null ? 0 : luongthang.ThueThuNhap;
-                tienthue = luongthang.LuongCoBan * (int)luongthang.ThueThuNhap / 100;
+                tienthue = (double)luongthang.LuongToiThieu * (double)luongthang.ThueThuNhap / 100;
                 ct.ThueThuNhap = (double)tienthue;
                 ct.NgayNhanLuong = DateTime.Now.Date;
                 ct.TienThuong = 0;
                 ct.TienPhat = 0;
-                tong = tong + ct.LuongCoBan - (int)ct.BHXH - (int)ct.ThueThuNhap + (int)ct.PhuCap;
+                tong = tong + ct.LuongCoBan - (double)(ct.BHXH + ct.BHYT + ct.BHTN) - (double)ct.ThueThuNhap + (double)ct.PhuCap;
                 ct.TongTienLuong = tong.ToString();
                 if (ctl == null)
                 {
@@ -149,8 +175,9 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             var list = db.ChiTietLuongs.ToList();
             return View(list);
         }
-        public ActionResult XuatFileLuong()
+        public ActionResult XuatFileLuong(String id)
         {
+            //var l = db.ChiTietLuongs.Where(n => n.MaChiTietBangLuong == id).ToList();
             var ds = db.ChiTietLuongs.ToList();
             //===================================================
             DataTable dt = new DataTable();
@@ -164,7 +191,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             dt.Columns.Add("Thực lãnh", typeof(String));
 
             //Add in the datarow
-         
+
 
             foreach (var item in ds)
             {
@@ -176,17 +203,16 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
                 newRow["Thuế thu nhập"] = item.ThueThuNhap;
                 newRow["Ngày nhận lương"] = item.NgayNhanLuong;
                 newRow["Thực lãnh"] = item.TongTienLuong;
-               
+
 
                 dt.Rows.Add(newRow);
             }
-               
+
             //====================================================
             var gv = new GridView();
             //gv.DataSource = ds;
             gv.DataSource = dt;
             gv.DataBind();
-
             Response.ClearContent();
             Response.Buffer = true;
 
@@ -207,8 +233,12 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
 
         public ActionResult QuaTrinhTangLuong(String id)
         {
-                              
-        return View("");
+            var tangluong = db.CapNhatLuongs.Where(n => n.MaNhanVien == id).ToList();
+            if (tangluong != null)
+            {
+                return View(tangluong);
+            }
+            return Redirect("/admin/QuanLyLuong");
         }// EndEv
     }   //end class
 }

@@ -21,6 +21,7 @@ namespace QuanLyNhanSu.Models
     
         public string MaChucVuNV { get; set; }
         public string TenChucVu { get; set; }
+        public Nullable<double> HSPC { get; set; }
     
         public virtual ICollection<NhanVien> NhanViens { get; set; }
     }

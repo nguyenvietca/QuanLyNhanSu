@@ -12,17 +12,14 @@ namespace QuanLyNhanSu.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TrinhDoHocVan
+    public partial class CapNhatTrinhDoHocVan
     {
-        public TrinhDoHocVan()
-        {
-            this.NhanViens = new HashSet<NhanVien>();
-        }
+        public int MaCapNhat { get; set; }
+        public string MaNhanVien { get; set; }
+        public System.DateTime NgayCapNhat { get; set; }
+        public string MaTrinhDoTruoc { get; set; }
+        public string MaTrinhDoCapNhat { get; set; }
     
-        public string MaTrinhDoHocVan { get; set; }
-        public string TenTrinhDo { get; set; }
-        public Nullable<double> HeSoBac { get; set; }
-    
-        public virtual ICollection<NhanVien> NhanViens { get; set; }
+        public virtual NhanVien NhanVien { get; set; }
     }
 }

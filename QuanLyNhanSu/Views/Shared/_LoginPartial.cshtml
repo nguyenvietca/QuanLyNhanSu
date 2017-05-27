@@ -6,14 +6,14 @@
     String hoten = Session["MaNhanVien"] as String;
         }
         <li>
-            <a class="dropdown-toggle" style="cursor: pointer;" id="menu-sanpham" data-toggle="dropdown">
+            <a class="dropdown-toggle" style="cursor: pointer;" data-toggle="dropdown" >
                 <span>
-                   @hoten
+                    @hoten
                     <i class="glyphicon glyphicon-user"></i>
                 </span>
                 <span class="caret"></span>
             </a>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="menu-sanpham">
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu-sanpham" >
 
                 <li role="presentation"><a name="Name" role="menuitem" tabindex="-1" href="@Url.Action("UpdateUser", "login")">Cập nhật thông tin</a></li>
                 <li role="presentation"><a name="Name" role="menuitem" tabindex="-1" href="@Url.Action("index", "NhanVien")">Lịch sử nhận lương</a></li>

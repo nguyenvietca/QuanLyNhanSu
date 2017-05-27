@@ -89,13 +89,12 @@
                                    maxlength="50"
                                    value="@Model.MatKhau"
                                    required />
+                            <label class="control-label text-danger">
+                                @Html.ValidationMessageFor(n => n.MatKhau)
+                            </label>
                         </div>
                     </div>
-                    <div class="col-sm-offset-4 col-sm-5" style="height:15px">
-                        <label class="control-label text-danger">
-                            @Html.ValidationMessageFor(n => n.MatKhau)
-                        </label>
-                    </div>
+                    
                 </div>
 
                 @*Mật khẩu*@
@@ -111,13 +110,12 @@
                                    maxlength="50"
                                    value="@Model.XacNhanMatKhau"
                                    required />
+                            <label class="control-label text-danger">
+                                @Html.ValidationMessageFor(n => n.XacNhanMatKhau)
+                            </label>
                         </div>
                     </div>
-                    <div class="col-sm-offset-4 col-sm-5" style="height:15px">
-                        <label class="control-label text-danger">
-                            @Html.ValidationMessageFor(n => n.XacNhanMatKhau)
-                        </label>
-                    </div>
+                   
                 </div>
 
                 @* trinh do hoc van *@
