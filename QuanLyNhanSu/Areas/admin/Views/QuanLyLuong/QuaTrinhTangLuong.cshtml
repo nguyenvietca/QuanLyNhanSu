@@ -4,8 +4,8 @@
     ViewBag.Title = "Quá trình";
 }
 
-<div class="row">
-    <div class="col-lg-12">
+<div class="">
+    <div class="">
         <h1 class="page-header">
             Cập nhật bảng lương nhân viên
         </h1>
@@ -40,7 +40,7 @@
                     @Html.DisplayNameFor(model => model.BHXH)
                 </th>
                 <th>
-                    Phụ cấp
+                    Hệ số lương
                 </th>
                 <th>
                     Thuế thu nhập
@@ -65,11 +65,19 @@
                      
                     </td>
                     <td>
-                        @string.Format("{0:#,#}", @item.BHXH).Replace(",", ",")
-                      
+                        @*@string.Format("{0:#,#}", @item.BHXH).Replace(",", ",")*@
+                        <table class="table table-bordered">
+                            <tr><th>XH</th><th>YT</th><th>TN</th></tr>
+                            <tr>
+                                <td>@item.BHXH</td>
+                                <td>@item.BHYT</td>
+                                <td>@item.BHTN</td>
+                            </tr>
+                        </table>
                     </td>
                     <td>
-                        @string.Format("{0:#,#}", @item.PhuCap).Replace(",", ",")
+                        @item.HeSoLuong
+                        @*@string.Format("{0:#,#}", @item.PhuCap).Replace(",", ",")*@
                     </td>
                     <td>
                         @string.Format("{0:#,#}", @item.ThueThuNhap).Replace(",", ",")

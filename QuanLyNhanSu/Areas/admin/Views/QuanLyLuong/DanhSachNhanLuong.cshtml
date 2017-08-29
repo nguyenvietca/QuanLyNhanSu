@@ -4,8 +4,8 @@
 }
 
 
-<div class="row">
-    <div class="col-lg-12">
+<div class="">
+    <div class="">
         <h1 class="page-header">
             Danh sách Lương nhân viên
         </h1>
@@ -53,7 +53,7 @@
                     Lương cơ bản
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.BHXH)
+                    Bảo hiểm
                 </th>
                 <th>
                     Phụ cấp
@@ -89,8 +89,14 @@
 
                 </td>
                 <td>
-                    @string.Format("{0:#,#}", @item.BHXH).Replace(",", ",")
-
+                    <table class="table table-bordered">
+                        <tr><th>XH</th><th>YT</th><th>TN</th></tr>
+                        <tr>
+                            <td>@string.Format("{0:#,#}", @item.BHXH).Replace(",", ",")</td>
+                            <td>@string.Format("{0:#,#}", @item.BHYT).Replace(",", ",")</td>
+                            <td>@string.Format("{0:#,#}", @item.BHTN).Replace(",", ",")</td>
+                        </tr>
+                    </table>
                 </td>
                 <td>
                     @string.Format("{0:#,#}", @item.PhuCap).Replace(",", ",")

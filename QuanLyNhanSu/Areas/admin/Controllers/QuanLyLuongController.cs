@@ -43,7 +43,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
                 l.BHXH = luong.BHXH == null ? 0 : luong.BHXH;
                 l.BHYT = luong.BHYT == null ? 0 : luong.BHYT;
                 l.BHTN = luong.BHTN == null ? 0 : luong.BHTN;
-                l.PhuCap = luong.PhuCap;
+             //   l.PhuCap = luong.PhuCap;
                 l.ThueThuNhap = luong.ThueThuNhap;
                 l.HeSoLuong = luong.HeSoLuong;
 
@@ -54,7 +54,9 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
                 capNhat.LuongHienTai = luong.LuongToiThieu;
                 capNhat.LuongSauCapNhat = up.LuongSauCapNhat;
                 capNhat.BHXH = luong.BHXH;
-                capNhat.PhuCap = luong.PhuCap;
+                capNhat.BHYT = luong.BHYT;
+                capNhat.BHTN = luong.BHTN;
+              //  capNhat.PhuCap = luong.PhuCap;
                 capNhat.ThueThuNhap = luong.ThueThuNhap;
                 capNhat.HeSoLuong = luong.HeSoLuong;
 
@@ -81,7 +83,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
 
                 double tienthue = 0, phucap = 0;
                 double tong = 0;
-
+                item.HeSoLuong = item.HeSoLuong == null ? 0 : item.HeSoLuong;
                 ct.LuongCoBan = item.LuongToiThieu * (double)item.HeSoLuong;
 
                 item.BHXH = item.BHXH == null ? 0 : item.BHXH;

@@ -4,8 +4,8 @@
     ViewBag.Title = "Phụ cấp chức vụ";
 }
 
-<div class="row">
-    <div class="col-lg-12">
+<div class="">
+    <div class="">
         <h1 class="page-header">
             Cập nhật phụ cấp
         </h1>
@@ -14,7 +14,7 @@
                 <i class="fa fa-dashboard"></i> <a href="@Url.Action("index","Admin")">Tổng quan</a>
             </li>
             <li>
-                <i class="fa fa-fw fa-user"></i><a href="@Url.Action("index","QuanLyPhongBan")">Phòng ban</a>
+                <i class="fa fa-tasks"></i><a href="@Url.Action("index","QuanLyPhongBan")">Phòng ban</a>
             </li>
             <li>
                 Cập nhật phụ cấp
@@ -39,19 +39,21 @@
         {
 
             <tr>
-              
+
                 @using (Html.BeginForm("CapNhatPhuCap", "QuanLyPhongBan", new { @id = item.MaChucVuNV }))
-                   { <td>
-                        @Html.DisplayFor(modelItem => item.TenChucVu)
-                    </td>
+                {
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenChucVu)
+                </td>
                     <td>
-                        @Html.TextBox("HSPC", item.HSPC)
-                        @*<input class="form-control" name="item.HSPC" value="@item.HSPC" />*@
+                        @*@Html.TextBox("HSPC", item.HSPC, new {Title = "định dạng giá trị vd:0,45", placeholder = "vd: 0,45", })*@
+                       
+                        <input name="HSPC" value="@item.HSPC" title="định dạng giá trị vd 0,45" placeholder="vd: 0,45" />
 
                     </td>
                     <td>
                         <input class="btn btn-primary" type="submit" value="Lưu lại" />
-                        
+
                     </td>
                 }
             </tr>

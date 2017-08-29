@@ -33,18 +33,18 @@ namespace QuanLyNhanSu.Models
         public virtual DbSet<ChucVuNhanVien> ChucVuNhanViens { get; set; }
         public virtual DbSet<ChuyenNganh> ChuyenNganhs { get; set; }
         public virtual DbSet<HopDong> HopDongs { get; set; }
-        public virtual DbSet<KhenThuong> KhenThuongs { get; set; }
         public virtual DbSet<KyLuat> KyLuats { get; set; }
+        public virtual DbSet<KhenThuong> KhenThuongs { get; set; }
         public virtual DbSet<LuanChuyenNhanVien> LuanChuyenNhanViens { get; set; }
+        public virtual DbSet<LuongA1GV> LuongA1GV { get; set; }
+        public virtual DbSet<LuongA21PGS> LuongA21PGS { get; set; }
+        public virtual DbSet<LuongA31GS> LuongA31GS { get; set; }
         public virtual DbSet<Luong> Luongs { get; set; }
         public virtual DbSet<NhanVien> NhanViens { get; set; }
         public virtual DbSet<PhongBan> PhongBans { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<ThoiViec> ThoiViecs { get; set; }
         public virtual DbSet<TrinhDoHocVan> TrinhDoHocVans { get; set; }
-        public virtual DbSet<LuongA1GV> LuongA1GV { get; set; }
-        public virtual DbSet<LuongA21PGS> LuongA21PGS { get; set; }
-        public virtual DbSet<LuongA31GS> LuongA31GS { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using QuanLyNhanSu.Models;
 using System.Web.Security;
-using cExcel = Microsoft.Office.Interop.Excel;
+//using cExcel = Microsoft.Office.Interop.Excel;
 using System.IO;
 using System.Web.UI;
 using System.Web.UI.WebControls;

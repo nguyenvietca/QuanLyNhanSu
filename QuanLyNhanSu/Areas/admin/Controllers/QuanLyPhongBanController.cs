@@ -171,6 +171,32 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
         public ActionResult XoaPhongBan(String id)
         {
             var pb = db.PhongBans.Where(n => n.MaPhongBan == id).FirstOrDefault();
+
+            // những nhân viên phòngban
+            var nv = db.NhanViens.Where(n => n.MaPhongBan == id).ToList();
+
+            //danh sách hợp đồng
+            var hd = db.HopDongs.ToList();
+
+            /*
+             * mã phòng ban
+             * mã hợp đồng = mã nhân viên
+             */
+
+            foreach (var item in hd)
+            {
+                foreach (var i in nv)
+                {
+                    if (item.MaHopDong == i.MaHopDong)
+                    {
+                        db.NhanViens.Remove(i);
+                        db.SaveChanges();
+                    }
+
+                }
+                db.HopDongs.Remove(item);
+                db.SaveChanges();
+            }
             if (pb != null)
             {
                 db.PhongBans.Remove(pb);
@@ -190,7 +216,8 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
         {
             var pc = db.ChucVuNhanViens.Where(n => n.MaChucVuNV.Equals(id)).FirstOrDefault();
             //pc.MaChucVuNV = cv.MaChucVuNV;
-            pc.HSPC = double.Parse(f["HSPC"]);
+            var x = f["HSPC"];
+            pc.HSPC = x == null ? 0 : double.Parse(x.ToString());
             db.SaveChanges();
 
             return RedirectToAction("CapNhatPhuCap", "QuanLyPhongBan");

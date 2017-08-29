@@ -27,7 +27,7 @@ namespace QuanLyNhanSu.Controllers
         [HttpPost]
         public ActionResult Login(NhanVien user)
         {
-
+            
             //check email da ton tai chua
             var checkaccount = db.NhanViens.Any(x => x.MaNhanVien == user.MaNhanVien &&
                 x.MatKhau == user.MatKhau && x.TrangThai == true);

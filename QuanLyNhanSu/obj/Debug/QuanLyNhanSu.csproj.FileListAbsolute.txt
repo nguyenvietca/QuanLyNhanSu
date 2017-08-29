@@ -58,6 +58,6 @@ G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\Microsoft.Owin.Security.OA
 G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\Microsoft.Owin.Security.Google.xml
 G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\Microsoft.Owin.Security.Twitter.xml
 G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.csprojResolveAssemblyReference.cache
 G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.dll
 G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.pdb
-G:\HOC TAP\DO AN 3\CODE\QuanLyNhanSu\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.csprojResolveAssemblyReference.cache

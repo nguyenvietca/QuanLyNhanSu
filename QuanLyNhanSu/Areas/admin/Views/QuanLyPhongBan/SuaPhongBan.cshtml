@@ -1,12 +1,14 @@
 ﻿@model QuanLyNhanSu.Models.PhongBanValidation
-
+@{ 
+    ViewBag.Title = "Cập nhật thông tin phòng ban";
+}
 @*@using QuanLyNhanSu.Models
     @model PhongBan*@
 
 
 
-<div class="row">
-    <div class="col-lg-12">
+<div class="">
+    <div class="">
         <h1 class="page-header">
             Cập nhật thông tin phòng ban
         </h1>
@@ -15,15 +17,15 @@
                 <i class="fa fa-dashboard"></i> <a href="@Url.Action("index","Admin")">Tổng quan</a>
             </li>
             <li>
-                <i class="fa fa-fw fa-user"></i><a href="@Url.Action("index","QuanLyPhongBan")">Phòng ban</a>
+                <i class="fa fa-tasks"></i><a href="@Url.Action("index","QuanLyPhongBan")">Phòng ban</a>
             </li>
             <li>
-                <i class="fa fa-fw fa-user"></i>Cập nhật thông tin phòng ban
+                <i class="fa fa-tasks"></i>Cập nhật thông tin phòng ban
             </li>
         </ol>
     </div>
 </div>
-<div class="row">
+<div class="">
     <div class=" col-md-6 col-md-offset-3">
         @Html.AntiForgeryToken()
         <form class="form-horizontal" method="post" role="form">
@@ -117,4 +119,5 @@
 
     </div>
 </div>
+<div class="clearfix"></div>
 

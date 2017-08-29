@@ -20,13 +20,15 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
         [HttpGet]
         public ActionResult khen()
         {
+            var nv = db.NhanViens.ToList();
+        
             return View(new KhenThuong());
         }
         [HttpPost]
         public ActionResult khen(KhenThuong kt)
         {
             //var ct = db.ChiTietLuongs.Where(n => n.MaNhanVien == kt.MaNhanVien).FirstOrDefault();
-            
+                     
             KhenThuong ad = new KhenThuong();
             ad.MaNhanVien = kt.MaNhanVien;
             ad.ThangThuong = kt.ThangThuong;

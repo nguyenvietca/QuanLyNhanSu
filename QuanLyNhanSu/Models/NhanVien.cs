@@ -41,8 +41,8 @@ namespace QuanLyNhanSu.Models
         public virtual ChucVuNhanVien ChucVuNhanVien { get; set; }
         public virtual ChuyenNganh ChuyenNganh { get; set; }
         public virtual HopDong HopDong { get; set; }
-        public virtual KhenThuong KhenThuong { get; set; }
         public virtual KyLuat KyLuat { get; set; }
+        public virtual KhenThuong KhenThuong { get; set; }
         public virtual ICollection<LuanChuyenNhanVien> LuanChuyenNhanViens { get; set; }
         public virtual Luong Luong { get; set; }
         public virtual PhongBan PhongBan { get; set; }

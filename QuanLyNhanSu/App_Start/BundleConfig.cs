@@ -10,7 +10,7 @@ namespace QuanLyNhanSu
         {
             // datatable
             bundles.Add(new ScriptBundle("~/bundles/datatable").Include(
-                      "~/Scripts/dataTable/dataTables.min.js"));
+                      "~/Scripts/dataTable/datatables.min.js"));
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 

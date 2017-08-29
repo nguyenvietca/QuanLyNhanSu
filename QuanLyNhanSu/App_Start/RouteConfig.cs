@@ -13,6 +13,32 @@ namespace QuanLyNhanSu
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+
+                routes.MapRoute(
+                    name: "Đăng nhập",
+                    url: "dang-nhap",
+                    defaults: new { controller = "login", action = "Login", id = UrlParameter.Optional }
+                );
+
+               routes.MapRoute(
+                    name: "Cập nhật thông tin",
+                    url: "tai-khoan/cap-nhat-thong-tin",
+                    defaults: new { controller = "login", action = "UpDateUser", id = UrlParameter.Optional }
+                );
+
+               routes.MapRoute(
+                    name: "Xem lương",
+                    url: "tai-khoan/chi-tiet-luong",
+                    defaults: new { controller = "NhanVien", action = "Index", id = UrlParameter.Optional }
+                );
+            /*
+                        routes.MapRoute(
+                          name: "Đăng nhập",
+                          url: "dang-nhap/{metatitle}-{id}",
+                          defaults: new { controller = "login", action = "Login", id = UrlParameter.Optional }
+                      );
+                        */
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

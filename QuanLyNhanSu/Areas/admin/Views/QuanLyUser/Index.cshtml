@@ -9,8 +9,8 @@
     var td = db.TrinhDoHocVans.ToList();
 }
 
-<div class="row">
-    <div class="col-lg-12">
+<div class="">
+    <div class="">
         <h1 class="page-header">
             Nhân viên
         </h1>
@@ -110,8 +110,7 @@
                     int sonam = (int)Times.Days/365;
                     
                         }
-                            
-                        @sonam
+                       
                     </td>
                     <td>
                         <a class="btn btn-primary" href="@Url.Action("QuaTrinhCongTac", "QuanLyUser", new { @id = @item.MaNhanVien })"><i class="fa fa-address-book"></i>Quá trình công tác</a>
