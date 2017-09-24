@@ -1,8 +1,6 @@
 # QuanLyNhanSu
 Quản lý nhân sự trường ĐH ASP.NET MVC
-liên hệ
-email:nguyenvietca199x@gmail.com
-facebook : https://www.facebook.com/nguyenvietca.canv1
+
 
 clone project "git clone https://github.com/nguyenvietca/QuanLyNhanSu.git"
  chỉnh sửa data source(tên server), catalog(tên database name trong sql server),
