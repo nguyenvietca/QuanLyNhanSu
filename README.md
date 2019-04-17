@@ -11,7 +11,7 @@ clone project "git clone https://github.com/nguyenvietca/QuanLyNhanSu.git"
  có thắc mắc các bạn inbox cho mình theo thông tin
  email:nguyenvietca199x@gmail.com
 facebook : https://www.facebook.com/nguyenvietca.canv1
-sdt 01694-715-862
+sdt 0394-715-862
 mình mong nhận được góp ý của các bạn(nếu có hứng thú mình sẽ update lên webservices và angularJs)
 THANKS ALL
  
