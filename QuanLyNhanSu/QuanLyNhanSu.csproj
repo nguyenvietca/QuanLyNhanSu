@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,6 +50,12 @@
     <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Excel">
       <HintPath>..\packages\ExcelDataReader.2.1.2.3\lib\net45\Excel.dll</HintPath>
@@ -128,12 +136,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -186,89 +188,94 @@
     <Compile Include="Areas\admin\Controllers\QuanLyLuongController.cs" />
     <Compile Include="Areas\admin\Controllers\QuanLyPhongBanController.cs" />
     <Compile Include="Areas\admin\Controllers\QuanLyUserController.cs" />
+    <Compile Include="Areas\admin\Controllers\SlideImagesController.cs" />
+    <Compile Include="Areas\admin\Controllers\ExportDataFileController.cs" />
+    <Compile Include="Areas\admin\Models\StringWriterUTF8.cs" />
     <Compile Include="Controllers\AuthenController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\loginController.cs" />
     <Compile Include="Controllers\NhanVienController.cs" />
+    <Compile Include="Controllers\SlideImagesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CapNhatLuong.cs">
-      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CapNhatTrinhDoHocVan.cs">
-      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ChiTietLuong.cs">
-      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ChucVuNhanVien.cs">
-      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ChuyenNganh.cs">
-      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CreateMd5Hash.cs" />
     <Compile Include="Models\HopDong.cs">
-      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\KhenThuong.cs">
-      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KyLuat.cs">
-      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LuanChuyenNhanVien.cs">
-      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Luong.cs">
-      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LuongA1GV.cs">
-      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LuongA21PGS.cs">
-      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LuongA31GS.cs">
-      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\NhanVien.cs">
-      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhongBan.cs">
-      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PhongBanValidation.cs" />
-    <Compile Include="Models\QuanLyNhanSuModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyNhanSuModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuanLyNhanSuModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuanLyNhanSuModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyNhanSuModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_helpdiagrams_Result.cs">
-      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+    <Compile Include="Models\SlideImage.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ThoiViec.cs">
-      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TrinhDoHocVan.cs">
-      <DependentUpon>QuanLyNhanSuModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserRole.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserValidate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -288,174 +295,171 @@
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\index.css" />
     <Content Include="Content\datatables.min.css" />
-    <Content Include="Content\DataTables\css\autoFill.bootstrap.css" />
-    <Content Include="Content\DataTables\css\autoFill.bootstrap.min.css" />
-    <Content Include="Content\DataTables\css\autoFill.bootstrap4.css" />
-    <Content Include="Content\DataTables\css\autoFill.bootstrap4.min.css" />
-    <Content Include="Content\DataTables\css\autoFill.dataTables.css" />
-    <Content Include="Content\DataTables\css\autoFill.dataTables.min.css" />
-    <Content Include="Content\DataTables\css\autoFill.foundation.css" />
-    <Content Include="Content\DataTables\css\autoFill.foundation.min.css" />
-    <Content Include="Content\DataTables\css\autoFill.jqueryui.css" />
-    <Content Include="Content\DataTables\css\autoFill.jqueryui.min.css" />
-    <Content Include="Content\DataTables\css\autoFill.semanticui.css" />
-    <Content Include="Content\DataTables\css\autoFill.semanticui.min.css" />
-    <Content Include="Content\DataTables\css\buttons.bootstrap.css" />
-    <Content Include="Content\DataTables\css\buttons.bootstrap.min.css" />
-    <Content Include="Content\DataTables\css\buttons.bootstrap4.css" />
-    <Content Include="Content\DataTables\css\buttons.bootstrap4.min.css" />
-    <Content Include="Content\DataTables\css\buttons.dataTables.css" />
-    <Content Include="Content\DataTables\css\buttons.dataTables.min.css" />
-    <Content Include="Content\DataTables\css\buttons.foundation.css" />
-    <Content Include="Content\DataTables\css\buttons.foundation.min.css" />
-    <Content Include="Content\DataTables\css\buttons.jqueryui.css" />
-    <Content Include="Content\DataTables\css\buttons.jqueryui.min.css" />
-    <Content Include="Content\DataTables\css\buttons.semanticui.css" />
-    <Content Include="Content\DataTables\css\buttons.semanticui.min.css" />
-    <Content Include="Content\DataTables\css\colReorder.bootstrap.css" />
-    <Content Include="Content\DataTables\css\colReorder.bootstrap.min.css" />
-    <Content Include="Content\DataTables\css\colReorder.bootstrap4.css" />
-    <Content Include="Content\DataTables\css\colReorder.bootstrap4.min.css" />
-    <Content Include="Content\DataTables\css\colReorder.dataTables.css" />
-    <Content Include="Content\DataTables\css\colReorder.dataTables.min.css" />
-    <Content Include="Content\DataTables\css\colReorder.foundation.css" />
-    <Content Include="Content\DataTables\css\colReorder.foundation.min.css" />
-    <Content Include="Content\DataTables\css\colReorder.jqueryui.css" />
-    <Content Include="Content\DataTables\css\colReorder.jqueryui.min.css" />
-    <Content Include="Content\DataTables\css\colReorder.semanticui.css" />
-    <Content Include="Content\DataTables\css\colReorder.semanticui.min.css" />
-    <Content Include="Content\DataTables\css\dataTables.bootstrap.css" />
-    <Content Include="Content\DataTables\css\dataTables.bootstrap.min.css" />
-    <Content Include="Content\DataTables\css\dataTables.bootstrap4.css" />
-    <Content Include="Content\DataTables\css\dataTables.bootstrap4.min.css" />
-    <Content Include="Content\DataTables\css\dataTables.foundation.css" />
-    <Content Include="Content\DataTables\css\dataTables.foundation.min.css" />
-    <Content Include="Content\DataTables\css\dataTables.jqueryui.css" />
-    <Content Include="Content\DataTables\css\dataTables.jqueryui.min.css" />
-    <Content Include="Content\DataTables\css\dataTables.material.css" />
-    <Content Include="Content\DataTables\css\dataTables.material.min.css" />
-    <Content Include="Content\DataTables\css\dataTables.semanticui.css" />
-    <Content Include="Content\DataTables\css\dataTables.semanticui.min.css" />
-    <Content Include="Content\DataTables\css\dataTables.uikit.css" />
-    <Content Include="Content\DataTables\css\dataTables.uikit.min.css" />
-    <Content Include="Content\DataTables\css\fixedColumns.bootstrap.css" />
-    <Content Include="Content\DataTables\css\fixedColumns.bootstrap.min.css" />
-    <Content Include="Content\DataTables\css\fixedColumns.bootstrap4.css" />
-    <Content Include="Content\DataTables\css\fixedColumns.bootstrap4.min.css" />
-    <Content Include="Content\DataTables\css\fixedColumns.dataTables.css" />
-    <Content Include="Content\DataTables\css\fixedColumns.dataTables.min.css" />
-    <Content Include="Content\DataTables\css\fixedColumns.foundation.css" />
-    <Content Include="Content\DataTables\css\fixedColumns.foundation.min.css" />
-    <Content Include="Content\DataTables\css\fixedColumns.jqueryui.css" />
-    <Content Include="Content\DataTables\css\fixedColumns.jqueryui.min.css" />
-    <Content Include="Content\DataTables\css\fixedColumns.semanticui.css" />
-    <Content Include="Content\DataTables\css\fixedColumns.semanticui.min.css" />
-    <Content Include="Content\DataTables\css\fixedHeader.bootstrap.css" />
-    <Content Include="Content\DataTables\css\fixedHeader.bootstrap.min.css" />
-    <Content Include="Content\DataTables\css\fixedHeader.bootstrap4.css" />
-    <Content Include="Content\DataTables\css\fixedHeader.bootstrap4.min.css" />
-    <Content Include="Content\DataTables\css\fixedHeader.dataTables.css" />
-    <Content Include="Content\DataTables\css\fixedHeader.dataTables.min.css" />
-    <Content Include="Content\DataTables\css\fixedHeader.foundation.css" />
-    <Content Include="Content\DataTables\css\fixedHeader.foundation.min.css" />
-    <Content Include="Content\DataTables\css\fixedHeader.jqueryui.css" />
-    <Content Include="Content\DataTables\css\fixedHeader.jqueryui.min.css" />
-    <Content Include="Content\DataTables\css\fixedHeader.semanticui.css" />
-    <Content Include="Content\DataTables\css\fixedHeader.semanticui.min.css" />
-    <Content Include="Content\DataTables\css\jquery.dataTables.css" />
-    <Content Include="Content\DataTables\css\jquery.dataTables.min.css" />
-    <Content Include="Content\DataTables\css\jquery.dataTables_themeroller.css" />
-    <Content Include="Content\DataTables\css\keyTable.bootstrap.css" />
-    <Content Include="Content\DataTables\css\keyTable.bootstrap.min.css" />
-    <Content Include="Content\DataTables\css\keyTable.bootstrap4.css" />
-    <Content Include="Content\DataTables\css\keyTable.bootstrap4.min.css" />
-    <Content Include="Content\DataTables\css\keyTable.dataTables.css" />
-    <Content Include="Content\DataTables\css\keyTable.dataTables.min.css" />
-    <Content Include="Content\DataTables\css\keyTable.foundation.css" />
-    <Content Include="Content\DataTables\css\keyTable.foundation.min.css" />
-    <Content Include="Content\DataTables\css\keyTable.jqueryui.css" />
-    <Content Include="Content\DataTables\css\keyTable.jqueryui.min.css" />
-    <Content Include="Content\DataTables\css\keyTable.semanticui.css" />
-    <Content Include="Content\DataTables\css\keyTable.semanticui.min.css" />
-    <Content Include="Content\DataTables\css\responsive.bootstrap.css" />
-    <Content Include="Content\DataTables\css\responsive.bootstrap.min.css" />
-    <Content Include="Content\DataTables\css\responsive.bootstrap4.css" />
-    <Content Include="Content\DataTables\css\responsive.bootstrap4.min.css" />
-    <Content Include="Content\DataTables\css\responsive.dataTables.css" />
-    <Content Include="Content\DataTables\css\responsive.dataTables.min.css" />
-    <Content Include="Content\DataTables\css\responsive.foundation.css" />
-    <Content Include="Content\DataTables\css\responsive.foundation.min.css" />
-    <Content Include="Content\DataTables\css\responsive.jqueryui.css" />
-    <Content Include="Content\DataTables\css\responsive.jqueryui.min.css" />
-    <Content Include="Content\DataTables\css\responsive.semanticui.css" />
-    <Content Include="Content\DataTables\css\responsive.semanticui.min.css" />
-    <Content Include="Content\DataTables\css\rowGroup.bootstrap.css" />
-    <Content Include="Content\DataTables\css\rowGroup.bootstrap.min.css" />
-    <Content Include="Content\DataTables\css\rowGroup.bootstrap4.css" />
-    <Content Include="Content\DataTables\css\rowGroup.bootstrap4.min.css" />
-    <Content Include="Content\DataTables\css\rowGroup.dataTables.css" />
-    <Content Include="Content\DataTables\css\rowGroup.dataTables.min.css" />
-    <Content Include="Content\DataTables\css\rowGroup.foundation.css" />
-    <Content Include="Content\DataTables\css\rowGroup.foundation.min.css" />
-    <Content Include="Content\DataTables\css\rowGroup.jqueryui.css" />
-    <Content Include="Content\DataTables\css\rowGroup.jqueryui.min.css" />
-    <Content Include="Content\DataTables\css\rowGroup.semanticui.css" />
-    <Content Include="Content\DataTables\css\rowGroup.semanticui.min.css" />
-    <Content Include="Content\DataTables\css\rowReorder.bootstrap.css" />
-    <Content Include="Content\DataTables\css\rowReorder.bootstrap.min.css" />
-    <Content Include="Content\DataTables\css\rowReorder.bootstrap4.css" />
-    <Content Include="Content\DataTables\css\rowReorder.bootstrap4.min.css" />
-    <Content Include="Content\DataTables\css\rowReorder.dataTables.css" />
-    <Content Include="Content\DataTables\css\rowReorder.dataTables.min.css" />
-    <Content Include="Content\DataTables\css\rowReorder.foundation.css" />
-    <Content Include="Content\DataTables\css\rowReorder.foundation.min.css" />
-    <Content Include="Content\DataTables\css\rowReorder.jqueryui.css" />
-    <Content Include="Content\DataTables\css\rowReorder.jqueryui.min.css" />
-    <Content Include="Content\DataTables\css\rowReorder.semanticui.css" />
-    <Content Include="Content\DataTables\css\rowReorder.semanticui.min.css" />
-    <Content Include="Content\DataTables\css\scroller.bootstrap.css" />
-    <Content Include="Content\DataTables\css\scroller.bootstrap.min.css" />
-    <Content Include="Content\DataTables\css\scroller.bootstrap4.css" />
-    <Content Include="Content\DataTables\css\scroller.bootstrap4.min.css" />
-    <Content Include="Content\DataTables\css\scroller.dataTables.css" />
-    <Content Include="Content\DataTables\css\scroller.dataTables.min.css" />
-    <Content Include="Content\DataTables\css\scroller.foundation.css" />
-    <Content Include="Content\DataTables\css\scroller.foundation.min.css" />
-    <Content Include="Content\DataTables\css\scroller.jqueryui.css" />
-    <Content Include="Content\DataTables\css\scroller.jqueryui.min.css" />
-    <Content Include="Content\DataTables\css\scroller.semanticui.css" />
-    <Content Include="Content\DataTables\css\scroller.semanticui.min.css" />
-    <Content Include="Content\DataTables\css\select.bootstrap.css" />
-    <Content Include="Content\DataTables\css\select.bootstrap.min.css" />
-    <Content Include="Content\DataTables\css\select.bootstrap4.css" />
-    <Content Include="Content\DataTables\css\select.bootstrap4.min.css" />
-    <Content Include="Content\DataTables\css\select.dataTables.css" />
-    <Content Include="Content\DataTables\css\select.dataTables.min.css" />
-    <Content Include="Content\DataTables\css\select.foundation.css" />
-    <Content Include="Content\DataTables\css\select.foundation.min.css" />
-    <Content Include="Content\DataTables\css\select.jqueryui.css" />
-    <Content Include="Content\DataTables\css\select.jqueryui.min.css" />
-    <Content Include="Content\DataTables\css\select.semanticui.css" />
-    <Content Include="Content\DataTables\css\select.semanticui.min.css" />
-    <Content Include="Content\DataTables\images\details_close.png" />
-    <Content Include="Content\DataTables\images\details_open.png" />
-    <Content Include="Content\DataTables\images\sort_asc.png" />
-    <Content Include="Content\DataTables\images\sort_asc_disabled.png" />
-    <Content Include="Content\DataTables\images\sort_both.png" />
-    <Content Include="Content\DataTables\images\sort_desc.png" />
-    <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
-    <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\DataTables-1.10.13\css\autoFill.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.13\css\autoFill.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\autoFill.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.13\css\autoFill.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\autoFill.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.13\css\autoFill.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\autoFill.foundation.css" />
+    <Content Include="Content\DataTables-1.10.13\css\autoFill.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\autoFill.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\autoFill.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\autoFill.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\autoFill.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\buttons.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.13\css\buttons.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\buttons.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.13\css\buttons.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\buttons.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.13\css\buttons.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\buttons.foundation.css" />
+    <Content Include="Content\DataTables-1.10.13\css\buttons.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\buttons.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\buttons.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\buttons.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\buttons.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\colReorder.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.13\css\colReorder.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\colReorder.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.13\css\colReorder.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\colReorder.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.13\css\colReorder.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\colReorder.foundation.css" />
+    <Content Include="Content\DataTables-1.10.13\css\colReorder.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\colReorder.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\colReorder.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\colReorder.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\colReorder.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\dataTables.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.13\css\dataTables.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\dataTables.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.13\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\dataTables.foundation.css" />
+    <Content Include="Content\DataTables-1.10.13\css\dataTables.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\dataTables.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\dataTables.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\dataTables.material.css" />
+    <Content Include="Content\DataTables-1.10.13\css\dataTables.material.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\dataTables.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\dataTables.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\dataTables.uikit.css" />
+    <Content Include="Content\DataTables-1.10.13\css\dataTables.uikit.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedColumns.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedColumns.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedColumns.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedColumns.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedColumns.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedColumns.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedColumns.foundation.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedColumns.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedColumns.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedColumns.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedColumns.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedColumns.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedHeader.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedHeader.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedHeader.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedHeader.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedHeader.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedHeader.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedHeader.foundation.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedHeader.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedHeader.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedHeader.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedHeader.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\fixedHeader.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\jquery.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.13\css\jquery.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Content\DataTables-1.10.13\css\keyTable.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.13\css\keyTable.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\keyTable.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.13\css\keyTable.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\keyTable.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.13\css\keyTable.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\keyTable.foundation.css" />
+    <Content Include="Content\DataTables-1.10.13\css\keyTable.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\keyTable.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\keyTable.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\keyTable.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\keyTable.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\responsive.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.13\css\responsive.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\responsive.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.13\css\responsive.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\responsive.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.13\css\responsive.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\responsive.foundation.css" />
+    <Content Include="Content\DataTables-1.10.13\css\responsive.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\responsive.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\responsive.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\responsive.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\responsive.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowGroup.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowGroup.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowGroup.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowGroup.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowGroup.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowGroup.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowGroup.foundation.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowGroup.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowGroup.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowGroup.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowGroup.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowGroup.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowReorder.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowReorder.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowReorder.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowReorder.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowReorder.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowReorder.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowReorder.foundation.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowReorder.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowReorder.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowReorder.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowReorder.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\rowReorder.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\scroller.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.13\css\scroller.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\scroller.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.13\css\scroller.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\scroller.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.13\css\scroller.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\scroller.foundation.css" />
+    <Content Include="Content\DataTables-1.10.13\css\scroller.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\scroller.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\scroller.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\scroller.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\scroller.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\select.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.13\css\select.bootstrap.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\select.bootstrap4.css" />
+    <Content Include="Content\DataTables-1.10.13\css\select.bootstrap4.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\select.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.13\css\select.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\select.foundation.css" />
+    <Content Include="Content\DataTables-1.10.13\css\select.foundation.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\select.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\select.jqueryui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\css\select.semanticui.css" />
+    <Content Include="Content\DataTables-1.10.13\css\select.semanticui.min.css" />
+    <Content Include="Content\DataTables-1.10.13\images\details_close.png" />
+    <Content Include="Content\DataTables-1.10.13\images\details_open.png" />
+    <Content Include="Content\DataTables-1.10.13\images\sort_asc.png" />
+    <Content Include="Content\DataTables-1.10.13\images\sort_asc_disabled.png" />
+    <Content Include="Content\DataTables-1.10.13\images\sort_both.png" />
+    <Content Include="Content\DataTables-1.10.13\images\sort_desc.png" />
+    <Content Include="Content\DataTables-1.10.13\images\sort_desc_disabled.png" />
+    <Content Include="Content\DataTables-1.10.13\swf\flashExport.swf" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Content\images\ca.jpg" />
-    <Content Include="Content\images\canv1.jpg" />
     <Content Include="Content\images\icon.jpg" />
     <Content Include="Content\images\icon\icon-top.png" />
     <Content Include="Content\images\icon\shop-online-icon.png" />
     <Content Include="Content\images\loop Java.png" />
-    <Content Include="Content\images\oppo-f1-hero.png" />
     <Content Include="Content\images\slide1.jpg" />
     <Content Include="Content\images\slide2.jpg" />
     <Content Include="Content\images\slide3.png" />
@@ -530,23 +534,41 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
-    <EntityDeploy Include="Models\QuanLyNhanSuModel.edmx">
+    <Content Include="Models\Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web.config" />
+    <EntityDeploy Include="Models\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QuanLyNhanSuModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\QuanLyNhanSuModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuanLyNhanSuModel.edmx</DependentUpon>
-      <LastGenOutput>QuanLyNhanSuModel.Context.cs</LastGenOutput>
+    <Content Include="Models\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\QuanLyNhanSuModel.edmx.diagram">
-      <DependentUpon>QuanLyNhanSuModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\QuanLyNhanSuModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuanLyNhanSuModel.edmx</DependentUpon>
-      <LastGenOutput>QuanLyNhanSuModel.cs</LastGenOutput>
-    </Content>
+    <Content Include="Areas\admin\Views\SlideImages\Create.cshtml" />
+    <Content Include="Areas\admin\Views\SlideImages\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\SlideImages\Details.cshtml" />
+    <Content Include="Areas\admin\Views\SlideImages\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\SlideImages\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Views\SlideImages\Create.cshtml" />
+    <Content Include="Views\SlideImages\Delete.cshtml" />
+    <Content Include="Views\SlideImages\Details.cshtml" />
+    <Content Include="Views\SlideImages\Edit.cshtml" />
+    <Content Include="Views\SlideImages\Index.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\customjs\activedatatable.js" />
@@ -561,9 +583,9 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="Content\DataTables\css\semanticui.scss" />
-    <Content Include="Content\DataTables\css\mixins.scss" />
-    <Content Include="Content\DataTables\css\common.scss" />
+    <Content Include="Content\DataTables-1.10.13\css\semanticui.scss" />
+    <Content Include="Content\DataTables-1.10.13\css\mixins.scss" />
+    <Content Include="Content\DataTables-1.10.13\css\common.scss" />
     <Content Include="Areas\admin\Views\QuanLyUser\QuaTrinhCongTac.cshtml" />
     <Content Include="Areas\admin\Views\QuanLyLuong\QuaTrinhTangLuong.cshtml" />
     <Content Include="Areas\admin\Views\QuanLyUser\QuaTrinhHoc.cshtml" />
@@ -583,13 +605,6 @@
     <Content Include="Scripts\respond.min.js" />
     <None Include="Scripts\_references.js" />
     <Content Include="Views\login\login.css" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -603,8 +618,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\admin\Models\" />
+    <Folder Include="App_GlobalResources\" />
+    <Folder Include="App_LocalResources\" />
     <Folder Include="Areas\admin\Views\Author\" />
+    <Folder Include="Areas\admin\Views\Default\" />
     <Folder Include="Views\Authen\" />
   </ItemGroup>
   <ItemGroup>

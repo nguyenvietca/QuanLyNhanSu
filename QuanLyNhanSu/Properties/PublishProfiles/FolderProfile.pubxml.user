@@ -1,0 +1,1036 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\Admin\Desktop\public</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Areas/admin/Views/Admin/Index.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/css/font-awesome.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/css/font-awesome.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/fonts/fontawesome-webfont.eot">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/fonts/fontawesome-webfont.svg">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/fonts/fontawesome-webfont.ttf">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/fonts/fontawesome-webfont.woff">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/fonts/FontAwesome.otf">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/less/bordered-pulled.less">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/less/core.less">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/less/fixed-width.less">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/less/font-awesome.less">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/less/icons.less">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/less/larger.less">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/less/list.less">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/less/mixins.less">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/less/path.less">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/less/rotated-flipped.less">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/less/spinning.less">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/less/stacked.less">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/less/variables.less">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/scss/font-awesome.scss">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/scss/_bordered-pulled.scss">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/scss/_core.scss">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/scss/_fixed-width.scss">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/scss/_icons.scss">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/scss/_larger.scss">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/scss/_list.scss">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/scss/_mixins.scss">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/scss/_path.scss">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/scss/_rotated-flipped.scss">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/scss/_spinning.scss">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/scss/_stacked.scss">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/font-awesome/scss/_variables.scss">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/glyphicons-halflings-regular.eot">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/glyphicons-halflings-regular.svg">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/glyphicons-halflings-regular.ttf">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/glyphicons-halflings-regular.woff">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/font/glyphicons-halflings-regular.woff2">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/KhenThuong/Index.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/KhenThuong/khen.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/QuanLyLuong/DanhSachNhanLuong.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/QuanLyLuong/Index.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/QuanLyLuong/QuaTrinhTangLuong.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/QuanLyLuong/SuaBangLuong.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/QuanLyLuong/ThanhToanLuong.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/QuanLyPhongBan/CapNhatPhuCap.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/QuanLyPhongBan/ChuyenNhanVien.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/QuanLyPhongBan/DanhSachNhanVien.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/QuanLyPhongBan/Index.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/QuanLyPhongBan/SuaPhongBan.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/QuanLyPhongBan/ThemPhongBan.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/QuanLyUser/Index.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/QuanLyUser/QuaTrinhCongTac.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/QuanLyUser/QuaTrinhHoc.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/QuanLyUser/ThemUser.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/QuanLyUser/UpdateUser.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/QuanLyUser/XoaUser.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/Shared/_Layout.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/web.config">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Areas/admin/Views/_ViewStart.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.pdb">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/BitPantry.StringWriters.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/ClosedXML.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/ClosedXML.pdb">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/DocumentFormat.OpenXml.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/Excel.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/Excel.pdb">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/ICSharpCode.SharpZipLib.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.EntityFramework.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Owin.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Cookies.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Facebook.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Google.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.MicrosoftAccount.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.OAuth.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Twitter.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/QuanLyNhanSu.dll">
+      <publishTime>11/02/2020 22:47:00</publishTime>
+    </File>
+    <File Include="bin/QuanLyNhanSu.pdb">
+      <publishTime>11/02/2020 22:47:00</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css.map">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css.map">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css.map">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css.map">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/css/account.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/css/font-awesome.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/css/font-awesome.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/css/index.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/datatables.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/autoFill.bootstrap.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/autoFill.bootstrap.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/autoFill.bootstrap4.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/autoFill.bootstrap4.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/autoFill.dataTables.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/autoFill.dataTables.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/autoFill.foundation.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/autoFill.foundation.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/autoFill.jqueryui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/autoFill.jqueryui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/autoFill.semanticui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/autoFill.semanticui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/buttons.bootstrap.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/buttons.bootstrap.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/buttons.bootstrap4.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/buttons.bootstrap4.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/buttons.dataTables.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/buttons.dataTables.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/buttons.foundation.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/buttons.foundation.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/buttons.jqueryui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/buttons.jqueryui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/buttons.semanticui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/buttons.semanticui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/colReorder.bootstrap.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/colReorder.bootstrap.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/colReorder.bootstrap4.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/colReorder.bootstrap4.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/colReorder.dataTables.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/colReorder.dataTables.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/colReorder.foundation.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/colReorder.foundation.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/colReorder.jqueryui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/colReorder.jqueryui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/colReorder.semanticui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/colReorder.semanticui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/common.scss">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/dataTables.bootstrap.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/dataTables.bootstrap.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/dataTables.bootstrap4.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/dataTables.bootstrap4.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/dataTables.foundation.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/dataTables.foundation.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/dataTables.jqueryui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/dataTables.jqueryui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/dataTables.material.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/dataTables.material.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/dataTables.semanticui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/dataTables.semanticui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/dataTables.uikit.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/dataTables.uikit.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedColumns.bootstrap.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedColumns.bootstrap.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedColumns.bootstrap4.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedColumns.bootstrap4.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedColumns.dataTables.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedColumns.dataTables.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedColumns.foundation.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedColumns.foundation.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedColumns.jqueryui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedColumns.jqueryui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedColumns.semanticui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedColumns.semanticui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedHeader.bootstrap.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedHeader.bootstrap.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedHeader.bootstrap4.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedHeader.bootstrap4.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedHeader.dataTables.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedHeader.dataTables.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedHeader.foundation.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedHeader.foundation.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedHeader.jqueryui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedHeader.jqueryui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedHeader.semanticui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/fixedHeader.semanticui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/jquery.dataTables.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/jquery.dataTables.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/jquery.dataTables_themeroller.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/keyTable.bootstrap.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/keyTable.bootstrap.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/keyTable.bootstrap4.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/keyTable.bootstrap4.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/keyTable.dataTables.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/keyTable.dataTables.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/keyTable.foundation.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/keyTable.foundation.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/keyTable.jqueryui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/keyTable.jqueryui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/keyTable.semanticui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/keyTable.semanticui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/mixins.scss">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/responsive.bootstrap.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/responsive.bootstrap.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/responsive.bootstrap4.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/responsive.bootstrap4.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/responsive.dataTables.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/responsive.dataTables.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/responsive.foundation.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/responsive.foundation.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/responsive.jqueryui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/responsive.jqueryui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/responsive.semanticui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/responsive.semanticui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowGroup.bootstrap.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowGroup.bootstrap.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowGroup.bootstrap4.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowGroup.bootstrap4.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowGroup.dataTables.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowGroup.dataTables.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowGroup.foundation.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowGroup.foundation.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowGroup.jqueryui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowGroup.jqueryui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowGroup.semanticui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowGroup.semanticui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowReorder.bootstrap.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowReorder.bootstrap.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowReorder.bootstrap4.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowReorder.bootstrap4.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowReorder.dataTables.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowReorder.dataTables.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowReorder.foundation.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowReorder.foundation.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowReorder.jqueryui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowReorder.jqueryui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowReorder.semanticui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/rowReorder.semanticui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/scroller.bootstrap.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/scroller.bootstrap.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/scroller.bootstrap4.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/scroller.bootstrap4.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/scroller.dataTables.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/scroller.dataTables.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/scroller.foundation.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/scroller.foundation.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/scroller.jqueryui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/scroller.jqueryui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/scroller.semanticui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/scroller.semanticui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/select.bootstrap.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/select.bootstrap.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/select.bootstrap4.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/select.bootstrap4.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/select.dataTables.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/select.dataTables.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/select.foundation.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/select.foundation.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/select.jqueryui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/select.jqueryui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/select.semanticui.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/select.semanticui.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/css/semanticui.scss">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/images/details_close.png">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/images/details_open.png">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/images/sort_asc.png">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/images/sort_asc_disabled.png">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/images/sort_both.png">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/images/sort_desc.png">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/images/sort_desc_disabled.png">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/DataTables/swf/flashExport.swf">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/font-awesome.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/font-awesome.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/fonts/fontawesome-webfont.eot">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/fonts/fontawesome-webfont.svg">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/fonts/fontawesome-webfont.ttf">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/fonts/fontawesome-webfont.woff">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/fonts/FontAwesome.otf">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/images/ca.jpg">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/images/canv1.jpg">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/images/icon.jpg">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/images/icon/icon-top.png">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/images/icon/shop-online-icon.png">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/images/loop Java.png">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/images/oppo-f1-hero.png">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/images/slide1.jpg">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/images/slide2.jpg">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/images/slide3.png">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/images/slide4.jpg">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/login.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/sb-admin.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.eot">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.svg">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.ttf">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.woff">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.woff2">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="fonts/FontAwesome.otf">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Models/QuanLyNhanSuModel.edmx.diagram">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Scripts/customjs/activedatatable.js">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Scripts/customjs/activeMenuAdmin.js">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Scripts/dataTable/datatables.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Scripts/dataTable/datatables.min.js">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Scripts/dataTable/jquery.dataTables.min.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Scripts/dataTable/jquery.dataTables.min.js">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.js">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.js">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.map">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.12.4.js">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Scripts/respond.js">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Scripts/respond.min.js">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Views/login/Index.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Views/login/Login.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Views/login/login.css">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Views/login/UpDateUser.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Views/NhanVien/Index.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Views/Shared/_LoginPartial.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>05/22/2020 22:16:08</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>11/02/2020 22:47:01</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

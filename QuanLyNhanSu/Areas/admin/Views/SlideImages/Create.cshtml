@@ -1,0 +1,66 @@
+﻿@model QuanLyNhanSu.Models.SlideImage
+
+@{
+    ViewBag.Title = "slide images";
+}
+
+@using (Html.BeginForm("Create", "SlideImages", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>SlideImage</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @*@Html.ValidationSummary(false, "", new { @class = "text-danger" })*@
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.src, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.TextBoxFor(model => model.src, new { type = "file", name = "imgFile" })
+                    @Html.ValidationMessageFor(model => model.src)
+                </div>
+            </div>*@
+
+
+        <!--hinh anh-->
+        <div class="form-group">
+            <div class="control-label  col-md-2 col-sm-2">
+                <label>Slide image</label>
+            </div>
+            <div class="col-md-4 col-sm-10">
+                <input class="form-control" required type="file" name="imgFile">
+                @Html.ValidationMessageFor(model => model.src, "", htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label  col-md-2 col-sm-2">
+                <label>Thẻ mô tả</label>
+            </div>
+            <div class="col-md-4">
+                @*@Html.EditorFor(model => model.alt, new { @class = "form-control" })*@
+                <input class="form-control" type="text" name="alt" value="@Model.alt" />
+                @*@Html.ValidationMessageFor(model => model.alt)*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @*@Html.EditorFor(model => model.title, new { @class = "form-control" })*@
+                <input class="form-control" type="text" name="title" value="@Model.title" />
+                @Html.ValidationMessageFor(model => model.title)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Trở lại", "Index",null,new {@class="btn btn-primary" })
+</div>

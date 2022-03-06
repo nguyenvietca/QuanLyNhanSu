@@ -65,7 +65,7 @@
                            value="@String.Format("{0:MM-dd-yyyy}", @Model.NgaySinh)"
                            type="text" name="NgaySinh"
                            placeholder="MM-DD-YYYY"
-                           required pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"
+                           pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"
                            title="Nhập đúng định dạng MM-DD-YYYY" />
 
                     @*<input class="form-control" type="date" name="NgaySinh" value="@Model.NgaySinh" />*@
@@ -108,11 +108,14 @@
                         string check2 = string.Empty;
                         switch (@Model.GioiTinh)
                         {
-                            case 0: check0 = "checked";
+                            case 0:
+                                check0 = "checked";
                                 break;
-                            case 1: check1 = "checked";
+                            case 1:
+                                check1 = "checked";
                                 break;
-                            default: check2 = "checked";
+                            default:
+                                check2 = "checked";
                                 break;
                         }
                     }
@@ -166,7 +169,11 @@
                             {
                                 <option value="@item.MaChuyenNganh.ToString()" selected>@item.TenChuyenNganh</option>
                             }
-                            <option value="@item.MaChuyenNganh.ToString()">@item.TenChuyenNganh</option>
+                            else
+                            {
+                                <option value="@item.MaChuyenNganh.ToString()">@item.TenChuyenNganh</option>
+                            }
+
                         }
                     </select>
 
@@ -184,7 +191,7 @@
                     @Html.ValidationMessageFor(model => model.CMND)
                 </div>
             </div>
-
+            <input hidden type="text" name="MaTrinhDoHocVan" value="@Model.MaTrinhDoHocVan" />
             <div class="form-group">
                 <div class="col-md-offset-4 col-md-4">
                     <input type="submit" value="Cập nhật" class="btn btn-primary btn-lg" />

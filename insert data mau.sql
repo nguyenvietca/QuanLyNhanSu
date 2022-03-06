@@ -29,12 +29,12 @@ insert into TrinhDoHocVans(MaTrinhDoHocVan,TenTrinhDo,HeSoBac) values
 ('ks',N'Kỹ sư',2.34);
 
 insert into LuongA1GV values
-('2,34'),
-('2,67'),
+('2.34'),
+('2.67'),
 ('3'),
 ('3.33'),
-('3,66'),
-('3,99'),
+('3.66'),
+('3.99'),
 ('4.32'),
 ('4.65'),
 ('4.98');
@@ -56,5 +56,5 @@ insert into LuongA21PGS values
 ('6.44'),
 ('6.78');
 insert into NhanViens(MaNhanVien,MatKhau,TrangThai)values(
-'admin','admin',1
+'admin','21232F297A57A5A743894A0E4A801FC3',1
 );

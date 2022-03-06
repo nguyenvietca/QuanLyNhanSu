@@ -10,12 +10,20 @@ using System.IO;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Security.Cryptography;
+using System.Text;
+using QuanLyNhanSu.Areas.admin.Models;
 
 namespace QuanLyNhanSu.Areas.admin.Controllers
 {
     public class QuanLyUserController : AuthorController
     {
         QuanLyNhanSuEntities db = new QuanLyNhanSuEntities();
+        public CreateMd5Hash md5Hash = new CreateMd5Hash();
+        public const int Minluong = 1150000;
+        public const double BHXH = 8;
+        public const double BHYT = 1.5;
+        public const double BHTN = 1;
         //
         // GET: /admin/QuanLyUser/
         public ActionResult Index()
@@ -28,7 +36,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
         public ActionResult XoaUser(String id)
         {
 
-            var a = db.NhanViens.Where(x => x.MaNhanVien == id).SingleOrDefault();
+            var nv = db.NhanViens.Where(x => x.MaNhanVien == id).SingleOrDefault();
             var hd = db.HopDongs.Where(x => x.MaHopDong == id).SingleOrDefault();
             var luong = db.Luongs.Where(x => x.MaNhanVien == id).SingleOrDefault();
             var ctLuong = db.ChiTietLuongs.Where(x => x.MaNhanVien == id).ToList();
@@ -38,7 +46,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             }
 
             db.Luongs.Remove(luong);
-            db.NhanViens.Remove(a);
+            db.NhanViens.Remove(nv);
             db.HopDongs.Remove(hd);
 
             db.SaveChanges();
@@ -50,9 +58,10 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             var user = db.NhanViens.Where(n => n.MaNhanVien == id).FirstOrDefault();
             UserValidate userVal = new UserValidate();
 
+            String matKhau = md5Hash.CreateMD5Hash(user.MatKhau);
             userVal.MaNhanVien = user.MaNhanVien;
             userVal.HoTen = user.HoTen;
-            userVal.MatKhau = user.MatKhau;
+            userVal.MatKhau = matKhau;
             userVal.GioiTinh = user.GioiTinh;
 
             userVal.MaChucVuNV = user.MaChucVuNV;
@@ -69,7 +78,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             userVal.MaPhongBan = user.MaPhongBan;
 
             userVal.CMND = user.CMND;
-            userVal.XacNhanMatKhau = user.MatKhau;
+            userVal.XacNhanMatKhau = matKhau;
 
             return View(userVal);
             //  return View(user);
@@ -77,12 +86,11 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
         [HttpPost]
         public ActionResult UpdateUser(UserValidate upUser)
         {
-            upUser.XacNhanMatKhau = upUser.MatKhau;
-            var us = db.NhanViens.Where(n => n.MaNhanVien == upUser.MaNhanVien).FirstOrDefault();
-
+            String matKhau = md5Hash.CreateMD5Hash(upUser.MatKhau);
+            upUser.XacNhanMatKhau = matKhau;
             if (ModelState.IsValid)
             {
-                //var us = db.NhanViens.Where(n => n.MaNhanVien == upUser.MaNhanVien).FirstOrDefault();
+                var us = db.NhanViens.Where(n => n.MaNhanVien == upUser.MaNhanVien).FirstOrDefault();
                 if (us != null)
                 {
 
@@ -94,7 +102,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
 
                     us.MaNhanVien = upUser.MaNhanVien;
                     us.HoTen = upUser.HoTen;
-                    us.MatKhau = upUser.MatKhau;
+                    us.MatKhau = matKhau;
                     us.GioiTinh = upUser.GioiTinh;
 
                     us.MaChucVuNV = upUser.MaChucVuNV;
@@ -136,7 +144,6 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
         }//end update
 
         [HttpGet]
-
         public ActionResult ThemUser()
         {
             var chucvu = db.ChucVuNhanViens.ToList();
@@ -149,16 +156,15 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             return View(new UserValidate());
         }
 
-
         [HttpPost]
         public ActionResult ThemUser(UserValidate nv)
         {
-            nv.XacNhanMatKhau = nv.MatKhau;
+            String matKhau = md5Hash.CreateMD5Hash(nv.MatKhau);
             if (ModelState.IsValid)
             {
                 ViewBag.err = String.Empty;
                 var checkMaNhanVien = db.NhanViens.Any(x => x.MaNhanVien == nv.MaNhanVien);
-                
+
                 if (checkMaNhanVien)
                 {
                     ViewBag.err = "tài khoản đã tồn tại";
@@ -167,11 +173,12 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
                 }
                 else
                 {
+
                     Luong luong = new Luong();
                     HopDong hd = new HopDong();
                     NhanVien nvAdd = new NhanVien();
                     nvAdd.MaNhanVien = nv.MaNhanVien;
-                    nvAdd.MatKhau = nv.MatKhau;
+                    nvAdd.MatKhau = matKhau;
                     nvAdd.HoTen = nv.HoTen;
                     nvAdd.NgaySinh = nv.NgaySinh;
                     nvAdd.QueQuan = nv.QueQuan;
@@ -191,30 +198,29 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
 
                     //tao bang luong
                     luong.MaNhanVien = nv.MaNhanVien;
-                    luong.LuongToiThieu = 1150000;
-                    luong.BHXH = 8;
-                    luong.BHYT = 1.5;
-                    luong.BHTN = 1;
-                    var trinhdo = db.TrinhDoHocVans.Where(n=>n.MaTrinhDoHocVan.Equals(nv.MaTrinhDoHocVan)).FirstOrDefault();
-                    var chucvu = db.ChucVuNhanViens.Where(n=>n.MaChucVuNV.Equals(nv.MaChucVuNV)).SingleOrDefault();
-                    
-                        if (trinhdo.MaTrinhDoHocVan.Equals(nv.MaTrinhDoHocVan))
-                        {
-                            luong.HeSoLuong = (double)trinhdo.HeSoBac;
-                        }
-                    
-                    
-                        if (chucvu.MaChucVuNV.Equals(nv.MaChucVuNV))
-                        {
-                            if (chucvu.HSPC != null)
-                            {
-                                luong.PhuCap = (double)chucvu.HSPC;
-                            }
-                            else
-                            { luong.PhuCap = 0; }
-                        }
-                    
 
+                    luong.LuongToiThieu = Minluong;
+                    luong.BHXH = BHXH;
+                    luong.BHYT = BHYT;
+                    luong.BHTN = BHTN;
+                    var trinhdo = db.TrinhDoHocVans.Where(n => n.MaTrinhDoHocVan.Equals(nv.MaTrinhDoHocVan)).FirstOrDefault();
+                    var chucvu = db.ChucVuNhanViens.Where(n => n.MaChucVuNV.Equals(nv.MaChucVuNV)).SingleOrDefault();
+
+                    if (trinhdo.MaTrinhDoHocVan.Equals(nv.MaTrinhDoHocVan))
+                    {
+                        luong.HeSoLuong = (double)trinhdo.HeSoBac;
+                    }
+
+
+                    if (chucvu.MaChucVuNV.Equals(nv.MaChucVuNV))
+                    {
+                        if (chucvu.HSPC != null)
+                        {
+                            luong.PhuCap = (double)chucvu.HSPC;
+                        }
+                        else
+                        { luong.PhuCap = 0; }
+                    }
 
                     // tmp.Image = "~/Content/images/icon.jpg";
                     db.NhanViens.Add(nvAdd);
@@ -230,11 +236,9 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
                     return Redirect("/admin/QuanLyUser");
                 }
             }
-            else
-            {
 
-                return View(nv);
-            }
+            nv.XacNhanMatKhau = String.Empty;
+            return View(nv);
         }//end add nhan vien
 
         public ActionResult QuaTrinhCongTac(String id)
@@ -276,24 +280,11 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
 
             //====================================================
             gv.DataSource = dt;
-            // gv.DataSource = ds;
             gv.DataBind();
 
-            Response.ClearContent();
-            Response.Buffer = true;
+            ExportDataFileController export = new ExportDataFileController();
+            export.XuatFileExel(gv, (HttpResponseWrapper)Response, "Nhanh vien");
 
-            Response.AddHeader("content-disposition", "attachment; filename=danh-sach.xls");
-            Response.ContentType = "application/ms-excel";
-
-            Response.Charset = "";
-            StringWriter objStringWriter = new StringWriter();
-            HtmlTextWriter objHtmlTextWriter = new HtmlTextWriter(objStringWriter);
-
-            gv.RenderControl(objHtmlTextWriter);
-
-            Response.Output.Write(objStringWriter.ToString());
-            Response.Flush();
-            Response.End();
             return Redirect("/admin/QuanLyUser");
         }
 
@@ -301,6 +292,23 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
         {
             var ht = db.CapNhatTrinhDoHocVans.Where(n => n.MaNhanVien == id).ToList();
             return View(ht);
+        }
+        public string CreateMD5Hash(string input)
+        {
+            // Step 1, calculate MD5 hash from input
+            MD5 md5 = MD5.Create();
+            byte[] inputBytes = Encoding.ASCII.GetBytes(input);
+            byte[] hashBytes = md5.ComputeHash(inputBytes);
+
+            // Step 2, convert byte array to hex string
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hashBytes.Length; i++)
+            {
+                //X2 to UPPERCASE TEXT
+                //x2 to lowercase text
+                sb.Append(hashBytes[i].ToString("X2"));
+            }
+            return sb.ToString();
         }
 
     }   //end lass

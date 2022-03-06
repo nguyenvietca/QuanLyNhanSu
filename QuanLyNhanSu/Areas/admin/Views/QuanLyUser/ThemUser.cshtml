@@ -43,7 +43,7 @@
                    class="form-control"
                    id="MaNhanVien"
                    value="@Model.MaNhanVien"
-                   required />
+                   />
 
         </div>
         <div class=" col-md-offset-5 col-sm-offset-4 col-sm-5" style="height:15px">
@@ -62,9 +62,8 @@
         <div class="col-md-4 col-sm-8">
             <input type="password" name="MatKhau"
                    class="form-control"
-                   id="MatKhau"
                    value="@Model.MatKhau"
-                   required />
+                   />
         </div>
         <div class=" col-md-offset-5 col-sm-offset-4 col-sm-5" style="height:15px">
             <label class="control-label text-danger">
@@ -82,13 +81,12 @@
         <div class="col-md-4 col-sm-8">
             <input type="password" name="XacNhanMatKhau"
                    class="form-control"
-                   id="MatKhau"
                    value="@Model.XacNhanMatKhau"
-                   required />
+                    />
         </div>
         <div class=" col-md-offset-5 col-sm-offset-4 col-sm-5" style="height:15px">
             <label class="control-label text-danger">
-                @Html.ValidationMessageFor(n => n.XacNhanMatKhau)
+                @Html.ValidationMessage("XacNhanMatKhau")
             </label>
         </div>
     </div>
@@ -105,7 +103,7 @@
                    class="form-control"
                    id="HoTen"
                    value="@Model.HoTen"
-                   required />
+                   />
         </div>
         
         <div class=" col-md-offset-5 col-sm-offset-4 col-sm-5" style="height:15px">
@@ -170,7 +168,7 @@
             <select name="MaPhongBan" class="form-control">
                 @foreach (var item in phongban)
                 {
-                <option value="@item.MaPhongBan.ToString()" selected>@item.TenPhongBan</option>
+                    <option value="@item.MaPhongBan.ToString()" selected>@item.TenPhongBan</option>
                 }
             </select>
             @Html.ValidationMessageFor(model => model.MaPhongBan)

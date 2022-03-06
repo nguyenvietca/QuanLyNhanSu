@@ -20,6 +20,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             var phongban = db.PhongBans.ToList();
             return View(phongban);
         }
+
         [HttpGet]
         public ActionResult SuaPhongBan(String id)
         {
@@ -38,6 +39,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
                 return Redirect("/");
             }
         }
+
         [HttpPost]
         public ActionResult SuaPhongBan(PhongBanValidation pb)
         {
@@ -255,24 +257,11 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             //====================================================
             var gv = new GridView();
             gv.DataSource = dt.AsDataView();
-            // gv.DataSource = ds;
             gv.DataBind();
 
-            Response.ClearContent();
-            Response.Buffer = true;
+            ExportDataFileController export = new ExportDataFileController();
+            export.XuatFileExel(gv, (HttpResponseWrapper)Response, "Nhanh-vien-phong-ban");
 
-            Response.AddHeader("content-disposition", "attachment; filename=danh-sach.xls");
-            Response.ContentType = "application/ms-excel";
-
-            Response.Charset = "";
-            StringWriter objStringWriter = new StringWriter();
-            HtmlTextWriter objHtmlTextWriter = new HtmlTextWriter(objStringWriter);
-
-            gv.RenderControl(objHtmlTextWriter);
-
-            Response.Output.Write(objStringWriter.ToString());
-            Response.Flush();
-            Response.End();
             return Redirect("/admin/QuanLyPhongBan");
         }// xuat file nhan vien
     }//end classs

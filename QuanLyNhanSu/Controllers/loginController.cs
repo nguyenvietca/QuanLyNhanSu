@@ -5,11 +5,14 @@ using System.Web;
 using System.Web.Mvc;
 using QuanLyNhanSu.Models;
 using System.Web.Security;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace QuanLyNhanSu.Controllers
 {
     public class loginController : Controller
     {
+        public const String ADMIN = "admin";
         QuanLyNhanSuEntities db = new QuanLyNhanSuEntities();
         //
         // GET: /login/
@@ -27,13 +30,15 @@ namespace QuanLyNhanSu.Controllers
         [HttpPost]
         public ActionResult Login(NhanVien user)
         {
-            
+
             //check email da ton tai chua
-            var checkaccount = db.NhanViens.Any(x => x.MaNhanVien == user.MaNhanVien &&
-                x.MatKhau == user.MatKhau && x.TrangThai == true);
-            var checkadmin = db.NhanViens.Any(x => x.MaNhanVien == user.MaNhanVien &&
-                    x.MaNhanVien == "admin" &&
-                    x.MatKhau == user.MatKhau
+            CreateMd5Hash md5Hash = new CreateMd5Hash();
+            String password = md5Hash.CreateMD5Hash(user.MatKhau);
+            var checkaccount = db.NhanViens.Any(x => x.MaNhanVien.Equals(user.MaNhanVien) &&
+                x.MatKhau.Equals(password) && x.TrangThai);
+            var checkadmin = db.NhanViens.Any(x => x.MaNhanVien.Equals(user.MaNhanVien) &&
+                    x.MaNhanVien.Equals(ADMIN) &&
+                    x.MatKhau.Equals(password)
                 );
 
             if (checkaccount)
@@ -69,24 +74,25 @@ namespace QuanLyNhanSu.Controllers
             UserValidate up = new UserValidate();
             var id = Session["MaNhanVien"] as String;
             var us = db.NhanViens.Where(n => n.MaNhanVien == id).FirstOrDefault();
-               if(us!=null){
-            up.MaNhanVien = us.MaNhanVien;
-            up.HinhAnh = us.HinhAnh;
-            up.MatKhau = us.MatKhau;
-            up.XacNhanMatKhau = us.MatKhau;
-            up.HoTen = us.HoTen;
-            up.NgaySinh = us.NgaySinh;
-            up.QueQuan = us.QueQuan;
-            up.GioiTinh = us.GioiTinh;
-            up.DanToc = us.DanToc;
-            up.sdt_NhanVien = us.sdt_NhanVien;
-            up.MaChuyenNganh = us.MaChuyenNganh;
-            up.MaTrinhDoHocVan = us.MaTrinhDoHocVan;
-            up.CMND = us.CMND;
+            if (us != null)
+            {
+                up.MaNhanVien = us.MaNhanVien;
+                up.HinhAnh = us.HinhAnh;
+                up.MatKhau = us.MatKhau;
+                up.XacNhanMatKhau = us.MatKhau;
+                up.HoTen = us.HoTen;
+                up.NgaySinh = us.NgaySinh;
+                up.QueQuan = us.QueQuan;
+                up.GioiTinh = us.GioiTinh;
+                up.DanToc = us.DanToc;
+                up.sdt_NhanVien = us.sdt_NhanVien;
+                up.MaChuyenNganh = us.MaChuyenNganh;
+                up.MaTrinhDoHocVan = us.MaTrinhDoHocVan;
+                up.CMND = us.CMND;
 
-            return View(up);
-               }
-               return Redirect("~/");
+                return View(up);
+            }
+            return Redirect("~/");
         }
         [HttpPost]
         public ActionResult UpDateUser(UserValidate us, HttpPostedFileBase HinhAnh)
@@ -95,9 +101,9 @@ namespace QuanLyNhanSu.Controllers
             {
                 var up = db.NhanViens.Where(n => n.MaNhanVien == us.MaNhanVien).FirstOrDefault();
                 up.MaNhanVien = us.MaNhanVien;
-                
-                up.MatKhau = us.MatKhau;
-                up.MatKhau = us.XacNhanMatKhau;
+                String matKhau = CreateMD5Hash(us.MatKhau);
+
+                up.MatKhau = matKhau;
                 up.HoTen = us.HoTen;
                 up.NgaySinh = us.NgaySinh;
                 up.QueQuan = us.QueQuan;
@@ -139,5 +145,24 @@ namespace QuanLyNhanSu.Controllers
             //Về trang chủ
             return Redirect("/");
         }
+
+        public string CreateMD5Hash(string input)
+        {
+            // Step 1, calculate MD5 hash from input
+            MD5 md5 = MD5.Create();
+            byte[] inputBytes = Encoding.ASCII.GetBytes(input);
+            byte[] hashBytes = md5.ComputeHash(inputBytes);
+
+            // Step 2, convert byte array to hex string
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hashBytes.Length; i++)
+            {
+                //X2 to UPPERCASE TEXT
+                //x2 to lowercase text
+                sb.Append(hashBytes[i].ToString("X2"));
+            }
+            return sb.ToString();
+        }
+
     }
 }

@@ -1,0 +1,56 @@
+﻿@model QuanLyNhanSu.Models.SlideImage
+
+@{
+    ViewBag.Title = "Slide images";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        
+    <div class="form-horizontal">
+        <h4>SlideImage</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.id)
+        @Html.HiddenFor(model => model.src)
+        @Html.HiddenFor(model => model.create_date)
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.alt, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.alt)
+                @Html.ValidationMessageFor(model => model.alt)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.title)
+                @Html.ValidationMessageFor(model => model.title)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    }
+    
+<div>
+    @Html.ActionLink("Trở lại", "Index", null, new { @class = "btn btn-primary" })
+</div>
+</body>
+</html>

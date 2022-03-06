@@ -43,7 +43,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
                 l.BHXH = luong.BHXH == null ? 0 : luong.BHXH;
                 l.BHYT = luong.BHYT == null ? 0 : luong.BHYT;
                 l.BHTN = luong.BHTN == null ? 0 : luong.BHTN;
-             //   l.PhuCap = luong.PhuCap;
+                //   l.PhuCap = luong.PhuCap;
                 l.ThueThuNhap = luong.ThueThuNhap;
                 l.HeSoLuong = luong.HeSoLuong;
 
@@ -56,7 +56,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
                 capNhat.BHXH = luong.BHXH;
                 capNhat.BHYT = luong.BHYT;
                 capNhat.BHTN = luong.BHTN;
-              //  capNhat.PhuCap = luong.PhuCap;
+                //  capNhat.PhuCap = luong.PhuCap;
                 capNhat.ThueThuNhap = luong.ThueThuNhap;
                 capNhat.HeSoLuong = luong.HeSoLuong;
 
@@ -215,20 +215,10 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             //gv.DataSource = ds;
             gv.DataSource = dt;
             gv.DataBind();
-            Response.ClearContent();
-            Response.Buffer = true;
 
-            Response.AddHeader("content-disposition", "attachment; filename=danh-sach-luong.xls");
-            Response.ContentType = "application/ms-excel";
+            ExportDataFileController export = new ExportDataFileController();
+            export.XuatFileExel(gv, (HttpResponseWrapper)Response, "danh-sach-luong");
 
-            Response.Charset = "";
-            StringWriter objStringWriter = new StringWriter();
-            HtmlTextWriter objHtmlTextWriter = new HtmlTextWriter(objStringWriter);
-
-            gv.RenderControl(objHtmlTextWriter);
-            Response.Output.Write(objStringWriter.ToString());
-            Response.Flush();
-            Response.End();
             return Redirect("/admin/QuanLyLuong");
         }
 
