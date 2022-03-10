@@ -44,6 +44,6 @@ namespace QuanLyNhanSu.Models
         public virtual DbSet<ThoiViec> ThoiViecs { get; set; }
         public virtual DbSet<TrinhDoHocVan> TrinhDoHocVans { get; set; }
         public virtual DbSet<SlideImage> SlideImages { get; set; }
-        public virtual DbSet<UserRole> UserRoles { get; set; }
+        public virtual DbSet<sp_helpdiagrams_Result> UserRoles { get; set; }
     }
 }

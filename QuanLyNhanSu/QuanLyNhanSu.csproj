@@ -190,7 +190,6 @@
     <Compile Include="Areas\admin\Controllers\QuanLyUserController.cs" />
     <Compile Include="Areas\admin\Controllers\SlideImagesController.cs" />
     <Compile Include="Areas\admin\Controllers\ExportDataFileController.cs" />
-    <Compile Include="Areas\admin\Models\StringWriterUTF8.cs" />
     <Compile Include="Controllers\AuthenController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\loginController.cs" />
@@ -245,7 +244,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model.cs">
+    <Compile Include="Models\QuanLyNhanSuModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.tt</DependentUpon>
@@ -274,7 +273,7 @@
     <Compile Include="Models\TrinhDoHocVan.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UserRole.cs">
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserValidate.cs" />
@@ -620,6 +619,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="App_GlobalResources\" />
     <Folder Include="App_LocalResources\" />
+    <Folder Include="Areas\admin\Models\" />
     <Folder Include="Areas\admin\Views\Author\" />
     <Folder Include="Areas\admin\Views\Default\" />
     <Folder Include="Views\Authen\" />

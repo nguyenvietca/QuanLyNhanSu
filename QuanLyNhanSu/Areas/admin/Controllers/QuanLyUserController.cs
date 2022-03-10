@@ -6,13 +6,10 @@ using System.Web.Mvc;
 using QuanLyNhanSu.Models;
 using System.Web.Security;
 //using cExcel = Microsoft.Office.Interop.Excel;
-using System.IO;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Security.Cryptography;
 using System.Text;
-using QuanLyNhanSu.Areas.admin.Models;
 
 namespace QuanLyNhanSu.Areas.admin.Controllers
 {
