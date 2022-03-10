@@ -13,7 +13,15 @@ clone project "git clone https://github.com/nguyenvietca/QuanLyNhanSu.git"
 facebook : https://www.facebook.com/nguyenvietca.canv1
 sdt 0394-715-862
 mình mong nhận được góp ý của các bạn(nếu có hứng thú mình sẽ update lên webservices và angularJs)
+các bạn clone về muốn add thêm chức năng thì hay pm cho mình theo thông tin trên nhé.
 THANKS ALL
+-----------------------------------------------
+10/03/2022(fix bug)
+- fix export Excel không còn bị lỗi font Tiếng Việt
+- fix khi update ở end-user thì ở trong admin update không bị lỗi nữa
+- Add chức năng slide cho phép chỉnh sửa slide theo ý muốn
+- Add password được mã hóa MD5
+
  
  
  
