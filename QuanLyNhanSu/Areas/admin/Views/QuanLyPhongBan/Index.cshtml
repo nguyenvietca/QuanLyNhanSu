@@ -43,24 +43,19 @@
             @{
                 foreach (var item in Model)
                 {
-
                     <tr>
                         @*<td>@item.MaPhongBan</td>*@
                         <td>@item.TenPhongBan</td>
                         <td>@item.sdt_PhongBan</td>
                         <td>@item.DiaChi</td>
                         <td>
-
                             <a class="btn btn-info  " href="@Url.Action("DanhSachNhanVien", "QuanLyPhongBan", new { @id = @item.MaPhongBan })"><span aria-hidden="true">Danh sách nhân viên</span> </a>
                             <a class="btn btn-warning" href="@Url.Action("SuaPhongBan", "QuanLyPhongBan", new {@id = @item.MaPhongBan })"><i class="fa fa-pencil-square-o x5" aria-hidden="true">Sửa</i></a>
                             <a class="btn btn-danger  " href="@Url.Action("XoaPhongBan", "QuanLyPhongBan", new { @id = @item.MaPhongBan })"><span aria-hidden="true"><i class="fa fa-trash-o">Xóa</i></span> </a>
                         </td>
                     </tr>
-
                 }
-
             }
-
         </tbody>
     </table>
 </div>

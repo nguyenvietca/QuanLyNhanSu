@@ -26,11 +26,8 @@
     </div>
 </div>
 <form class="form-horizontal" role="form" method="post">
-
     @Html.AntiForgeryToken()
-
     @Html.ValidationSummary(true)
-
     <div class="form-group">
         <!--start-->
         <div class="control-label col-md-offset-1 col-md-4 col-sm-4">
@@ -42,7 +39,6 @@
                    id="MaPhongBan"
                    value="@Model.MaPhongBan"
                    required />
-
         </div>
         <div class="col-sm-offset-4 col-sm-5" style="height:15px">
             <label class="control-label text-danger">
@@ -52,7 +48,6 @@
         </div>
         <!--end-->
     </div>
-
     <div class="form-group">
         <div class="control-label col-md-offset-1 col-md-4 col-sm-4">
             <label>Tên phòng ban</label>
@@ -63,17 +58,14 @@
                    id="TenPhongBan"
                    value="@Model.TenPhongBan"
                    required />
-
         </div>
         <div class="col-sm-offset-4 col-sm-5" style="height:15px">
             <label class="control-label text-danger">
-               
+
                 @Html.ValidationMessageFor(n => n.TenPhongBan)
             </label>
         </div>
-
     </div>
-
     <div class="form-group">
         <!--start-->
         <div class="control-label col-md-offset-1 col-md-4 col-sm-4">
@@ -85,18 +77,14 @@
                    id="DiaChi"
                    value="@Model.DiaChi"
                    required />
-
         </div>
         <div class="col-sm-offset-4 col-sm-5" style="height:15px">
             <label class="control-label text-danger">
-             
                 @Html.ValidationMessageFor(model => model.DiaChi)
             </label>
         </div>
         <!--end-->
-       
     </div>
-
     <div class="form-group">
         <!--start-->
         <div class="control-label col-md-offset-1 col-md-4 col-sm-4">
@@ -108,18 +96,14 @@
                    id="sdt_PhongBan"
                    value="@Model.sdt_PhongBan"
                    required />
-
         </div>
         <div class="col-sm-offset-4 col-sm-5" style="height:15px">
             <label class="control-label text-danger">
-              
                 @Html.ValidationMessageFor(model => model.sdt_PhongBan)
             </label>
         </div>
         <!--end-->
-
     </div>
-
     <div class="form-group">
         <div class="  col-md-offset-5 col-sm-offset-4 col-sm-5">
             <input type="submit" value="Thêm phòng ban" class="btn btn-primary" />

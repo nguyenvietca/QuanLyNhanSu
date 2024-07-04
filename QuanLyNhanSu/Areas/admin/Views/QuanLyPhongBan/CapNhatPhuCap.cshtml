@@ -1,9 +1,7 @@
 ﻿@model IEnumerable<QuanLyNhanSu.Models.ChucVuNhanVien>
-
 @{
     ViewBag.Title = "Phụ cấp chức vụ";
 }
-
 <div class="">
     <div class="">
         <h1 class="page-header">
@@ -23,23 +21,15 @@
     </div>
 </div>
 <div class="table-responsive">
-
     <table class="table table-striped table-hover table-bordered ">
         <tr class="success">
-            <th>
-                Tên chức vụ
-            </th>
-            <th>
-                Hệ số phụ cấp
-            </th>
+            <th>Tên chức vụ</th>
+            <th>Hệ số phụ cấp</th>
             <th>Thực hiện</th>
         </tr>
-
         @foreach (var item in Model)
         {
-
             <tr>
-
                 @using (Html.BeginForm("CapNhatPhuCap", "QuanLyPhongBan", new { @id = item.MaChucVuNV }))
                 {
                 <td>
@@ -49,17 +39,12 @@
                         @*@Html.TextBox("HSPC", item.HSPC, new {Title = "định dạng giá trị vd:0,45", placeholder = "vd: 0,45", })*@
                        
                         <input name="HSPC" value="@item.HSPC" title="định dạng giá trị vd 0,45" placeholder="vd: 0,45" />
-
                     </td>
                     <td>
                         <input class="btn btn-primary" type="submit" value="Lưu lại" />
-
                     </td>
                 }
             </tr>
-
         }
-
     </table>
-
 </div>

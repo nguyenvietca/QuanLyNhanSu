@@ -1,15 +1,11 @@
 ﻿@using QuanLyNhanSu.Models
 @model NhanVien
-
 @{
     ViewBag.Title = "Chuyển nhân viên";
 }
-
-
 <div class="">
     <div class="">
         <h1 class="page-header">
-
             Chuyển nhân viên @ViewBag.ten
         </h1>
         <ol class="breadcrumb">
@@ -23,12 +19,9 @@
     </div>
 </div>
 
-
 @Html.AntiForgeryToken()
 <form class="form-horizontal" method="post" role="form">
-
     @*@Html.ValidationSummary(false)*@
-
     @*ho ten*@
     <div class="form-group">
         <!---start-->
@@ -79,10 +72,8 @@
             var chucvu = db.ChucVuNhanViens.ToList();
             }
             <select name="MaChucVuNV" class="form-control">
-
                 @foreach (var item in chucvu)
                 {
-
                     if (Model.MaChucVuNV == item.MaChucVuNV)
                     {
                         <option value="@item.MaChucVuNV.ToString()" selected>@item.TenChucVu</option>
@@ -90,8 +81,6 @@
                     <option value="@item.MaChucVuNV.ToString()">@item.TenChucVu</option>
                 }
             </select>
-
-
         </div>
         <div class="col-sm-offset-4 col-sm-5" style="height:10px">
             <label class="control-label text-danger">
@@ -117,7 +106,6 @@
                     }
                 }
             </select>
-
         </div>
         <div class="col-sm-offset-4 col-sm-5" style="height:10px">
             <label class="control-label text-danger">
@@ -125,9 +113,7 @@
             </label>
         </div>
     </div>
-
     @**@
-
     @{
         LuanChuyenNhanVien chuyen = new LuanChuyenNhanVien();
     }
@@ -136,15 +122,12 @@
             <label>Phòng ban chuyển đến</label>
         </div>
         <div class="col-md-4 col-sm-8">
-
             <select name="PhongBanDen" class="form-control">
-
                 @foreach (var item in phongban)
                 {
                     <option value="@item.MaPhongBan.ToString()" selected>@item.TenPhongBan</option>
                 }
             </select>
-
         </div>
         <div class="col-sm-offset-4 col-sm-5" style="height:10px">
             <label class="control-label text-danger">
@@ -153,7 +136,6 @@
         </div>
     </div>
     @**@
-
     <div class="hidden">
         <input type="text" name="MatKhau" value="@Model.MatKhau" />
         <input type="text" name="GioiTinh" value="@Model.GioiTinh" />
@@ -167,29 +149,26 @@
         <input type="text" name="MaChuyenNganh" value="@Model.MaChuyenNganh" />
         <input type="text" name="MaTrinhDoHocVan" value="@Model.MaTrinhDoHocVan" />
         <input type="text" name="CMND" value="@Model.CMND" />
-
     </div>
     @*button *@
-
     <div class="form-group">
         <!---start-->
-
         <div class="control-label col-md-offset-1 col-md-4 col-sm-4">
             <label>Lý do</label>
         </div>
         <div class="col-md-4 col-sm-8">
-            <textarea class="form-control" name="LyDoChuyen"
-                      id="LyDoChuyen" rows="3"></textarea>
-
+            <textarea class="form-control"
+                      name="LyDoChuyen"
+                      id="LyDoChuyen"
+                      rows="3">
+            </textarea>
         </div>
         <div class="col-sm-offset-4 col-sm-5" style="height:10px">
             <label class="control-label text-danger">
-
             </label>
         </div>
         <!---end--->
     </div>
-
     <div class="form-group">
         <div class="  col-md-offset-5 col-sm-offset-4 col-sm-5">
             <input type="submit" value="Xác nhận" class="btn btn-primary" />

@@ -54,7 +54,7 @@
         {
             <tr>
                 <td>
-                    <img src="~/Content/images/@item.src" class="img-circle img-responsive img-thumbnail" style="width:50px;height:50px" onclick="showImagePreview('@item.src')" />
+                    <img src='~/Content/images/@item.src' class="img-circle img-responsive img-thumbnail" style="width:50px;height:50px" onclick="showImagePreview('@item.src')" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.alt)
@@ -98,33 +98,33 @@
     </table>
 </div>
 
-    <div class="modal fade" id="imagePreviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <img id="imagePreview" src="" class="img-responsive img-thumbnail" />
-                </div>
+<div class="modal fade" id="imagePreviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img id="imagePreview" src="" class="img-responsive img-thumbnail" />
             </div>
         </div>
     </div>
-    <style>
-        td img:hover {
-            cursor: zoom-in;
-        }
-    </style>
+</div>
+<style>
+    td img:hover {
+        cursor: zoom-in;
+    }
+</style>
 
-    <script>
+<script>
 
-        $(document).ready(function () {
-            $("#table-taikhoan").DataTable();
-        });
+    $(document).ready(function () {
+        $("#table-taikhoan").DataTable();
+    });
 
-        function showImagePreview(srcImage) {
-            $el = $('<button type="button" id="showModel" class="btn btn-primary" data-toggle="modal" data-target="#imagePreviewModal"></button>');
-            $('body').append($el);
-            $("#imagePreview").attr('src', "/Content/images/" + srcImage);
-            $("#showModel").click();
-        }
+    function showImagePreview(srcImage) {
+        $el = $('<button type="button" id="showModel" class="btn btn-primary" data-toggle="modal" data-target="#imagePreviewModal"></button>');
+        $('body').append($el);
+        $("#imagePreview").attr('src', "/Content/images/" + srcImage);
+        $("#showModel").click();
+    }
 
-    </script>
+</script>
 

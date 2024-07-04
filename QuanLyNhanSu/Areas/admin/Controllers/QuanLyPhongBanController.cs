@@ -69,36 +69,25 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var checkPB = db.PhongBans.Any(x => x.MaPhongBan == pb.MaPhongBan);
-
-                if (checkPB == false)
+                var isExisting = db.PhongBans.Any(x => x.MaPhongBan.Equals(pb.MaPhongBan));
+                if (isExisting)
                 {
-                    PhongBan add = new PhongBan();
-                    add.MaPhongBan = pb.MaPhongBan;
-                    add.TenPhongBan = pb.TenPhongBan;
-                    add.DiaChi = pb.DiaChi;
-                    add.sdt_PhongBan = pb.sdt_PhongBan;
-                    db.PhongBans.Add(add);
-                    db.SaveChanges();
-                    return Redirect("/admin/QuanLyPhongBan");
-                }
-                else
-                {
-                    ViewBag.err = "mã phòng ban đã tồn tại ";
+                    ViewBag.err = "Mã phòng ban đã tồn tại ";
                     return View(pb);
                 }
+                PhongBan add = new PhongBan();
+                pb.CopyPropertiesTo(add);
+                db.PhongBans.Add(add);
+                db.SaveChanges();
+                return Redirect("/admin/QuanLyPhongBan");
             }
-            else
-            {
-                return View(pb);
-            }
+            return View(pb);
         }//end them
 
         public ActionResult DanhSachNhanVien(String id)
         {
-            var name = db.PhongBans.Where(n => n.MaPhongBan == id).SingleOrDefault().TenPhongBan;
+            var name = db.PhongBans.Where(n => n.MaPhongBan.Equals(id)).SingleOrDefault().TenPhongBan;
             ViewBag.ten = name.ToString();
-
             var list = db.NhanViens.Where(n => n.MaPhongBan == id).ToList();
             ViewBag.id = id;
             return View(list);
@@ -107,15 +96,11 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
         public ActionResult ChuyenNhanVien(String id)
         {
             var nv = db.NhanViens.Where(n => n.MaNhanVien == id).FirstOrDefault();
-
             if (nv != null)
             {
                 return View(nv);
             }
-            else
-            {
-                return Redirect("/admin/QuanLyPhongBan");
-            }
+            return Redirect("/admin/QuanLyPhongBan");
         }
         [HttpPost]
         public ActionResult ChuyenNhanVien(NhanVien nv, LuanChuyenNhanVien fl)
@@ -145,23 +130,13 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             tableChuyen.MaNhanVien = nv.MaNhanVien;
             tableChuyen.NgayChuyen = DateTime.Now.Date;
             tableChuyen.PhongBanChuyen = nv.MaPhongBan; //
-
             tableChuyen.PhongBanDen = fl.PhongBanDen;
             tableChuyen.LyDoChuyen = fl.LyDoChuyen;
+
             //cap nhat lại phụ cấp chức vụ
             var luong = db.Luongs.Where(n => n.MaNhanVien.Equals(nv.MaNhanVien)).SingleOrDefault();
             var chucvu = db.ChucVuNhanViens.Where(n => n.MaChucVuNV.Equals(nv.MaChucVuNV)).SingleOrDefault();
-
-            if (chucvu.HSPC != null)
-            {
-                luong.PhuCap = chucvu.HSPC;
-
-            }
-            else
-            {
-                luong.PhuCap = 0;
-            }
-
+            luong.PhuCap = chucvu.HSPC != null ? chucvu.HSPC : 0;
 
             //add vao csdl quá trình công tác
             db.LuanChuyenNhanViens.Add(tableChuyen);

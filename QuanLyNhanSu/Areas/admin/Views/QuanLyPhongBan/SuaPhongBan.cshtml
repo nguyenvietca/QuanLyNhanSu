@@ -4,9 +4,6 @@
 }
 @*@using QuanLyNhanSu.Models
     @model PhongBan*@
-
-
-
 <div class="">
     <div class="">
         <h1 class="page-header">
@@ -29,7 +26,6 @@
     <div class=" col-md-6 col-md-offset-3">
         @Html.AntiForgeryToken()
         <form class="form-horizontal" method="post" role="form">
-
             <div class="form-group hidden">
                 <div class="col-sm-4 control-label">
                     <label>Mã phòng ban</label>
@@ -45,10 +41,8 @@
                     <label class="control-label text-danger">
                         @Html.ValidationMessageFor(n => n.MaPhongBan)
                     </label>
-
                 </div>
             </div>
-
             <div class="form-group">
                 <div class="col-sm-4 control-label">
                     <label>Tên phòng ban</label>
@@ -67,12 +61,10 @@
                     @*@ViewBag.MaNhanVien*@
                 </div>
             </div>
-
             <div class="form-group">
                 <div class="col-sm-4 control-label">
                     <label>Địa chỉ</label>
                 </div>
-
                 <div class="col-sm-8">
                     <input type="text" name="DiaChi"
                            class="form-control"
@@ -85,7 +77,6 @@
                         @Html.ValidationMessageFor(model => model.DiaChi)
                     </label>
                     @*@ViewBag.MaNhanVien*@
-
                 </div>
             </div>
 
@@ -106,17 +97,14 @@
                         @Html.ValidationMessageFor(model => model.sdt_PhongBan)
                     </label>
                     @*@ViewBag.MaNhanVien*@
-
                 </div>
             </div>
-
             <div class="form-group">
                 <div class=" col-sm-offset-4 col-sm-5">
                     <input type="submit" value="Lưu thay đổi" class="btn btn-primary" />
                 </div>
             </div>
         </form>
-
     </div>
 </div>
 <div class="clearfix"></div>

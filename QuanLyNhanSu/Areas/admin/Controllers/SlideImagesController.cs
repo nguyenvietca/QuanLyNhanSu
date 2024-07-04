@@ -7,17 +7,24 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.Wordprocessing;
+using QuanLyNhanSu.Constant;
 using QuanLyNhanSu.Models;
 
 namespace QuanLyNhanSu.Areas.admin.Controllers
 {
+
     public class SlideImagesController : Controller
     {
         private QuanLyNhanSuEntities db = new QuanLyNhanSuEntities();
 
+
+        protected String StringPathName = PathConstant.PATH_RESOURCE;
         // GET: admin/SlideImages
         public ActionResult Index()
         {
+            ViewBag.StringPathName = StringPathName;
             return View(db.SlideImages.ToList());
         }
 
@@ -47,7 +54,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,filePost,alt,title,create_date,update_date")] SlideImage slideImage, HttpPostedFileBase imgFile)
+        public ActionResult Create([Bind(Include = "id,filePost,alt,title,create_date,update_date")] SlideImageValidation slideImage, HttpPostedFileBase imgFile)
         {
             if (ModelState.IsValid)
             {
@@ -68,10 +75,13 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
                 //}
 
                 //var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), slideImage.src);
-                imgFile.SaveAs(HttpContext.Server.MapPath("~/Content/images/") + imgFile.FileName);
-
+                imgFile.SaveAs(HttpContext.Server.MapPath(StringPathName) + imgFile.FileName);
                 slideImage.src = imgFile.FileName;
-                db.SlideImages.Add(slideImage);
+
+                SlideImage add = new SlideImage();
+                slideImage.CopyPropertiesTo(add);
+
+                db.SlideImages.Add(add);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -126,7 +136,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
         //}
 
         // POST: admin/SlideImages/Delete/5
-        [ ActionName("Delete")]
+        [ActionName("Delete")]
         //[ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

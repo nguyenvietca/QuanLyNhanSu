@@ -9,7 +9,6 @@
 <div class="">
     <div class="">
         <h1 class="page-header">
-
             Danh sách nhân viên phòng @ViewBag.ten
         </h1>
         <ol class="breadcrumb">
@@ -24,7 +23,7 @@
 </div>
 <div style="margin:10px">
     <a class="btn btn-primary " href="@Url.Action("XuatFileExel", "QuanLyPhongBan", new { @id = @ViewBag.id })">
-    Xuất danh sách nhân viên
+        Xuất danh sách nhân viên
     </a>
 </div>
 <div class="table-responsive">
@@ -32,87 +31,66 @@
         <thead>
             <tr class="success">
                 @*<th>
-                    Mã nhân viên
-                </th>*@
-                <th>
-                    Họ tên
-                </th>
+                        Mã nhân viên
+                    </th>*@
+                <th>Họ tên</th>
                 @*<th>
                         Hình ảnh
                     </th>*@
-                <th>
-                    Giới tính
-                </th>
-                <th>
-                    Số điện thoại
-                </th>
-
-                <th>
-                    Chức vụ
-                </th>
-                <th>
-                    Chuyên ngành
-                </th>
-                <th>
-                    Học vấn
-                </th>
-
+                <th>Giới tính</th>
+                <th>Số điện thoại</th>
+                <th>Chức vụ</th>
+                <th>Chuyên ngành</th>
+                <th>Học vấn</th>
                 <th>Số nhân viên: @Model.Count</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
-                {
-            <tr>
-                @*<td>
-                    @item.MaNhanVien
-                    @Html.DisplayFor(modelItem => item.MaNhanVien)
-                </td>*@
-
-                <td>
-
-                    @Html.DisplayFor(modelItem => item.HoTen)
-                </td>
-
-                @*<td>
-
-                        <img src="@Url.Content("~/Content/images/" + item.HinhAnh)" height="70" />
-
-                    </td>*@
-                <td>
-                    @{
-                    int gt = int.Parse(@Html.DisplayFor(modelItem => item.GioiTinh).ToString());
-                    String x = string.Empty;
-                    switch (gt)
-                    {
-                        case 1: x = "Nam"; break; ;
-                        case 0: x = "Nữ"; break;
-                        default: x = "Khác"; break;
-                    }
-                    }
-                    @x
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.sdt_NhanVien)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.ChucVuNhanVien.TenChucVu)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ChuyenNganh.TenChuyenNganh)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.TrinhDoHocVan.TenTrinhDo)
-                </td>
-                <td>
-                    @*<a class="btn btn-primary" href="@Url.Action("ChuyenNhanVien", "KhenThuong", new { @id = @item.MaNhanVien })">Khen thưởng</a>*@
-                    <a class="btn btn-info" href="@Url.Action("QuaTrinhCongTac", "QuanLyUser", new { @id = @item.MaNhanVien })">Quá trình công tác</a>
-                    <a class="btn btn-primary" href="@Url.Action("ChuyenNhanVien", "QuanLyPhongBan", new { @id = @item.MaNhanVien })">Chuyển nhân viên</a>
-                </td>
-            </tr>
-                }
+            {
+                <tr>
+                    @*<td>
+                            @item.MaNhanVien
+                            @Html.DisplayFor(modelItem => item.MaNhanVien)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HoTen)
+                    </td>
+                    @*<td>
+                            <img src="@Url.Content("~/Content/images/" + item.HinhAnh)" height="70" />
+                        </td>*@
+                    <td>
+                        @{
+                            int gt = int.Parse(@Html.DisplayFor(modelItem => item.GioiTinh).ToString());
+                            String x = string.Empty;
+                            switch (gt)
+                            {
+                                case 1: x = "Nam"; break; ;
+                                case 0: x = "Nữ"; break;
+                                default: x = "Khác"; break;
+                            }
+                        }
+                        @x
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sdt_NhanVien)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ChucVuNhanVien.TenChucVu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ChuyenNganh.TenChuyenNganh)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TrinhDoHocVan.TenTrinhDo)
+                    </td>
+                    <td>
+                        @*<a class="btn btn-primary" href="@Url.Action("ChuyenNhanVien", "KhenThuong", new { @id = @item.MaNhanVien })">Khen thưởng</a>*@
+                        <a class="btn btn-info" href="@Url.Action("QuaTrinhCongTac", "QuanLyUser", new { @id = @item.MaNhanVien })">Quá trình công tác</a>
+                        <a class="btn btn-primary" href="@Url.Action("ChuyenNhanVien", "QuanLyPhongBan", new { @id = @item.MaNhanVien })">Chuyển nhân viên</a>
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>
