@@ -1,4 +1,4 @@
-﻿@model IEnumerable<QuanLyNhanSu.Models.CapNhatLuong>
+﻿@model IEnumerable<QuanLyNhanSu.Models.CapNhatLuongs>
 
 @{
     ViewBag.Title = "Quá trình";
@@ -55,7 +55,7 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Luong.MaNhanVien)
+                        @Html.DisplayFor(modelItem => item.Luongs.MaNhanVien)
                     </td>
                     <td>
                         @string.Format("{0:#,#}", @item.LuongHienTai).Replace(",", ",")

@@ -29,7 +29,7 @@ namespace QuanLyNhanSu.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(NhanVien user)
+        public ActionResult Login(NhanViens user)
         {
             //check email da ton tai chua
             CreateMd5Hash md5Hash = new CreateMd5Hash();

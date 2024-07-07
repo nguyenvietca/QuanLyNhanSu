@@ -3,7 +3,7 @@
 }
 
 @using QuanLyNhanSu.Models
-@model List<NhanVien>
+@model List<NhanViens>
 @*@model IEnumerable<QuanLyNhanSu.Models.NhanVien>*@
 
 <div class="">
@@ -76,13 +76,13 @@
                         @Html.DisplayFor(modelItem => item.sdt_NhanVien)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ChucVuNhanVien.TenChucVu)
+                        @Html.DisplayFor(modelItem => item.ChucVuNhanViens.TenChucVu)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ChuyenNganh.TenChuyenNganh)
+                        @Html.DisplayFor(modelItem => item.ChuyenNganhs.TenChuyenNganh)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.TrinhDoHocVan.TenTrinhDo)
+                        @Html.DisplayFor(modelItem => item.TrinhDoHocVans.TenTrinhDo)
                     </td>
                     <td>
                         @*<a class="btn btn-primary" href="@Url.Action("ChuyenNhanVien", "KhenThuong", new { @id = @item.MaNhanVien })">Khen thưởng</a>*@

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<QuanLyNhanSu.Models.KhenThuong>
+﻿@model IEnumerable<QuanLyNhanSu.Models.KhenThuongs>
 
 @{
     ViewBag.Title = "Danh sách khen thưởng";
@@ -50,7 +50,7 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.NhanVien.MaNhanVien)
+                    @Html.DisplayFor(modelItem => item.NhanViens.MaNhanVien)
                 </td>
                 <td>
                     @String.Format("{0:dd/MM/yyyy}", @item.ThangThuong)

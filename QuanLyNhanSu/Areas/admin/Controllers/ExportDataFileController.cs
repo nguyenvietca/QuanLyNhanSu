@@ -16,7 +16,8 @@ namespace QuanLyNhanSu.Areas.admin
             response.Buffer = true;
             String headerValue = "attachment;filename=" + fileName + ".xls";
             response.AddHeader("content-disposition", headerValue);
-            response.ContentType = "application/excel";
+            //response.ContentType = "application/excel";
+            response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
             // Mã hóa UTF8
             response.ContentEncoding = System.Text.Encoding.UTF8;
             response.BinaryWrite(System.Text.Encoding.UTF8.GetPreamble());

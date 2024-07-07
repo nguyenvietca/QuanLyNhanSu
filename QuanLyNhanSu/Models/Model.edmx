@@ -1019,7 +1019,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QuanLyNhanSuEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QuanLyNhanSuEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CapNhatLuongs" EntityType="Self.CapNhatLuongs" />
           <EntitySet Name="CapNhatTrinhDoHocVans" EntityType="Self.CapNhatTrinhDoHocVans" />
           <EntitySet Name="ChiTietLuongs" EntityType="Self.ChiTietLuongs" />
@@ -1099,7 +1099,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QuanLyNhanSuModelStoreContainer" CdmEntityContainer="QuanLyNhanSuEntities">
+        <EntityContainerMapping StorageEntityContainer="QuanLyNhanSuModelStoreContainer" CdmEntityContainer="QuanLyNhanSuEntities1">
           <EntitySetMapping Name="CapNhatLuongs">
             <EntityTypeMapping TypeName="QuanLyNhanSuModel.CapNhatLuongs">
               <MappingFragment StoreEntitySet="CapNhatLuongs">

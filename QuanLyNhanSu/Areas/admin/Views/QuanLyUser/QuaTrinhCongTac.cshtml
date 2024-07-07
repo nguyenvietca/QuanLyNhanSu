@@ -1,5 +1,5 @@
 ﻿@using QuanLyNhanSu.Models
-@model List<LuanChuyenNhanVien>
+@model List<LuanChuyenNhanViens>
 
 @{
     ViewBag.Title = "Quá trình công tác";
@@ -50,7 +50,7 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.NhanVien.MaNhanVien)
+                        @Html.DisplayFor(modelItem => item.NhanViens.MaNhanVien)
                     </td>
                     @{
                 QuanLyNhanSuEntities db = new QuanLyNhanSuEntities();

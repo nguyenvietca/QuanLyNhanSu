@@ -1,5 +1,5 @@
 ﻿@using QuanLyNhanSu.Models
-@model Luong
+@model Luongs
 
 @{
     ViewBag.Title = "Sửa lương nhân viên";
@@ -79,7 +79,7 @@
             <!--sau khi cap nhat-->
             @{
                 QuanLyNhanSuEntities db = new QuanLyNhanSuEntities();
-                CapNhatLuong c = new CapNhatLuong();
+                CapNhatLuongs c = new CapNhatLuongs();
             }
             <div class="form-group">
                 <!--start-->
@@ -111,7 +111,7 @@
                 </div>
                 <div class="col-sm-8">
                     @{
-                        if (Model.NhanVien.TrinhDoHocVan.MaTrinhDoHocVan.Equals("gs"))
+                        if (Model.NhanViens.TrinhDoHocVans.MaTrinhDoHocVan.Equals("gs"))
                         {
 
                             <select name="HeSoLuong" class="form-control">
@@ -131,7 +131,7 @@
                                     <option value="8">8</option>*@
                             </select>
                         }
-                        else if (Model.NhanVien.TrinhDoHocVan.MaTrinhDoHocVan.Equals("pgs"))
+                        else if (Model.NhanViens.TrinhDoHocVans.MaTrinhDoHocVan.Equals("pgs"))
                         {
                             <select name="HeSoLuong" class="form-control">
                                 @foreach (var item in db.LuongA21PGS)

@@ -1,5 +1,5 @@
 ﻿@using QuanLyNhanSu.Models
-@model List<NhanVien>
+@model List<NhanViens>
 
 @{
     ViewBag.Title = "Nhân viên";
@@ -101,9 +101,9 @@
                         <td>@tenTrinhDo</td>
                         <td>@gioitinh</td>
                         <td>
-                            @String.Format("{0:dd/MM/yyyy}", @item.HopDong.NgayBatDau)
+                            @String.Format("{0:dd/MM/yyyy}", @item.HopDongs.NgayBatDau)
                         @{
-                    DateTime ngaydau = Convert.ToDateTime(@item.HopDong.NgayBatDau);
+                    DateTime ngaydau = Convert.ToDateTime(@item.HopDongs.NgayBatDau);
                     DateTime ngaysau = DateTime.Now.Date;
                     TimeSpan Times = ngaysau - ngaydau;
                     

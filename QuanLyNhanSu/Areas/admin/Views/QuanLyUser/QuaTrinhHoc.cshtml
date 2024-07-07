@@ -1,6 +1,6 @@
 ﻿@*@model IEnumerable<QuanLyNhanSu.Models.CapNhatTrinhDoHocVan>*@
 @using QuanLyNhanSu.Models
-@model List<CapNhatTrinhDoHocVan>
+@model List<CapNhatTrinhDoHocVans>
 @{
     ViewBag.Title = "Học vấn";
     QuanLyNhanSuEntities db = new QuanLyNhanSuEntities();
@@ -54,14 +54,14 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.NhanVien.HoTen)
+                        @Html.DisplayFor(modelItem => item.NhanViens.HoTen)
                     </td>
 
                     @{
                 String cn = String.Empty;
                 foreach (var c in db.ChuyenNganhs)
                 {
-                    if (@item.NhanVien.MaChuyenNganh == c.MaChuyenNganh)
+                    if (@item.NhanViens.MaChuyenNganh == c.MaChuyenNganh)
                     {
                         cn = c.TenChuyenNganh;
                     }
