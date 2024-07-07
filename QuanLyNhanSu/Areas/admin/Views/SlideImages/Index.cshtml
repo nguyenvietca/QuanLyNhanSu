@@ -84,7 +84,7 @@
                                     <p>Bạn muốn xóa @item.id+@item.alt?</p>
                                 </div>
                                 <a class="btn btn-danger" href="@Url.Action("Delete", "SlideImages", new { id = @item.id })">
-                                    <span aria-hidden="true"><i class="fa fa-trash-o">Xóa</i></span>
+                                    <span aria-hidden="true"><i class="fa fa-trash-o"> Xóa</i></span>
                                 </a>
                                 <button type="button" class="btn btn-primary" data-dismiss="modal">Hủy</button>
                             </div>
@@ -111,15 +111,26 @@
     td img:hover {
         cursor: zoom-in;
     }
-    .modal-dialog-centered {
+
+    .modal-dialog-centered,
+    {
         align-items: center;
         height: 100%;
         display: flex;
     }
+
+    .modal-sm {
+        align-items: center;
+        height: 100%;
+        display: grid;
+    }
+
+    .modal-content.text-center {
+        padding: 10px;
+    }
 </style>
 
 <script>
-
     $(document).ready(function () {
         $("#table-taikhoan").DataTable();
     });
