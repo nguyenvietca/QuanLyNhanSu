@@ -12,13 +12,12 @@ namespace QuanLyNhanSu.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class KhenThuong
+    public partial class sysdiagrams
     {
-        public string MaNhanVien { get; set; }
-        public System.DateTime ThangThuong { get; set; }
-        public string LyDo { get; set; }
-        public Nullable<int> TienThuong { get; set; }
-    
-        public virtual NhanVien NhanVien { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

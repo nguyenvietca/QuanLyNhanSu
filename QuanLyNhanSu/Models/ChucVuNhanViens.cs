@@ -12,17 +12,22 @@ namespace QuanLyNhanSu.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ChucVuNhanVien
+    public partial class ChucVuNhanViens
     {
-        public ChucVuNhanVien()
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ChucVuNhanViens()
         {
-            this.NhanViens = new HashSet<NhanVien>();
+            this.NhanViens = new HashSet<NhanViens>();
         }
     
         public string MaChucVuNV { get; set; }
         public string TenChucVu { get; set; }
         public Nullable<double> HSPC { get; set; }
+        public Nullable<System.DateTime> update_date { get; set; }
+        public Nullable<System.DateTime> create_date { get; set; }
+        public string delete_status { get; set; }
     
-        public virtual ICollection<NhanVien> NhanViens { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<NhanViens> NhanViens { get; set; }
     }
 }

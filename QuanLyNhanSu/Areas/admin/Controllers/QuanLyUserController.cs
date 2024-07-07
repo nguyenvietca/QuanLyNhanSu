@@ -91,7 +91,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
                 if (us != null)
                 {
 
-                    CapNhatTrinhDoHocVan capNhat = new CapNhatTrinhDoHocVan();
+                    CapNhatTrinhDoHocVans capNhat = new CapNhatTrinhDoHocVans();
                     capNhat.MaNhanVien = upUser.MaNhanVien;
                     capNhat.NgayCapNhat = DateTime.Now.Date;
                     capNhat.MaTrinhDoTruoc = us.MaTrinhDoHocVan;
@@ -148,7 +148,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             var hopdong = db.HopDongs.ToList();
             var chuyennganh = db.ChuyenNganhs.ToList();
             var trinhdo = db.TrinhDoHocVans.ToList();
-            List<ChucVuNhanVien> list = chucvu;
+            List<ChucVuNhanViens> list = chucvu;
 
             return View(new UserValidate());
         }
@@ -171,9 +171,9 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
                 else
                 {
 
-                    Luong luong = new Luong();
-                    HopDong hd = new HopDong();
-                    NhanVien nvAdd = new NhanVien();
+                    Luongs luong = new Luongs();
+                    HopDongs hd = new HopDongs();
+                    NhanViens nvAdd = new NhanViens();
                     nvAdd.MaNhanVien = nv.MaNhanVien;
                     nvAdd.MatKhau = matKhau;
                     nvAdd.HoTen = nv.HoTen;
@@ -267,10 +267,10 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             {
                 DataRow newRow = dt.NewRow();
                 newRow["Họ tên"] = item.HoTen;
-                newRow["Phòng ban"] = item.PhongBan.TenPhongBan;
-                newRow["Chức vụ"] = item.ChucVuNhanVien.TenChucVu;
-                newRow["Học vấn"] = item.TrinhDoHocVan.TenTrinhDo;
-                newRow["Chuyên ngành"] = item.ChuyenNganh.TenChuyenNganh;
+                newRow["Phòng ban"] = item.PhongBans.TenPhongBan;
+                newRow["Chức vụ"] = item.ChucVuNhanViens.TenChucVu;
+                newRow["Học vấn"] = item.TrinhDoHocVans.TenTrinhDo;
+                newRow["Chuyên ngành"] = item.ChuyenNganhs.TenChuyenNganh;
 
                 dt.Rows.Add(newRow);
             }

@@ -35,7 +35,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SlideImage slideImage = db.SlideImages.Find(id);
+            SlideImages slideImage = db.SlideImages.Find(id);
             if (slideImage == null)
             {
                 return HttpNotFound();
@@ -46,7 +46,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
         // GET: admin/SlideImages/Create
         public ActionResult Create()
         {
-            return View(new SlideImage());
+            return View(new SlideImages());
         }
 
         // POST: admin/SlideImages/Create
@@ -78,7 +78,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
                 imgFile.SaveAs(HttpContext.Server.MapPath(StringPathName) + imgFile.FileName);
                 slideImage.src = imgFile.FileName;
 
-                SlideImage add = new SlideImage();
+                SlideImages add = new SlideImages();
                 slideImage.CopyPropertiesTo(add);
 
                 db.SlideImages.Add(add);
@@ -96,7 +96,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SlideImage slideImage = db.SlideImages.Find(id);
+            SlideImages slideImage = db.SlideImages.Find(id);
             if (slideImage == null)
             {
                 return HttpNotFound();
@@ -109,7 +109,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,src,alt,title,create_date,update_date")] SlideImage slideImage)
+        public ActionResult Edit([Bind(Include = "id,src,alt,title,create_date,update_date")] SlideImages slideImage)
         {
             if (ModelState.IsValid)
             {
@@ -140,7 +140,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
         //[ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            SlideImage slideImage = db.SlideImages.Find(id);
+            SlideImages slideImage = db.SlideImages.Find(id);
             db.SlideImages.Remove(slideImage);
             db.SaveChanges();
             return RedirectToAction("Index");

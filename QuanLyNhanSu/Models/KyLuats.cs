@@ -12,15 +12,16 @@ namespace QuanLyNhanSu.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LuanChuyenNhanVien
+    public partial class KyLuats
     {
         public string MaNhanVien { get; set; }
-        public int id { get; set; }
-        public System.DateTime NgayChuyen { get; set; }
-        public string LyDoChuyen { get; set; }
-        public string PhongBanChuyen { get; set; }
-        public string PhongBanDen { get; set; }
+        public string LyDo { get; set; }
+        public System.DateTime ThangKiLuat { get; set; }
+        public Nullable<int> TienKyLuat { get; set; }
+        public Nullable<System.DateTime> update_date { get; set; }
+        public Nullable<System.DateTime> create_date { get; set; }
+        public string delete_status { get; set; }
     
-        public virtual NhanVien NhanVien { get; set; }
+        public virtual NhanViens NhanViens { get; set; }
     }
 }

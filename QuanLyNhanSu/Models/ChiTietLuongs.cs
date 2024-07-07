@@ -12,7 +12,7 @@ namespace QuanLyNhanSu.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ChiTietLuong
+    public partial class ChiTietLuongs
     {
         public string MaChiTietBangLuong { get; set; }
         public string MaNhanVien { get; set; }
@@ -26,7 +26,10 @@ namespace QuanLyNhanSu.Models
         public Nullable<int> TienPhat { get; set; }
         public System.DateTime NgayNhanLuong { get; set; }
         public string TongTienLuong { get; set; }
+        public Nullable<System.DateTime> update_date { get; set; }
+        public Nullable<System.DateTime> create_date { get; set; }
+        public string delete_status { get; set; }
     
-        public virtual Luong Luong { get; set; }
+        public virtual Luongs Luongs { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace QuanLyNhanSu.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class news
+    public partial class News
     {
         public int id { get; set; }
         public string title { get; set; }
@@ -23,5 +23,6 @@ namespace QuanLyNhanSu.Models
         public Nullable<int> update_staff_id { get; set; }
         public Nullable<System.DateTime> create_date { get; set; }
         public Nullable<System.DateTime> update_date { get; set; }
+        public string delete_status { get; set; }
     }
 }

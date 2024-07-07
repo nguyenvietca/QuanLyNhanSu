@@ -12,18 +12,23 @@ namespace QuanLyNhanSu.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PhongBan
+    public partial class PhongBans
     {
-        public PhongBan()
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PhongBans()
         {
-            this.NhanViens = new HashSet<NhanVien>();
+            this.NhanViens = new HashSet<NhanViens>();
         }
     
         public string MaPhongBan { get; set; }
         public string TenPhongBan { get; set; }
         public string DiaChi { get; set; }
         public string sdt_PhongBan { get; set; }
+        public Nullable<System.DateTime> update_date { get; set; }
+        public Nullable<System.DateTime> create_date { get; set; }
+        public string delete_status { get; set; }
     
-        public virtual ICollection<NhanVien> NhanViens { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<NhanViens> NhanViens { get; set; }
     }
 }

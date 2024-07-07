@@ -29,7 +29,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             return View(luong);
         }
         [HttpPost]
-        public ActionResult SuaBangLuong(Luong luong, CapNhatLuong up)
+        public ActionResult SuaBangLuong(Luongs luong, CapNhatLuongs up)
         {
             var l = db.Luongs.Where(n => n.MaNhanVien == luong.MaNhanVien).FirstOrDefault();
             if (l != null)
@@ -48,7 +48,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
                 l.HeSoLuong = luong.HeSoLuong;
 
                 //tao table luu lai moi lan cap nhat luong
-                CapNhatLuong capNhat = new CapNhatLuong();
+                CapNhatLuongs capNhat = new CapNhatLuongs();
                 capNhat.NgayCapNhat = DateTime.Now.Date;
                 capNhat.MaNhanVien = luong.MaNhanVien;
                 capNhat.LuongHienTai = luong.LuongToiThieu;
@@ -75,7 +75,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
             DateTime now = DateTime.Now;
             foreach (var item in luong)
             {
-                ChiTietLuong ct = new ChiTietLuong();
+                ChiTietLuongs ct = new ChiTietLuongs();
                 ct.MaChiTietBangLuong = "t" + now.Month.ToString();
                 ct.MaNhanVien = item.MaNhanVien;
                 var ctl = db.ChiTietLuongs.Where(n => n.MaNhanVien == ct.MaNhanVien).FirstOrDefault();
@@ -130,7 +130,7 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
                 var ctl = db.ChiTietLuongs.Where(n => n.MaNhanVien == id).FirstOrDefault();
                 //tìm bảng lương tương ứng với nhân viên
                 var luongthang = db.Luongs.Where(n => n.MaNhanVien == id).FirstOrDefault();
-                ChiTietLuong ct = new ChiTietLuong();
+                ChiTietLuongs ct = new ChiTietLuongs();
                 DateTime now = DateTime.Now;
                 double tienthue = 0, tong = 0, phucap = 0;
 

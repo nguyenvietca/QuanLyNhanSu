@@ -20,5 +20,6 @@ namespace QuanLyNhanSu.Models
         public string description { get; set; }
         public Nullable<System.DateTime> create_date { get; set; }
         public Nullable<System.DateTime> update_date { get; set; }
+        public string delete_status { get; set; }
     }
 }

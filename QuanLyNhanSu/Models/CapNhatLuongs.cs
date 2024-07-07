@@ -12,25 +12,23 @@ namespace QuanLyNhanSu.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Luong
+    public partial class CapNhatLuongs
     {
-        public Luong()
-        {
-            this.CapNhatLuongs = new HashSet<CapNhatLuong>();
-            this.ChiTietLuongs = new HashSet<ChiTietLuong>();
-        }
-    
+        public int id { get; set; }
         public string MaNhanVien { get; set; }
-        public int LuongToiThieu { get; set; }
-        public Nullable<double> HeSoLuong { get; set; }
+        public int LuongHienTai { get; set; }
+        public int LuongSauCapNhat { get; set; }
         public Nullable<double> BHXH { get; set; }
         public Nullable<double> BHYT { get; set; }
         public Nullable<double> BHTN { get; set; }
         public Nullable<double> PhuCap { get; set; }
         public Nullable<double> ThueThuNhap { get; set; }
+        public Nullable<System.DateTime> NgayCapNhat { get; set; }
+        public Nullable<double> HeSoLuong { get; set; }
+        public Nullable<System.DateTime> update_date { get; set; }
+        public Nullable<System.DateTime> create_date { get; set; }
+        public string delete_status { get; set; }
     
-        public virtual ICollection<CapNhatLuong> CapNhatLuongs { get; set; }
-        public virtual ICollection<ChiTietLuong> ChiTietLuongs { get; set; }
-        public virtual NhanVien NhanVien { get; set; }
+        public virtual Luongs Luongs { get; set; }
     }
 }

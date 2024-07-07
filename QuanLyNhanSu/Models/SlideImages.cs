@@ -12,12 +12,15 @@ namespace QuanLyNhanSu.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ThoiViec
+    public partial class SlideImages
     {
-        public string MaNhanVien { get; set; }
-        public string Lydo { get; set; }
-        public System.DateTime NgayThoiViec { get; set; }
-    
-        public virtual NhanVien NhanVien { get; set; }
+        public int id { get; set; }
+        public string src { get; set; }
+        public string alt { get; set; }
+        public string title { get; set; }
+        public Nullable<System.DateTime> create_date { get; set; }
+        public Nullable<System.DateTime> update_date { get; set; }
+        public string display_flg { get; set; }
+        public string delete_status { get; set; }
     }
 }

@@ -28,7 +28,7 @@ namespace QuanLyNhanSu.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SlideImage slideImage = await db.SlideImages.FindAsync(id);
+            SlideImages slideImage = await db.SlideImages.FindAsync(id);
             if (slideImage == null)
             {
                 return HttpNotFound();
@@ -47,7 +47,7 @@ namespace QuanLyNhanSu.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "id,src,alt,title,create_date,update_date")] SlideImage slideImage)
+        public async Task<ActionResult> Create([Bind(Include = "id,src,alt,title,create_date,update_date")] SlideImages slideImage)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace QuanLyNhanSu.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SlideImage slideImage = await db.SlideImages.FindAsync(id);
+            SlideImages slideImage = await db.SlideImages.FindAsync(id);
             if (slideImage == null)
             {
                 return HttpNotFound();
@@ -79,7 +79,7 @@ namespace QuanLyNhanSu.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "id,src,alt,title,create_date,update_date")] SlideImage slideImage)
+        public async Task<ActionResult> Edit([Bind(Include = "id,src,alt,title,create_date,update_date")] SlideImages slideImage)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace QuanLyNhanSu.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SlideImage slideImage = await db.SlideImages.FindAsync(id);
+            SlideImages slideImage = await db.SlideImages.FindAsync(id);
             if (slideImage == null)
             {
                 return HttpNotFound();
@@ -110,7 +110,7 @@ namespace QuanLyNhanSu.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            SlideImage slideImage = await db.SlideImages.FindAsync(id);
+            SlideImages slideImage = await db.SlideImages.FindAsync(id);
             db.SlideImages.Remove(slideImage);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");

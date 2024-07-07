@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="QuanLyNhanSuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="QuanLyNhanSuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CapNhatLuongs">
           <Key>
             <PropertyRef Name="id" />
@@ -20,6 +20,9 @@
           <Property Name="ThueThuNhap" Type="float" />
           <Property Name="NgayCapNhat" Type="datetime" />
           <Property Name="HeSoLuong" Type="float" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="create_date" Type="datetime" />
+          <Property Name="delete_status" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="CapNhatTrinhDoHocVans">
           <Key>
@@ -30,6 +33,9 @@
           <Property Name="NgayCapNhat" Type="datetime" Nullable="false" />
           <Property Name="MaTrinhDoTruoc" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="MaTrinhDoCapNhat" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="create_date" Type="datetime" />
+          <Property Name="delete_status" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="ChiTietLuongs">
           <Key>
@@ -48,6 +54,9 @@
           <Property Name="TienPhat" Type="int" />
           <Property Name="NgayNhanLuong" Type="datetime" Nullable="false" />
           <Property Name="TongTienLuong" Type="varchar" MaxLength="30" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="create_date" Type="datetime" />
+          <Property Name="delete_status" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="ChucVuNhanViens">
           <Key>
@@ -56,6 +65,9 @@
           <Property Name="MaChucVuNV" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="TenChucVu" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="HSPC" Type="float" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="create_date" Type="datetime" />
+          <Property Name="delete_status" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="ChuyenNganhs">
           <Key>
@@ -63,6 +75,9 @@
           </Key>
           <Property Name="MaChuyenNganh" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="TenChuyenNganh" Type="nvarchar" MaxLength="50" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="create_date" Type="datetime" />
+          <Property Name="delete_status" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="HopDongs">
           <Key>
@@ -73,15 +88,9 @@
           <Property Name="NgayBatDau" Type="datetime" />
           <Property Name="NgayKetThuc" Type="datetime" />
           <Property Name="GhiChu" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="KhenThuongs">
-          <Key>
-            <PropertyRef Name="MaNhanVien" />
-          </Key>
-          <Property Name="MaNhanVien" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="ThangThuong" Type="datetime" Nullable="false" />
-          <Property Name="LyDo" Type="nvarchar(max)" />
-          <Property Name="TienThuong" Type="int" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="create_date" Type="datetime" />
+          <Property Name="delete_status" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="KyLuats">
           <Key>
@@ -91,6 +100,21 @@
           <Property Name="LyDo" Type="nvarchar(max)" />
           <Property Name="ThangKiLuat" Type="datetime" Nullable="false" />
           <Property Name="TienKyLuat" Type="int" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="create_date" Type="datetime" />
+          <Property Name="delete_status" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="KhenThuongs">
+          <Key>
+            <PropertyRef Name="MaNhanVien" />
+          </Key>
+          <Property Name="MaNhanVien" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ThangThuong" Type="datetime" Nullable="false" />
+          <Property Name="LyDo" Type="nvarchar(max)" />
+          <Property Name="TienThuong" Type="int" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="create_date" Type="datetime" />
+          <Property Name="delete_status" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="LuanChuyenNhanViens">
           <Key>
@@ -103,6 +127,9 @@
           <Property Name="LyDoChuyen" Type="nvarchar(max)" />
           <Property Name="PhongBanChuyen" Type="varchar" MaxLength="30" />
           <Property Name="PhongBanDen" Type="varchar" MaxLength="30" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="create_date" Type="datetime" />
+          <Property Name="delete_status" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="LuongA1GV">
           <Key>
@@ -110,6 +137,9 @@
           </Key>
           <Property Name="BacLuong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="HeSo" Type="float" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="create_date" Type="datetime" />
+          <Property Name="delete_status" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="LuongA21PGS">
           <Key>
@@ -117,6 +147,9 @@
           </Key>
           <Property Name="BacLuong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="HeSo" Type="float" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="create_date" Type="datetime" />
+          <Property Name="delete_status" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="LuongA31GS">
           <Key>
@@ -124,6 +157,9 @@
           </Key>
           <Property Name="BacLuong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="HeSo" Type="float" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="create_date" Type="datetime" />
+          <Property Name="delete_status" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="Luongs">
           <Key>
@@ -137,6 +173,24 @@
           <Property Name="BHTN" Type="float" />
           <Property Name="PhuCap" Type="float" />
           <Property Name="ThueThuNhap" Type="float" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="create_date" Type="datetime" />
+          <Property Name="delete_status" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="contens" Type="nvarchar(max)" />
+          <Property Name="image" Type="nvarchar" MaxLength="128" />
+          <Property Name="is_active" Type="bit" />
+          <Property Name="reg_staff_id" Type="int" />
+          <Property Name="update_staff_id" Type="int" />
+          <Property Name="create_date" Type="datetime" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="delete_status" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="NhanViens">
           <Key>
@@ -158,6 +212,9 @@
           <Property Name="MaChuyenNganh" Type="varchar" MaxLength="30" />
           <Property Name="MaTrinhDoHocVan" Type="varchar" MaxLength="30" />
           <Property Name="CMND" Type="varchar" MaxLength="50" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="create_date" Type="datetime" />
+          <Property Name="delete_status" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="PhongBans">
           <Key>
@@ -167,6 +224,9 @@
           <Property Name="TenPhongBan" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
           <Property Name="sdt_PhongBan" Type="varchar" MaxLength="11" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="create_date" Type="datetime" />
+          <Property Name="delete_status" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="SlideImages">
           <Key>
@@ -178,6 +238,8 @@
           <Property Name="title" Type="ntext" />
           <Property Name="create_date" Type="datetime" />
           <Property Name="update_date" Type="datetime" />
+          <Property Name="display_flg" Type="char" MaxLength="1" />
+          <Property Name="delete_status" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -196,6 +258,9 @@
           <Property Name="MaNhanVien" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Lydo" Type="nvarchar(max)" />
           <Property Name="NgayThoiViec" Type="datetime" Nullable="false" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="create_date" Type="datetime" />
+          <Property Name="delete_status" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="TrinhDoHocVans">
           <Key>
@@ -204,6 +269,9 @@
           <Property Name="MaTrinhDoHocVan" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="TenTrinhDo" Type="nvarchar(max)" Nullable="false" />
           <Property Name="HeSoBac" Type="float" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="create_date" Type="datetime" />
+          <Property Name="delete_status" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="UserRole">
           <Key>
@@ -215,6 +283,7 @@
           <Property Name="description" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="create_date" Type="datetime" />
           <Property Name="update_date" Type="datetime" />
+          <Property Name="delete_status" Type="varchar" MaxLength="1" />
         </EntityType>
         <Association Name="FK__LuanChuyen__MaNhanVien">
           <End Role="NhanViens" Type="Self.NhanViens" Multiplicity="1">
@@ -397,13 +466,14 @@
           <EntitySet Name="ChucVuNhanViens" EntityType="Self.ChucVuNhanViens" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChuyenNganhs" EntityType="Self.ChuyenNganhs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HopDongs" EntityType="Self.HopDongs" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="KhenThuongs" EntityType="Self.KhenThuongs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KyLuats" EntityType="Self.KyLuats" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KhenThuongs" EntityType="Self.KhenThuongs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LuanChuyenNhanViens" EntityType="Self.LuanChuyenNhanViens" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LuongA1GV" EntityType="Self.LuongA1GV" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LuongA21PGS" EntityType="Self.LuongA21PGS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LuongA31GS" EntityType="Self.LuongA31GS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Luongs" EntityType="Self.Luongs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NhanViens" EntityType="Self.NhanViens" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PhongBans" EntityType="Self.PhongBans" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SlideImages" EntityType="Self.SlideImages" Schema="dbo" store:Type="Tables" />
@@ -464,11 +534,12 @@
             <End Role="NhanViens" EntitySet="NhanViens" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QuanLyNhanSuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="CapNhatLuong">
+        <EntityType Name="CapNhatLuongs">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -483,9 +554,12 @@
           <Property Name="ThueThuNhap" Type="Double" />
           <Property Name="NgayCapNhat" Type="DateTime" Precision="3" />
           <Property Name="HeSoLuong" Type="Double" />
-          <NavigationProperty Name="Luong" Relationship="Self.FK_CapNhatLuong_Luong" FromRole="CapNhatLuongs" ToRole="Luongs" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <Property Name="delete_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Luongs" Relationship="Self.FK_CapNhatLuong_Luong" FromRole="CapNhatLuongs" ToRole="Luongs" />
         </EntityType>
-        <EntityType Name="CapNhatTrinhDoHocVan">
+        <EntityType Name="CapNhatTrinhDoHocVans">
           <Key>
             <PropertyRef Name="MaCapNhat" />
           </Key>
@@ -494,9 +568,12 @@
           <Property Name="NgayCapNhat" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="MaTrinhDoTruoc" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MaTrinhDoCapNhat" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="NhanVien" Relationship="Self.FK_CapNhatTrinhDoHocVan_NhanVien" FromRole="CapNhatTrinhDoHocVans" ToRole="NhanViens" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <Property Name="delete_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NhanViens" Relationship="Self.FK_CapNhatTrinhDoHocVan_NhanVien" FromRole="CapNhatTrinhDoHocVans" ToRole="NhanViens" />
         </EntityType>
-        <EntityType Name="ChiTietLuong">
+        <EntityType Name="ChiTietLuongs">
           <Key>
             <PropertyRef Name="MaChiTietBangLuong" />
             <PropertyRef Name="MaNhanVien" />
@@ -513,26 +590,35 @@
           <Property Name="TienPhat" Type="Int32" />
           <Property Name="NgayNhanLuong" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="TongTienLuong" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Luong" Relationship="Self.FK_ChiTietLuong_Luong" FromRole="ChiTietLuongs" ToRole="Luongs" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <Property Name="delete_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Luongs" Relationship="Self.FK_ChiTietLuong_Luong" FromRole="ChiTietLuongs" ToRole="Luongs" />
         </EntityType>
-        <EntityType Name="ChucVuNhanVien">
+        <EntityType Name="ChucVuNhanViens">
           <Key>
             <PropertyRef Name="MaChucVuNV" />
           </Key>
           <Property Name="MaChucVuNV" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="HSPC" Type="Double" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <Property Name="delete_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="NhanViens" Relationship="Self.FK_NhanVien_ChucVuNhanVien" FromRole="ChucVuNhanViens" ToRole="NhanViens" />
         </EntityType>
-        <EntityType Name="ChuyenNganh">
+        <EntityType Name="ChuyenNganhs">
           <Key>
             <PropertyRef Name="MaChuyenNganh" />
           </Key>
           <Property Name="MaChuyenNganh" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenChuyenNganh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <Property Name="delete_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="NhanViens" Relationship="Self.FK__NhanVien__MaChuyenNganh" FromRole="ChuyenNganhs" ToRole="NhanViens" />
         </EntityType>
-        <EntityType Name="HopDong">
+        <EntityType Name="HopDongs">
           <Key>
             <PropertyRef Name="MaHopDong" />
           </Key>
@@ -541,19 +627,12 @@
           <Property Name="NgayBatDau" Type="DateTime" Precision="3" />
           <Property Name="NgayKetThuc" Type="DateTime" Precision="3" />
           <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <Property Name="delete_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="NhanViens" Relationship="Self.FK__NhanVien__MaHopDong" FromRole="HopDongs" ToRole="NhanViens" />
         </EntityType>
-        <EntityType Name="KhenThuong">
-          <Key>
-            <PropertyRef Name="MaNhanVien" />
-          </Key>
-          <Property Name="MaNhanVien" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ThangThuong" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="LyDo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="TienThuong" Type="Int32" />
-          <NavigationProperty Name="NhanVien" Relationship="Self.FK__Thuong__MaNhanVien" FromRole="KhenThuongs" ToRole="NhanViens" />
-        </EntityType>
-        <EntityType Name="KyLuat">
+        <EntityType Name="KyLuats">
           <Key>
             <PropertyRef Name="MaNhanVien" />
           </Key>
@@ -561,9 +640,25 @@
           <Property Name="LyDo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ThangKiLuat" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="TienKyLuat" Type="Int32" />
-          <NavigationProperty Name="NhanVien" Relationship="Self.FK_KyLuat_KyLuat" FromRole="KyLuats" ToRole="NhanViens" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <Property Name="delete_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NhanViens" Relationship="Self.FK_KyLuat_KyLuat" FromRole="KyLuats" ToRole="NhanViens" />
         </EntityType>
-        <EntityType Name="LuanChuyenNhanVien">
+        <EntityType Name="KhenThuongs">
+          <Key>
+            <PropertyRef Name="MaNhanVien" />
+          </Key>
+          <Property Name="MaNhanVien" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ThangThuong" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LyDo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TienThuong" Type="Int32" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <Property Name="delete_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NhanViens" Relationship="Self.FK__Thuong__MaNhanVien" FromRole="KhenThuongs" ToRole="NhanViens" />
+        </EntityType>
+        <EntityType Name="LuanChuyenNhanViens">
           <Key>
             <PropertyRef Name="MaNhanVien" />
             <PropertyRef Name="id" />
@@ -574,7 +669,10 @@
           <Property Name="LyDoChuyen" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PhongBanChuyen" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="PhongBanDen" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="NhanVien" Relationship="Self.FK__LuanChuyen__MaNhanVien" FromRole="LuanChuyenNhanViens" ToRole="NhanViens" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <Property Name="delete_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NhanViens" Relationship="Self.FK__LuanChuyen__MaNhanVien" FromRole="LuanChuyenNhanViens" ToRole="NhanViens" />
         </EntityType>
         <EntityType Name="LuongA1GV">
           <Key>
@@ -582,6 +680,9 @@
           </Key>
           <Property Name="BacLuong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="HeSo" Type="Double" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <Property Name="delete_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="LuongA21PGS">
           <Key>
@@ -589,6 +690,9 @@
           </Key>
           <Property Name="BacLuong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="HeSo" Type="Double" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <Property Name="delete_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="LuongA31GS">
           <Key>
@@ -596,8 +700,11 @@
           </Key>
           <Property Name="BacLuong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="HeSo" Type="Double" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <Property Name="delete_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="Luong">
+        <EntityType Name="Luongs">
           <Key>
             <PropertyRef Name="MaNhanVien" />
           </Key>
@@ -609,11 +716,29 @@
           <Property Name="BHTN" Type="Double" />
           <Property Name="PhuCap" Type="Double" />
           <Property Name="ThueThuNhap" Type="Double" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <Property Name="delete_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CapNhatLuongs" Relationship="Self.FK_CapNhatLuong_Luong" FromRole="Luongs" ToRole="CapNhatLuongs" />
           <NavigationProperty Name="ChiTietLuongs" Relationship="Self.FK_ChiTietLuong_Luong" FromRole="Luongs" ToRole="ChiTietLuongs" />
-          <NavigationProperty Name="NhanVien" Relationship="Self.FK_Luong_NhanVien" FromRole="Luongs" ToRole="NhanViens" />
+          <NavigationProperty Name="NhanViens" Relationship="Self.FK_Luong_NhanVien" FromRole="Luongs" ToRole="NhanViens" />
         </EntityType>
-        <EntityType Name="NhanVien">
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="contens" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="image" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="is_active" Type="Boolean" />
+          <Property Name="reg_staff_id" Type="Int32" />
+          <Property Name="update_staff_id" Type="Int32" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="delete_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="NhanViens">
           <Key>
             <PropertyRef Name="MaNhanVien" />
           </Key>
@@ -633,19 +758,22 @@
           <Property Name="MaChuyenNganh" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="MaTrinhDoHocVan" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="CMND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <Property Name="delete_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CapNhatTrinhDoHocVans" Relationship="Self.FK_CapNhatTrinhDoHocVan_NhanVien" FromRole="NhanViens" ToRole="CapNhatTrinhDoHocVans" />
-          <NavigationProperty Name="ChucVuNhanVien" Relationship="Self.FK_NhanVien_ChucVuNhanVien" FromRole="NhanViens" ToRole="ChucVuNhanViens" />
-          <NavigationProperty Name="ChuyenNganh" Relationship="Self.FK__NhanVien__MaChuyenNganh" FromRole="NhanViens" ToRole="ChuyenNganhs" />
-          <NavigationProperty Name="HopDong" Relationship="Self.FK__NhanVien__MaHopDong" FromRole="NhanViens" ToRole="HopDongs" />
-          <NavigationProperty Name="KhenThuong" Relationship="Self.FK__Thuong__MaNhanVien" FromRole="NhanViens" ToRole="KhenThuongs" />
-          <NavigationProperty Name="KyLuat" Relationship="Self.FK_KyLuat_KyLuat" FromRole="NhanViens" ToRole="KyLuats" />
+          <NavigationProperty Name="ChucVuNhanViens" Relationship="Self.FK_NhanVien_ChucVuNhanVien" FromRole="NhanViens" ToRole="ChucVuNhanViens" />
+          <NavigationProperty Name="ChuyenNganhs" Relationship="Self.FK__NhanVien__MaChuyenNganh" FromRole="NhanViens" ToRole="ChuyenNganhs" />
+          <NavigationProperty Name="HopDongs" Relationship="Self.FK__NhanVien__MaHopDong" FromRole="NhanViens" ToRole="HopDongs" />
+          <NavigationProperty Name="KyLuats" Relationship="Self.FK_KyLuat_KyLuat" FromRole="NhanViens" ToRole="KyLuats" />
+          <NavigationProperty Name="KhenThuongs" Relationship="Self.FK__Thuong__MaNhanVien" FromRole="NhanViens" ToRole="KhenThuongs" />
           <NavigationProperty Name="LuanChuyenNhanViens" Relationship="Self.FK__LuanChuyen__MaNhanVien" FromRole="NhanViens" ToRole="LuanChuyenNhanViens" />
-          <NavigationProperty Name="Luong" Relationship="Self.FK_Luong_NhanVien" FromRole="NhanViens" ToRole="Luongs" />
-          <NavigationProperty Name="PhongBan" Relationship="Self.FK__NhanVien__MaPhongBan" FromRole="NhanViens" ToRole="PhongBans" />
-          <NavigationProperty Name="ThoiViec" Relationship="Self.FK__ThoiViec__MaNhanVien" FromRole="NhanViens" ToRole="ThoiViecs" />
-          <NavigationProperty Name="TrinhDoHocVan" Relationship="Self.FK_NhanVien_TrinhDoHocVan" FromRole="NhanViens" ToRole="TrinhDoHocVans" />
+          <NavigationProperty Name="Luongs" Relationship="Self.FK_Luong_NhanVien" FromRole="NhanViens" ToRole="Luongs" />
+          <NavigationProperty Name="PhongBans" Relationship="Self.FK__NhanVien__MaPhongBan" FromRole="NhanViens" ToRole="PhongBans" />
+          <NavigationProperty Name="ThoiViecs" Relationship="Self.FK__ThoiViec__MaNhanVien" FromRole="NhanViens" ToRole="ThoiViecs" />
+          <NavigationProperty Name="TrinhDoHocVans" Relationship="Self.FK_NhanVien_TrinhDoHocVan" FromRole="NhanViens" ToRole="TrinhDoHocVans" />
         </EntityType>
-        <EntityType Name="PhongBan">
+        <EntityType Name="PhongBans">
           <Key>
             <PropertyRef Name="MaPhongBan" />
           </Key>
@@ -653,9 +781,25 @@
           <Property Name="TenPhongBan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="sdt_PhongBan" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <Property Name="delete_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="NhanViens" Relationship="Self.FK__NhanVien__MaPhongBan" FromRole="PhongBans" ToRole="NhanViens" />
         </EntityType>
-        <EntityType Name="sysdiagram">
+        <EntityType Name="SlideImages">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="src" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="alt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="display_flg" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="delete_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
@@ -665,29 +809,47 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="ThoiViec">
+        <EntityType Name="ThoiViecs">
           <Key>
             <PropertyRef Name="MaNhanVien" />
           </Key>
           <Property Name="MaNhanVien" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Lydo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NgayThoiViec" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="NhanVien" Relationship="Self.FK__ThoiViec__MaNhanVien" FromRole="ThoiViecs" ToRole="NhanViens" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <Property Name="delete_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NhanViens" Relationship="Self.FK__ThoiViec__MaNhanVien" FromRole="ThoiViecs" ToRole="NhanViens" />
         </EntityType>
-        <EntityType Name="TrinhDoHocVan">
+        <EntityType Name="TrinhDoHocVans">
           <Key>
             <PropertyRef Name="MaTrinhDoHocVan" />
           </Key>
           <Property Name="MaTrinhDoHocVan" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenTrinhDo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="HeSoBac" Type="Double" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <Property Name="delete_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="NhanViens" Relationship="Self.FK_NhanVien_TrinhDoHocVan" FromRole="TrinhDoHocVans" ToRole="NhanViens" />
         </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Precision="3" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="delete_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
         <Association Name="FK_CapNhatLuong_Luong">
-          <End Role="Luongs" Type="Self.Luong" Multiplicity="1">
+          <End Role="Luongs" Type="Self.Luongs" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="CapNhatLuongs" Type="Self.CapNhatLuong" Multiplicity="*" />
+          <End Role="CapNhatLuongs" Type="Self.CapNhatLuongs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Luongs">
               <PropertyRef Name="MaNhanVien" />
@@ -698,10 +860,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CapNhatTrinhDoHocVan_NhanVien">
-          <End Role="NhanViens" Type="Self.NhanVien" Multiplicity="1">
+          <End Role="NhanViens" Type="Self.NhanViens" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="CapNhatTrinhDoHocVans" Type="Self.CapNhatTrinhDoHocVan" Multiplicity="*" />
+          <End Role="CapNhatTrinhDoHocVans" Type="Self.CapNhatTrinhDoHocVans" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NhanViens">
               <PropertyRef Name="MaNhanVien" />
@@ -712,10 +874,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ChiTietLuong_Luong">
-          <End Role="Luongs" Type="Self.Luong" Multiplicity="1">
+          <End Role="Luongs" Type="Self.Luongs" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="ChiTietLuongs" Type="Self.ChiTietLuong" Multiplicity="*" />
+          <End Role="ChiTietLuongs" Type="Self.ChiTietLuongs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Luongs">
               <PropertyRef Name="MaNhanVien" />
@@ -726,8 +888,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_NhanVien_ChucVuNhanVien">
-          <End Role="ChucVuNhanViens" Type="Self.ChucVuNhanVien" Multiplicity="0..1" />
-          <End Role="NhanViens" Type="Self.NhanVien" Multiplicity="*" />
+          <End Role="ChucVuNhanViens" Type="Self.ChucVuNhanViens" Multiplicity="0..1" />
+          <End Role="NhanViens" Type="Self.NhanViens" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ChucVuNhanViens">
               <PropertyRef Name="MaChucVuNV" />
@@ -738,8 +900,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__NhanVien__MaChuyenNganh">
-          <End Role="ChuyenNganhs" Type="Self.ChuyenNganh" Multiplicity="0..1" />
-          <End Role="NhanViens" Type="Self.NhanVien" Multiplicity="*" />
+          <End Role="ChuyenNganhs" Type="Self.ChuyenNganhs" Multiplicity="0..1" />
+          <End Role="NhanViens" Type="Self.NhanViens" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ChuyenNganhs">
               <PropertyRef Name="MaChuyenNganh" />
@@ -750,10 +912,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__NhanVien__MaHopDong">
-          <End Role="HopDongs" Type="Self.HopDong" Multiplicity="0..1">
+          <End Role="HopDongs" Type="Self.HopDongs" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="NhanViens" Type="Self.NhanVien" Multiplicity="*" />
+          <End Role="NhanViens" Type="Self.NhanViens" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HopDongs">
               <PropertyRef Name="MaHopDong" />
@@ -763,25 +925,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Thuong__MaNhanVien">
-          <End Role="NhanViens" Type="Self.NhanVien" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="KhenThuongs" Type="Self.KhenThuong" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="NhanViens">
-              <PropertyRef Name="MaNhanVien" />
-            </Principal>
-            <Dependent Role="KhenThuongs">
-              <PropertyRef Name="MaNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_KyLuat_KyLuat">
-          <End Role="NhanViens" Type="Self.NhanVien" Multiplicity="1">
+          <End Role="NhanViens" Type="Self.NhanViens" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="KyLuats" Type="Self.KyLuat" Multiplicity="0..1" />
+          <End Role="KyLuats" Type="Self.KyLuats" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="NhanViens">
               <PropertyRef Name="MaNhanVien" />
@@ -791,11 +939,25 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LuanChuyen__MaNhanVien">
-          <End Role="NhanViens" Type="Self.NhanVien" Multiplicity="1">
+        <Association Name="FK__Thuong__MaNhanVien">
+          <End Role="NhanViens" Type="Self.NhanViens" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="LuanChuyenNhanViens" Type="Self.LuanChuyenNhanVien" Multiplicity="*" />
+          <End Role="KhenThuongs" Type="Self.KhenThuongs" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="NhanViens">
+              <PropertyRef Name="MaNhanVien" />
+            </Principal>
+            <Dependent Role="KhenThuongs">
+              <PropertyRef Name="MaNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LuanChuyen__MaNhanVien">
+          <End Role="NhanViens" Type="Self.NhanViens" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LuanChuyenNhanViens" Type="Self.LuanChuyenNhanViens" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NhanViens">
               <PropertyRef Name="MaNhanVien" />
@@ -806,10 +968,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Luong_NhanVien">
-          <End Role="NhanViens" Type="Self.NhanVien" Multiplicity="1">
+          <End Role="NhanViens" Type="Self.NhanViens" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Luongs" Type="Self.Luong" Multiplicity="0..1" />
+          <End Role="Luongs" Type="Self.Luongs" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="NhanViens">
               <PropertyRef Name="MaNhanVien" />
@@ -820,10 +982,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__NhanVien__MaPhongBan">
-          <End Role="PhongBans" Type="Self.PhongBan" Multiplicity="0..1">
+          <End Role="PhongBans" Type="Self.PhongBans" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="NhanViens" Type="Self.NhanVien" Multiplicity="*" />
+          <End Role="NhanViens" Type="Self.NhanViens" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PhongBans">
               <PropertyRef Name="MaPhongBan" />
@@ -834,8 +996,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__ThoiViec__MaNhanVien">
-          <End Role="NhanViens" Type="Self.NhanVien" Multiplicity="1" />
-          <End Role="ThoiViecs" Type="Self.ThoiViec" Multiplicity="0..1" />
+          <End Role="NhanViens" Type="Self.NhanViens" Multiplicity="1" />
+          <End Role="ThoiViecs" Type="Self.ThoiViecs" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="NhanViens">
               <PropertyRef Name="MaNhanVien" />
@@ -846,8 +1008,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_NhanVien_TrinhDoHocVan">
-          <End Role="TrinhDoHocVans" Type="Self.TrinhDoHocVan" Multiplicity="0..1" />
-          <End Role="NhanViens" Type="Self.NhanVien" Multiplicity="*" />
+          <End Role="TrinhDoHocVans" Type="Self.TrinhDoHocVans" Multiplicity="0..1" />
+          <End Role="NhanViens" Type="Self.NhanViens" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TrinhDoHocVans">
               <PropertyRef Name="MaTrinhDoHocVan" />
@@ -858,24 +1020,27 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="QuanLyNhanSuEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CapNhatLuongs" EntityType="Self.CapNhatLuong" />
-          <EntitySet Name="CapNhatTrinhDoHocVans" EntityType="Self.CapNhatTrinhDoHocVan" />
-          <EntitySet Name="ChiTietLuongs" EntityType="Self.ChiTietLuong" />
-          <EntitySet Name="ChucVuNhanViens" EntityType="Self.ChucVuNhanVien" />
-          <EntitySet Name="ChuyenNganhs" EntityType="Self.ChuyenNganh" />
-          <EntitySet Name="HopDongs" EntityType="Self.HopDong" />
-          <EntitySet Name="KhenThuongs" EntityType="Self.KhenThuong" />
-          <EntitySet Name="KyLuats" EntityType="Self.KyLuat" />
-          <EntitySet Name="LuanChuyenNhanViens" EntityType="Self.LuanChuyenNhanVien" />
+          <EntitySet Name="CapNhatLuongs" EntityType="Self.CapNhatLuongs" />
+          <EntitySet Name="CapNhatTrinhDoHocVans" EntityType="Self.CapNhatTrinhDoHocVans" />
+          <EntitySet Name="ChiTietLuongs" EntityType="Self.ChiTietLuongs" />
+          <EntitySet Name="ChucVuNhanViens" EntityType="Self.ChucVuNhanViens" />
+          <EntitySet Name="ChuyenNganhs" EntityType="Self.ChuyenNganhs" />
+          <EntitySet Name="HopDongs" EntityType="Self.HopDongs" />
+          <EntitySet Name="KyLuats" EntityType="Self.KyLuats" />
+          <EntitySet Name="KhenThuongs" EntityType="Self.KhenThuongs" />
+          <EntitySet Name="LuanChuyenNhanViens" EntityType="Self.LuanChuyenNhanViens" />
           <EntitySet Name="LuongA1GV" EntityType="Self.LuongA1GV" />
           <EntitySet Name="LuongA21PGS" EntityType="Self.LuongA21PGS" />
           <EntitySet Name="LuongA31GS" EntityType="Self.LuongA31GS" />
-          <EntitySet Name="Luongs" EntityType="Self.Luong" />
-          <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
-          <EntitySet Name="PhongBans" EntityType="Self.PhongBan" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="ThoiViecs" EntityType="Self.ThoiViec" />
-          <EntitySet Name="TrinhDoHocVans" EntityType="Self.TrinhDoHocVan" />
+          <EntitySet Name="Luongs" EntityType="Self.Luongs" />
+          <EntitySet Name="News" EntityType="Self.News" />
+          <EntitySet Name="NhanViens" EntityType="Self.NhanViens" />
+          <EntitySet Name="PhongBans" EntityType="Self.PhongBans" />
+          <EntitySet Name="SlideImages" EntityType="Self.SlideImages" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="ThoiViecs" EntityType="Self.ThoiViecs" />
+          <EntitySet Name="TrinhDoHocVans" EntityType="Self.TrinhDoHocVans" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" />
           <AssociationSet Name="FK_CapNhatLuong_Luong" Association="Self.FK_CapNhatLuong_Luong">
             <End Role="Luongs" EntitySet="Luongs" />
             <End Role="CapNhatLuongs" EntitySet="CapNhatLuongs" />
@@ -900,13 +1065,13 @@
             <End Role="HopDongs" EntitySet="HopDongs" />
             <End Role="NhanViens" EntitySet="NhanViens" />
           </AssociationSet>
-          <AssociationSet Name="FK__Thuong__MaNhanVien" Association="Self.FK__Thuong__MaNhanVien">
-            <End Role="NhanViens" EntitySet="NhanViens" />
-            <End Role="KhenThuongs" EntitySet="KhenThuongs" />
-          </AssociationSet>
           <AssociationSet Name="FK_KyLuat_KyLuat" Association="Self.FK_KyLuat_KyLuat">
             <End Role="NhanViens" EntitySet="NhanViens" />
             <End Role="KyLuats" EntitySet="KyLuats" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Thuong__MaNhanVien" Association="Self.FK__Thuong__MaNhanVien">
+            <End Role="NhanViens" EntitySet="NhanViens" />
+            <End Role="KhenThuongs" EntitySet="KhenThuongs" />
           </AssociationSet>
           <AssociationSet Name="FK__LuanChuyen__MaNhanVien" Association="Self.FK__LuanChuyen__MaNhanVien">
             <End Role="NhanViens" EntitySet="NhanViens" />
@@ -928,31 +1093,7 @@
             <End Role="TrinhDoHocVans" EntitySet="TrinhDoHocVans" />
             <End Role="NhanViens" EntitySet="NhanViens" />
           </AssociationSet>
-          <EntitySet Name="SlideImages" EntityType="QuanLyNhanSuModel.SlideImage" />
-          <EntitySet Name="UserRoles" EntityType="QuanLyNhanSuModel.UserRole" />
         </EntityContainer>
-        <EntityType Name="SlideImage">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="src" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="alt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="create_date" Type="DateTime" Precision="3" />
-          <Property Name="update_date" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="UserRole">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="description" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="create_date" Type="DateTime" Precision="3" />
-          <Property Name="update_date" Type="DateTime" Precision="3" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -960,7 +1101,7 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="QuanLyNhanSuModelStoreContainer" CdmEntityContainer="QuanLyNhanSuEntities">
           <EntitySetMapping Name="CapNhatLuongs">
-            <EntityTypeMapping TypeName="QuanLyNhanSuModel.CapNhatLuong">
+            <EntityTypeMapping TypeName="QuanLyNhanSuModel.CapNhatLuongs">
               <MappingFragment StoreEntitySet="CapNhatLuongs">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
@@ -973,22 +1114,28 @@
                 <ScalarProperty Name="ThueThuNhap" ColumnName="ThueThuNhap" />
                 <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
                 <ScalarProperty Name="HeSoLuong" ColumnName="HeSoLuong" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="delete_status" ColumnName="delete_status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CapNhatTrinhDoHocVans">
-            <EntityTypeMapping TypeName="QuanLyNhanSuModel.CapNhatTrinhDoHocVan">
+            <EntityTypeMapping TypeName="QuanLyNhanSuModel.CapNhatTrinhDoHocVans">
               <MappingFragment StoreEntitySet="CapNhatTrinhDoHocVans">
                 <ScalarProperty Name="MaCapNhat" ColumnName="MaCapNhat" />
                 <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
                 <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
                 <ScalarProperty Name="MaTrinhDoTruoc" ColumnName="MaTrinhDoTruoc" />
                 <ScalarProperty Name="MaTrinhDoCapNhat" ColumnName="MaTrinhDoCapNhat" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="delete_status" ColumnName="delete_status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ChiTietLuongs">
-            <EntityTypeMapping TypeName="QuanLyNhanSuModel.ChiTietLuong">
+            <EntityTypeMapping TypeName="QuanLyNhanSuModel.ChiTietLuongs">
               <MappingFragment StoreEntitySet="ChiTietLuongs">
                 <ScalarProperty Name="MaChiTietBangLuong" ColumnName="MaChiTietBangLuong" />
                 <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
@@ -1002,59 +1149,77 @@
                 <ScalarProperty Name="TienPhat" ColumnName="TienPhat" />
                 <ScalarProperty Name="NgayNhanLuong" ColumnName="NgayNhanLuong" />
                 <ScalarProperty Name="TongTienLuong" ColumnName="TongTienLuong" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="delete_status" ColumnName="delete_status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ChucVuNhanViens">
-            <EntityTypeMapping TypeName="QuanLyNhanSuModel.ChucVuNhanVien">
+            <EntityTypeMapping TypeName="QuanLyNhanSuModel.ChucVuNhanViens">
               <MappingFragment StoreEntitySet="ChucVuNhanViens">
                 <ScalarProperty Name="MaChucVuNV" ColumnName="MaChucVuNV" />
                 <ScalarProperty Name="TenChucVu" ColumnName="TenChucVu" />
                 <ScalarProperty Name="HSPC" ColumnName="HSPC" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="delete_status" ColumnName="delete_status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ChuyenNganhs">
-            <EntityTypeMapping TypeName="QuanLyNhanSuModel.ChuyenNganh">
+            <EntityTypeMapping TypeName="QuanLyNhanSuModel.ChuyenNganhs">
               <MappingFragment StoreEntitySet="ChuyenNganhs">
                 <ScalarProperty Name="MaChuyenNganh" ColumnName="MaChuyenNganh" />
                 <ScalarProperty Name="TenChuyenNganh" ColumnName="TenChuyenNganh" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="delete_status" ColumnName="delete_status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HopDongs">
-            <EntityTypeMapping TypeName="QuanLyNhanSuModel.HopDong">
+            <EntityTypeMapping TypeName="QuanLyNhanSuModel.HopDongs">
               <MappingFragment StoreEntitySet="HopDongs">
                 <ScalarProperty Name="MaHopDong" ColumnName="MaHopDong" />
                 <ScalarProperty Name="LoaiHopDong" ColumnName="LoaiHopDong" />
                 <ScalarProperty Name="NgayBatDau" ColumnName="NgayBatDau" />
                 <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
                 <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="KhenThuongs">
-            <EntityTypeMapping TypeName="QuanLyNhanSuModel.KhenThuong">
-              <MappingFragment StoreEntitySet="KhenThuongs">
-                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
-                <ScalarProperty Name="ThangThuong" ColumnName="ThangThuong" />
-                <ScalarProperty Name="LyDo" ColumnName="LyDo" />
-                <ScalarProperty Name="TienThuong" ColumnName="TienThuong" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="delete_status" ColumnName="delete_status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="KyLuats">
-            <EntityTypeMapping TypeName="QuanLyNhanSuModel.KyLuat">
+            <EntityTypeMapping TypeName="QuanLyNhanSuModel.KyLuats">
               <MappingFragment StoreEntitySet="KyLuats">
                 <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
                 <ScalarProperty Name="LyDo" ColumnName="LyDo" />
                 <ScalarProperty Name="ThangKiLuat" ColumnName="ThangKiLuat" />
                 <ScalarProperty Name="TienKyLuat" ColumnName="TienKyLuat" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="delete_status" ColumnName="delete_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KhenThuongs">
+            <EntityTypeMapping TypeName="QuanLyNhanSuModel.KhenThuongs">
+              <MappingFragment StoreEntitySet="KhenThuongs">
+                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="ThangThuong" ColumnName="ThangThuong" />
+                <ScalarProperty Name="LyDo" ColumnName="LyDo" />
+                <ScalarProperty Name="TienThuong" ColumnName="TienThuong" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="delete_status" ColumnName="delete_status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LuanChuyenNhanViens">
-            <EntityTypeMapping TypeName="QuanLyNhanSuModel.LuanChuyenNhanVien">
+            <EntityTypeMapping TypeName="QuanLyNhanSuModel.LuanChuyenNhanViens">
               <MappingFragment StoreEntitySet="LuanChuyenNhanViens">
                 <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -1062,6 +1227,9 @@
                 <ScalarProperty Name="LyDoChuyen" ColumnName="LyDoChuyen" />
                 <ScalarProperty Name="PhongBanChuyen" ColumnName="PhongBanChuyen" />
                 <ScalarProperty Name="PhongBanDen" ColumnName="PhongBanDen" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="delete_status" ColumnName="delete_status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1070,6 +1238,9 @@
               <MappingFragment StoreEntitySet="LuongA1GV">
                 <ScalarProperty Name="BacLuong" ColumnName="BacLuong" />
                 <ScalarProperty Name="HeSo" ColumnName="HeSo" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="delete_status" ColumnName="delete_status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1078,6 +1249,9 @@
               <MappingFragment StoreEntitySet="LuongA21PGS">
                 <ScalarProperty Name="BacLuong" ColumnName="BacLuong" />
                 <ScalarProperty Name="HeSo" ColumnName="HeSo" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="delete_status" ColumnName="delete_status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1086,11 +1260,14 @@
               <MappingFragment StoreEntitySet="LuongA31GS">
                 <ScalarProperty Name="BacLuong" ColumnName="BacLuong" />
                 <ScalarProperty Name="HeSo" ColumnName="HeSo" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="delete_status" ColumnName="delete_status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Luongs">
-            <EntityTypeMapping TypeName="QuanLyNhanSuModel.Luong">
+            <EntityTypeMapping TypeName="QuanLyNhanSuModel.Luongs">
               <MappingFragment StoreEntitySet="Luongs">
                 <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
                 <ScalarProperty Name="LuongToiThieu" ColumnName="LuongToiThieu" />
@@ -1100,11 +1277,30 @@
                 <ScalarProperty Name="BHTN" ColumnName="BHTN" />
                 <ScalarProperty Name="PhuCap" ColumnName="PhuCap" />
                 <ScalarProperty Name="ThueThuNhap" ColumnName="ThueThuNhap" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="delete_status" ColumnName="delete_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="QuanLyNhanSuModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="contens" ColumnName="contens" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="reg_staff_id" ColumnName="reg_staff_id" />
+                <ScalarProperty Name="update_staff_id" ColumnName="update_staff_id" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="delete_status" ColumnName="delete_status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NhanViens">
-            <EntityTypeMapping TypeName="QuanLyNhanSuModel.NhanVien">
+            <EntityTypeMapping TypeName="QuanLyNhanSuModel.NhanViens">
               <MappingFragment StoreEntitySet="NhanViens">
                 <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
                 <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
@@ -1122,21 +1318,41 @@
                 <ScalarProperty Name="MaChuyenNganh" ColumnName="MaChuyenNganh" />
                 <ScalarProperty Name="MaTrinhDoHocVan" ColumnName="MaTrinhDoHocVan" />
                 <ScalarProperty Name="CMND" ColumnName="CMND" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="delete_status" ColumnName="delete_status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PhongBans">
-            <EntityTypeMapping TypeName="QuanLyNhanSuModel.PhongBan">
+            <EntityTypeMapping TypeName="QuanLyNhanSuModel.PhongBans">
               <MappingFragment StoreEntitySet="PhongBans">
                 <ScalarProperty Name="MaPhongBan" ColumnName="MaPhongBan" />
                 <ScalarProperty Name="TenPhongBan" ColumnName="TenPhongBan" />
                 <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
                 <ScalarProperty Name="sdt_PhongBan" ColumnName="sdt_PhongBan" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="delete_status" ColumnName="delete_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SlideImages">
+            <EntityTypeMapping TypeName="QuanLyNhanSuModel.SlideImages">
+              <MappingFragment StoreEntitySet="SlideImages">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="src" ColumnName="src" />
+                <ScalarProperty Name="alt" ColumnName="alt" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="display_flg" ColumnName="display_flg" />
+                <ScalarProperty Name="delete_status" ColumnName="delete_status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="QuanLyNhanSuModel.sysdiagram">
+            <EntityTypeMapping TypeName="QuanLyNhanSuModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -1147,44 +1363,39 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ThoiViecs">
-            <EntityTypeMapping TypeName="QuanLyNhanSuModel.ThoiViec">
+            <EntityTypeMapping TypeName="QuanLyNhanSuModel.ThoiViecs">
               <MappingFragment StoreEntitySet="ThoiViecs">
                 <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
                 <ScalarProperty Name="Lydo" ColumnName="Lydo" />
                 <ScalarProperty Name="NgayThoiViec" ColumnName="NgayThoiViec" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="delete_status" ColumnName="delete_status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TrinhDoHocVans">
-            <EntityTypeMapping TypeName="QuanLyNhanSuModel.TrinhDoHocVan">
+            <EntityTypeMapping TypeName="QuanLyNhanSuModel.TrinhDoHocVans">
               <MappingFragment StoreEntitySet="TrinhDoHocVans">
                 <ScalarProperty Name="MaTrinhDoHocVan" ColumnName="MaTrinhDoHocVan" />
                 <ScalarProperty Name="TenTrinhDo" ColumnName="TenTrinhDo" />
                 <ScalarProperty Name="HeSoBac" ColumnName="HeSoBac" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SlideImages">
-            <EntityTypeMapping TypeName="QuanLyNhanSuModel.SlideImage">
-              <MappingFragment StoreEntitySet="SlideImages">
                 <ScalarProperty Name="update_date" ColumnName="update_date" />
                 <ScalarProperty Name="create_date" ColumnName="create_date" />
-                <ScalarProperty Name="title" ColumnName="title" />
-                <ScalarProperty Name="alt" ColumnName="alt" />
-                <ScalarProperty Name="src" ColumnName="src" />
-                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="delete_status" ColumnName="delete_status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UserRoles">
+          <EntitySetMapping Name="UserRole">
             <EntityTypeMapping TypeName="QuanLyNhanSuModel.UserRole">
               <MappingFragment StoreEntitySet="UserRole">
-                <ScalarProperty Name="update_date" ColumnName="update_date" />
-                <ScalarProperty Name="create_date" ColumnName="create_date" />
-                <ScalarProperty Name="description" ColumnName="description" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="delete_status" ColumnName="delete_status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1202,7 +1413,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

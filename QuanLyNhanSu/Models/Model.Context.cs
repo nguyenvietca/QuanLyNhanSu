@@ -25,25 +25,26 @@ namespace QuanLyNhanSu.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<CapNhatLuong> CapNhatLuongs { get; set; }
-        public virtual DbSet<CapNhatTrinhDoHocVan> CapNhatTrinhDoHocVans { get; set; }
-        public virtual DbSet<ChiTietLuong> ChiTietLuongs { get; set; }
-        public virtual DbSet<ChucVuNhanVien> ChucVuNhanViens { get; set; }
-        public virtual DbSet<ChuyenNganh> ChuyenNganhs { get; set; }
-        public virtual DbSet<HopDong> HopDongs { get; set; }
-        public virtual DbSet<KhenThuong> KhenThuongs { get; set; }
-        public virtual DbSet<KyLuat> KyLuats { get; set; }
-        public virtual DbSet<LuanChuyenNhanVien> LuanChuyenNhanViens { get; set; }
+        public virtual DbSet<CapNhatLuongs> CapNhatLuongs { get; set; }
+        public virtual DbSet<CapNhatTrinhDoHocVans> CapNhatTrinhDoHocVans { get; set; }
+        public virtual DbSet<ChiTietLuongs> ChiTietLuongs { get; set; }
+        public virtual DbSet<ChucVuNhanViens> ChucVuNhanViens { get; set; }
+        public virtual DbSet<ChuyenNganhs> ChuyenNganhs { get; set; }
+        public virtual DbSet<HopDongs> HopDongs { get; set; }
+        public virtual DbSet<KyLuats> KyLuats { get; set; }
+        public virtual DbSet<KhenThuongs> KhenThuongs { get; set; }
+        public virtual DbSet<LuanChuyenNhanViens> LuanChuyenNhanViens { get; set; }
         public virtual DbSet<LuongA1GV> LuongA1GV { get; set; }
         public virtual DbSet<LuongA21PGS> LuongA21PGS { get; set; }
         public virtual DbSet<LuongA31GS> LuongA31GS { get; set; }
-        public virtual DbSet<Luong> Luongs { get; set; }
-        public virtual DbSet<NhanVien> NhanViens { get; set; }
-        public virtual DbSet<PhongBan> PhongBans { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<ThoiViec> ThoiViecs { get; set; }
-        public virtual DbSet<TrinhDoHocVan> TrinhDoHocVans { get; set; }
-        public virtual DbSet<SlideImage> SlideImages { get; set; }
-        public virtual DbSet<sp_helpdiagrams_Result> UserRoles { get; set; }
+        public virtual DbSet<Luongs> Luongs { get; set; }
+        public virtual DbSet<News> News { get; set; }
+        public virtual DbSet<NhanViens> NhanViens { get; set; }
+        public virtual DbSet<PhongBans> PhongBans { get; set; }
+        public virtual DbSet<SlideImages> SlideImages { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<ThoiViecs> ThoiViecs { get; set; }
+        public virtual DbSet<TrinhDoHocVans> TrinhDoHocVans { get; set; }
+        public virtual DbSet<UserRole> UserRole { get; set; }
     }
 }

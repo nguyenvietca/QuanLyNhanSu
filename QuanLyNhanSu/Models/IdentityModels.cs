@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 
 namespace QuanLyNhanSu.Models
 {
@@ -12,6 +13,12 @@ namespace QuanLyNhanSu.Models
         public ApplicationDbContext()
             : base("DefaultConnection")
         {
+        }
+        public DbSet<NhanViens> NhanViens { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            // Additional configurations if needed
         }
     }
 }

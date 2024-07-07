@@ -22,14 +22,14 @@ namespace QuanLyNhanSu.Areas.admin.Controllers
         {
             var nv = db.NhanViens.ToList();
         
-            return View(new KhenThuong());
+            return View(new KhenThuongs());
         }
         [HttpPost]
-        public ActionResult khen(KhenThuong kt)
+        public ActionResult khen(KhenThuongs kt)
         {
             //var ct = db.ChiTietLuongs.Where(n => n.MaNhanVien == kt.MaNhanVien).FirstOrDefault();
                      
-            KhenThuong ad = new KhenThuong();
+            KhenThuongs ad = new KhenThuongs();
             ad.MaNhanVien = kt.MaNhanVien;
             ad.ThangThuong = kt.ThangThuong;
             ad.TienThuong = kt.TienThuong;
